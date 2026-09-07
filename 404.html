@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#202124">
+  <meta name="msapplication-TileColor" content="#202124">
+  <title>Page Not Found — RENOVA</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Return to RENOVA's homepage or explore our painting and renovation services.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/hero-center.css">
+  <link rel="stylesheet" href="assets/css/section-align.css">
+  <link rel="stylesheet" href="assets/css/visual-polish.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <style>
+    html, body { height: 100%; }
+
+    .error-page {
+      min-height: 100svh;
+      background: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--sp-12) var(--gutter);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated background */
+    .error-page__bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .error-bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      animation: floatBg 12s ease-in-out infinite;
+    }
+    .error-bg-circle:nth-child(1) {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(184,106,85,0.10) 0%, transparent 70%);
+      top: -200px; right: -150px;
+      animation-duration: 15s;
+    }
+    .error-bg-circle:nth-child(2) {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(181,154,104,0.08) 0%, transparent 70%);
+      bottom: -100px; left: -100px;
+      animation-duration: 10s;
+      animation-delay: -5s;
+    }
+    .error-bg-circle:nth-child(3) {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(141,154,136,0.06) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation-duration: 8s;
+      animation-delay: -2s;
+    }
+
+    @keyframes floatBg {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%       { transform: translate(20px, -30px) scale(1.05); }
+      66%       { transform: translate(-15px, 20px) scale(0.98); }
+    }
+
+    /* Grid pattern */
+    .error-page__grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .error-content {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+    }
+
+    .error-number {
+      font-family: var(--serif);
+      font-size: clamp(7rem, 20vw, 14rem);
+      font-weight: var(--fw-light);
+      line-height: 0.85;
+      letter-spacing: -0.05em;
+      background: linear-gradient(135deg, var(--ac) 0%, var(--ac-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: var(--sp-5);
+      animation: fadeUp 0.9s var(--ease-out) 0.2s both;
+    }
+
+    .error-title {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: var(--fw-light);
+      color: #fff;
+      margin-bottom: var(--sp-5);
+      animation: fadeUp 0.9s var(--ease-out) 0.4s both;
+    }
+
+    .error-desc {
+      font-size: var(--fs-17);
+      color: rgba(255,255,255,0.55);
+      line-height: var(--lh-relaxed);
+      margin-bottom: var(--sp-10);
+      animation: fadeUp 0.9s var(--ease-out) 0.6s both;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: var(--sp-4);
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.9s var(--ease-out) 0.8s both;
+    }
+
+    /* Animated paint brush drip */
+    .error-paint-deco {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: var(--sp-16);
+      pointer-events: none;
+    }
+    .paint-drip {
+      width: 3px;
+      background: linear-gradient(to bottom, var(--ac), transparent);
+      animation: drip 3s ease-in-out infinite;
+      border-radius: 0 0 var(--r-full) var(--r-full);
+    }
+    .paint-drip:nth-child(1) { height: 80px; animation-delay: 0s; }
+    .paint-drip:nth-child(2) { height: 120px; animation-delay: 0.5s; background: linear-gradient(to bottom, var(--ac-gold), transparent); }
+    .paint-drip:nth-child(3) { height: 60px; animation-delay: 1s; }
+    .paint-drip:nth-child(4) { height: 100px; animation-delay: 1.5s; background: linear-gradient(to bottom, var(--sage), transparent); }
+
+    @keyframes drip {
+      0%, 100% { transform: scaleY(1); opacity: 0.6; }
+      50%       { transform: scaleY(1.15); opacity: 1; }
+    }
+
+    /* Quick links */
+    .error-quick-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      margin-top: var(--sp-10);
+      animation: fadeUp 0.9s var(--ease-out) 1s both;
+    }
+    .error-quick-label {
+      font-size: var(--fs-12);
+      letter-spacing: var(--ls-widest);
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.30);
+      margin-bottom: var(--sp-3);
+    }
+    .error-quick-row {
+      display: flex;
+      gap: var(--sp-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .error-quick-link {
+      font-size: var(--fs-14);
+      color: rgba(255,255,255,0.50);
+      transition: color var(--dur-200);
+      padding: var(--sp-2) var(--sp-3);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--r-full);
+    }
+    .error-quick-link:hover { color: var(--ac); border-color: var(--ac-soft); }
+  
+    .error-topbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: var(--sp-5) var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      z-index: 10;
+    }
+    .error-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--serif);
+      font-size: var(--fs-24);
+      font-weight: var(--fw-light);
+      color: #fff;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+    }
+    .error-logo__mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      overflow: hidden;
+      display: block;
+      flex-shrink: 0;
+    }
+    .error-logo__mark img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .error-logo span.accent {
+      color: var(--ac);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- No preloader on error page — instant display -->
+
+  <main>
+    <div class="error-page" role="main" aria-label="404 error page">
+
+      <!-- Background -->
+      <div class="error-page__bg" aria-hidden="true">
+        <div class="error-bg-circle"></div>
+        <div class="error-bg-circle"></div>
+        <div class="error-bg-circle"></div>
+      </div>
+      <div class="error-page__grid" aria-hidden="true"></div>
+
+      <!-- Paint drip decoration -->
+      <div class="error-paint-deco" aria-hidden="true">
+        <div class="paint-drip"></div>
+        <div class="paint-drip"></div>
+        <div class="paint-drip"></div>
+        <div class="paint-drip"></div>
+      </div>
+
+      <!-- Top nav strip -->
+      <div style="position:absolute;top:0;left:0;right:0;padding:var(--sp-5) var(--gutter);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06)">
+        <a href="index.html" aria-label="RENOVA Home" style="display:inline-flex;align-items:center;gap:10px;font-family:var(--serif);font-size:var(--fs-24);font-weight:var(--fw-light);color:#fff;letter-spacing:0.1em;text-decoration:none"><span aria-hidden="true" style="width:38px;height:38px;border-radius:9px;overflow:hidden;display:block;flex-shrink:0"><img src="assets/img/logo-mark-light.svg" alt="" width="38" height="38" style="width:100%;height:100%;display:block"></span>RENO<span style="color:var(--ac)">VA</span></a>
+        <a href="contact.html" class="btn btn-primary btn-sm">Free Quote</a>
+      </div>
+
+      <!-- Main content -->
+      <div class="error-content">
+        <span class="error-number" aria-hidden="true">404</span>
+        <h1 class="error-title">This Wall Hasn't<br>Been Painted Yet</h1>
+        <p class="error-desc">
+          The page you're looking for seems to have wandered off — or never existed. Let us help you find what you need.
+        </p>
+        <div class="error-actions">
+          <a href="index.html"    class="btn btn-primary btn-lg">← Back to Home</a>
+          <a href="services.html" class="btn btn-ghost btn-lg">Our Services</a>
+          <a href="contact.html"  class="btn btn-ghost btn-lg">Contact Us</a>
+        </div>
+
+        <div class="error-quick-links">
+          <p class="error-quick-label">Or jump to</p>
+          <div class="error-quick-row">
+            <a href="home2.html"    class="error-quick-link">home2</a>
+            <a href="about.html"    class="error-quick-link">About</a>
+            <a href="blog.html"     class="error-quick-link">Blog</a>
+            <a href="sitemap.html"  class="error-quick-link">Full Sitemap</a>
+            <a href="services.html#pricing" class="error-quick-link">Pricing</a>
+            <a href="services.html#faq"     class="error-quick-link">FAQ</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom strip -->
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:var(--sp-4) var(--gutter);display:flex;align-items:center;justify-content:center;border-top:1px solid rgba(255,255,255,0.06)">
+        <p style="font-size:var(--fs-12);color:rgba(255,255,255,0.25)">
+          © 2026 RENOVA · <a href="privacy-policy.html" style="color:rgba(255,255,255,0.25)">Privacy</a> · <a href="terms.html" style="color:rgba(255,255,255,0.25)">Terms</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Minimal JS — no preloader -->
+  <script>
+    // Auto-redirect after 30 seconds
+    setTimeout(() => { window.location.href = 'index.html'; }, 30000);
+
+    // Countdown
+    let secs = 30;
+    const countEl = document.createElement('p');
+    countEl.style.cssText = 'font-size:12px;color:rgba(255,255,255,0.25);margin-top:24px;';
+    countEl.textContent = `Redirecting to homepage in ${secs}s…`;
+    document.querySelector('.error-quick-links').after(countEl);
+
+    setInterval(() => {
+      secs--;
+      if (secs > 0) countEl.textContent = `Redirecting to homepage in ${secs}s…`;
+    }, 1000);
+
+    // Theme
+    const saved = localStorage.getItem('rn-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+  </script>
+  <script src="assets/js/rtl.js"></script>
+</body>
+</html>

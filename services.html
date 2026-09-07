@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#202124">
+  <meta name="msapplication-TileColor" content="#202124">
+  <title>Services & Pricing — RENOVA Painting & Renovation</title>
+  <meta name="description" content="Explore RENOVA's complete service list: interior painting, exterior painting, texture finishes, waterproofing, false ceiling, colour consultation. View rate cards and pricing.">
+  <link rel="canonical" href="services.html">
+  <meta property="og:title" content="Services & Pricing — RENOVA">
+  <meta property="og:image" content="https://picsum.photos/seed/renovapaint238/800/600">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/hero-center.css">
+  <link rel="stylesheet" href="assets/css/section-align.css">
+  <link rel="stylesheet" href="assets/css/visual-polish.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <style>
+    .services-hero {
+      background: var(--bg-dark);
+      min-height: 65vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .services-hero__bg {
+      position: absolute; inset: 0; opacity: 0.38;
+    }
+    .services-hero__bg img { width:100%;height:100%;object-fit:cover; }
+    .services-hero__grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(var(--bd) 1px, transparent 1px),
+                        linear-gradient(90deg, var(--bd) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.12;
+    }
+
+    .service-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-20);
+      align-items: center;
+      padding-block: var(--sp-20);
+      border-bottom: 1px solid var(--bd);
+    }
+    .service-detail:last-of-type { border-bottom: none; }
+    .service-detail.reverse { direction: rtl; }
+    .service-detail.reverse > * { direction: ltr; }
+
+    .service-detail__img {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .service-detail__img img { width:100%;height:100%;object-fit:cover;transition:transform var(--dur-700) var(--ease-out); }
+    .service-detail__img:hover img { transform: scale(1.04); }
+
+    .service-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-4);
+      margin-block: var(--sp-7);
+    }
+    .service-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      font-size: var(--fs-14);
+      color: var(--tx-2);
+    }
+    .service-feature-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--ac);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .rate-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--bd);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .rate-table th {
+      background: var(--bg-dark);
+      color: var(--tx-inv);
+      padding: var(--sp-4) var(--sp-6);
+      font-size: var(--fs-13);
+      font-weight: var(--fw-semi);
+      letter-spacing: var(--ls-wider);
+      text-transform: uppercase;
+      text-align: left;
+    }
+    .rate-table td {
+      padding: var(--sp-4) var(--sp-6);
+      font-size: var(--fs-14);
+      color: var(--tx-2);
+      border-bottom: 1px solid var(--bd);
+    }
+    .rate-table tr:last-child td { border-bottom: none; }
+    .rate-table tr:hover td { background: var(--bg-alt); }
+    .rate-price {
+      font-family: var(--serif);
+      font-size: var(--fs-20);
+      color: var(--ac);
+      font-weight: var(--fw-reg);
+    }
+
+    @media (max-width: 1024px) {
+      .service-detail { grid-template-columns: 1fr; gap: var(--sp-8); }
+      .service-detail.reverse { direction: ltr; }
+      .service-features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__logo">RENOVA</div>
+      <div class="preloader__bar"></div>
+    </div>
+  </div>
+  <div class="page-transition" aria-hidden="true"></div>
+
+  <a href="https://wa.me/919820000123" class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+  </button>
+
+  <!-- NAVBAR -->
+  <header class="navbar transparent" id="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="nav-logo" aria-label="RENOVA Home"><span class="nav-logo__mark" aria-hidden="true"><img src="assets/img/logo-mark.svg" alt="" width="38" height="38" loading="eager" decoding="async"></span><span class="nav-logo__text">RENO<span>VA</span></span></a>
+
+      <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+        <a href="index.html"    class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">home2</a>
+        <a href="about.html"   class="nav-link">About</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="blog.html"    class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="rtl-toggle" id="rtlToggle" aria-label="Switch to Right-to-Left" title="RTL" aria-pressed="false">RTL</button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="contact.html" class="btn btn-primary btn-sm" id="navCta">Free Quote</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <nav class="nav-overlay__links" aria-label="Mobile navigation">
+      <a href="index.html"    class="nav-overlay__link">Home</a>
+      <a href="home2.html"   class="nav-overlay__link">home2</a>
+      <a href="about.html"   class="nav-overlay__link">About</a>
+      <a href="services.html" class="nav-overlay__link">Services</a>
+      <a href="blog.html"    class="nav-overlay__link">Blog</a>
+      <a href="contact.html" class="nav-overlay__link">Contact</a>
+    </nav>
+    <div class="nav-overlay__btn">
+      <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ══ SECTION 1: SERVICES HERO ══ -->
+    <section class="services-hero" id="services-hero" aria-label="Services hero">
+      <div class="services-hero__bg">
+        <img src="https://images.unsplash.com/photo-1696654149042-196d07713526?auto=format&fit=crop&w=800&q=80" alt="Elegant renovated interior" loading="eager">
+      </div>
+      <div class="services-hero__grid"></div>
+      <div class="container container-tight text-center">
+        <div>
+          <p class="eyebrow">What We Offer</p>
+          <h1 class="sec-title" style="color:#fff">
+            Complete Painting &<br>Renovation Services
+          </h1>
+          <p class="sec-subtitle">
+            From single-wall accent painting to complete structural waterproofing and ceiling design — explore our comprehensive range of residential and commercial services across Mumbai.
+          </p>
+        </div>
+        <div class="services-hero__pills">
+          <a href="#interior" class="btn btn-ghost btn-sm">Interior</a>
+          <a href="#exterior" class="btn btn-ghost btn-sm">Exterior</a>
+          <a href="#texture" class="btn btn-ghost btn-sm">Texture</a>
+          <a href="#waterproofing" class="btn btn-ghost btn-sm">Waterproofing</a>
+          <a href="#ceiling" class="btn btn-ghost btn-sm">False Ceiling</a>
+          <a href="#pricing" class="btn btn-ghost btn-sm">Pricing</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 2: INTERIOR & EXTERIOR SERVICES ══ -->
+    <section class="section" id="interior" aria-label="Interior and exterior painting services">
+      <div class="container">
+
+        <!-- Interior -->
+        <div class="service-detail reveal">
+          <div class="service-detail__img hover-img">
+            <img src="https://plus.unsplash.com/premium_photo-1682361002047-6b9b280b408c?auto=format&fit=crop&w=800&q=80"
+                 alt="Premium interior wall painting" loading="lazy">
+          </div>
+          <div class="service-detail__body reveal">
+            <p class="eyebrow">Service 01</p>
+            <h2 class="sec-title">Interior Wall<br>Painting</h2>
+            <p style="font-size:var(--fs-17);color:var(--tx-2);line-height:var(--lh-relaxed);margin-bottom:var(--sp-6)">
+              Our interior painting service covers everything from bedroom accent walls to full-home repaints. We use low-VOC, premium-grade paints for a flawless, durable finish that transforms your living space.
+            </p>
+            <div class="service-features">
+              <div class="service-feature"><span class="service-feature-dot"></span>Surface preparation & crack filling</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>2-coat primer + 2-coat finish</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>Low-VOC & odorless paint options</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>Precision edge cutting & masking</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>Accent & feature walls</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>Full site protection & cleanup</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary">Get Interior Quote</a>
+          </div>
+        </div>
+
+        <!-- Exterior -->
+        <div class="service-detail reverse" id="exterior" aria-label="Exterior painting service">
+          <div class="service-detail__img hover-img">
+            <img src="https://plus.unsplash.com/premium_photo-1682361002245-7af4611c8426?auto=format&fit=crop&w=800&q=80"
+                 alt="Exterior home painting with premium coating" loading="lazy">
+          </div>
+          <div class="service-detail__body reveal">
+            <p class="eyebrow">Service 02</p>
+            <h2 class="sec-title">Exterior<br>Painting</h2>
+            <p style="font-size:var(--fs-17);color:var(--tx-2);line-height:var(--lh-relaxed);margin-bottom:var(--sp-6)">
+              Your home's exterior faces Mumbai's monsoons, heat and pollution. We use weather-shield coatings that resist fading, algae, and water seepage — keeping your façade pristine for years.
+            </p>
+            <div class="service-features">
+              <div class="service-feature"><span class="service-feature-dot"></span>Exterior wall assessment</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>Anti-algae & anti-fungal primer</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>Weathershield / apex coating</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>UV-resistant formulations</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>Scaffolding & access included</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>5-year weather warranty</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary">Get Exterior Quote</a>
+          </div>
+        </div>
+
+        <!-- Texture Finishes -->
+        <div class="service-detail" id="texture" aria-label="Texture finishes service">
+          <div class="service-detail__img hover-img">
+            <img src="https://plus.unsplash.com/premium_photo-1682361002117-01776348848a?auto=format&fit=crop&w=800&q=80"
+                 alt="Artistic texture wall finish application" loading="lazy">
+          </div>
+          <div class="service-detail__body reveal">
+            <p class="eyebrow">Service 03</p>
+            <h2 class="sec-title">Texture<br>Finishes</h2>
+            <p style="font-size:var(--fs-17);color:var(--tx-2);line-height:var(--lh-relaxed);margin-bottom:var(--sp-6)">
+              Elevate your walls beyond flat paint. Our texture finishes range from subtle sand effects to dramatic Venetian plaster, 3D panels and designer finishes that add architectural depth.
+            </p>
+            <div class="service-features">
+              <div class="service-feature"><span class="service-feature-dot"></span>Venetian plaster</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>Sand & stone texture</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>3D wall panels</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>Metallic & pearl finishes</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>Rustic & concrete effects</div>
+              <div class="service-feature"><span class="service-feature-dot"></span>Custom bespoke designs</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary">Explore Textures</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 3: WATERPROOFING + FALSE CEILING ══ -->
+    <section class="section bg-alt" id="waterproofing" aria-label="Waterproofing and false ceiling">
+      <div class="container">
+        <div class="dual-service-grid">
+          <!-- Waterproofing -->
+          <article class="dual-service-card reveal delay-1">
+            <div class="dual-service-img">
+              <img src="https://plus.unsplash.com/premium_photo-1682361002186-c5593b88ebfe?auto=format&fit=crop&w=800&q=80"
+                   alt="Professional waterproofing service application" loading="lazy">
+            </div>
+            <div class="dual-service-body">
+              <p class="eyebrow">Service 04</p>
+              <h2 class="dual-service-title">Waterproofing</h2>
+              <p class="dual-service-desc">
+                Stop leaks before they cause damage. Our comprehensive waterproofing solutions protect your terrace, bathroom, basement and external walls from water ingress.
+              </p>
+              <ul class="dual-service-list">
+                <li><span class="service-feature-dot"></span>Terrace & roof waterproofing</li>
+                <li><span class="service-feature-dot"></span>Bathroom & wet area sealing</li>
+                <li><span class="service-feature-dot"></span>Crystalline & membrane systems</li>
+                <li><span class="service-feature-dot"></span>10-year waterproofing warranty</li>
+              </ul>
+              <a href="contact.html" class="btn btn-primary">Get Waterproofing Quote</a>
+            </div>
+          </article>
+
+          <!-- False Ceiling -->
+          <article id="ceiling" class="dual-service-card reveal delay-2">
+            <div class="dual-service-img">
+              <img src="https://plus.unsplash.com/premium_photo-1682360983272-99c0a51f0aa3?auto=format&fit=crop&w=800&q=80"
+                   alt="Decorative false ceiling installation" loading="lazy">
+            </div>
+            <div class="dual-service-body">
+              <p class="eyebrow">Service 05</p>
+              <h2 class="dual-service-title">False Ceiling</h2>
+              <p class="dual-service-desc">
+                From simple flat ceilings to intricate coffered designs — our false ceiling solutions add elegance, hide wiring, improve acoustics and allow creative lighting integration.
+              </p>
+              <ul class="dual-service-list">
+                <li><span class="service-feature-dot"></span>POP / Gypsum / PVC designs</li>
+                <li><span class="service-feature-dot"></span>Coffered & coved ceilings</li>
+                <li><span class="service-feature-dot"></span>Cove & indirect lighting</li>
+                <li><span class="service-feature-dot"></span>Thermal & acoustic insulation</li>
+              </ul>
+              <a href="contact.html" class="btn btn-primary">Design My Ceiling</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Colour Consultation Banner -->
+        <div id="consultation" class="consultation-banner reveal">
+          <div>
+            <p class="eyebrow" style="color:var(--ac)">Service 06</p>
+            <h2 class="consultation-banner__title">Colour Consultation</h2>
+            <p class="consultation-banner__desc">
+              Our colour consultants use colour psychology and spatial analysis to select the perfect palette for your home. We provide physical samples, digital renders and a detailed colour plan.
+            </p>
+          </div>
+          <div class="consultation-banner__action">
+            <div class="consultation-banner__price">Free</div>
+            <div class="consultation-banner__note">with any project above ₹50,000</div>
+            <a href="contact.html" class="btn btn-primary">Book Consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 4: PRICING GUIDE ══ -->
+    <section class="section" id="pricing" aria-label="Pricing guide">
+      <div class="container">
+        <div class="sec-header center reveal">
+          <p class="eyebrow">Transparent Pricing</p>
+          <h2 class="sec-title">Choose Your<br>Service Plan</h2>
+          <p class="sec-subtitle">All plans include free site visit, professional-grade materials, surface prep and cleanup. No hidden charges.</p>
+        </div>
+        <div class="pricing-grid">
+          <div class="pricing-card reveal delay-1">
+            <div class="pricing-badge">Essential</div>
+            <div class="pricing-title">Basic Paint</div>
+            <div class="pricing-price">₹12<sup style="font-size:50%">/ sqft</sup></div>
+            <div class="pricing-price-sub">Interior walls — 2 coats</div>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>Surface preparation</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>1 coat primer</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>2 coats emulsion paint</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>Site protection & cleanup</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>1-year workmanship warranty</li>
+            </ul>
+            <a href="contact.html" class="btn btn-secondary" >Get Quote</a>
+          </div>
+
+          <div class="pricing-card featured reveal delay-2">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-title">Premium Paint</div>
+            <div class="pricing-price">₹20<sup style="font-size:50%">/ sqft</sup></div>
+            <div class="pricing-price-sub">Interior walls — premium finish</div>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>Deep surface preparation</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>Crack filling & putty</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>2 coats premium paint</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>Colour consultation</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>2-year workmanship warranty</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary" >Get Quote</a>
+          </div>
+
+          <div class="pricing-card reveal delay-3">
+            <div class="pricing-badge">Artisan</div>
+            <div class="pricing-title">Luxury Finish</div>
+            <div class="pricing-price">₹45<sup style="font-size:50%">/ sqft</sup></div>
+            <div class="pricing-price-sub">Texture / special finish</div>
+            <div class="pricing-divider"></div>
+            <ul class="pricing-features">
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>Full surface remediation</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>Texture base coat</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>Artisan texture application</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>Sealed protective topcoat</li>
+              <li class="pricing-feature"><span class="pricing-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></span>5-year warranty</li>
+            </ul>
+            <a href="contact.html" class="btn btn-secondary" >Get Quote</a>
+          </div>
+        </div>
+
+        <!-- Rate Card Table -->
+        <div class="rate-table-wrapper reveal">
+          <h3 class="rate-table-title">Service Rate Card</h3>
+          <div class="rate-table-container">
+            <table class="rate-table" role="table" aria-label="Pricing rate card">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Unit</th>
+                  <th>Rate (Starting)</th>
+                  <th>Timeline</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Interior Paint (Basic)</td>
+                  <td>Per sq ft</td>
+                  <td class="rate-price">₹12</td>
+                  <td>3–5 days / 1BHK</td>
+                </tr>
+                <tr>
+                  <td>Interior Paint (Premium)</td>
+                  <td>Per sq ft</td>
+                  <td class="rate-price">₹20</td>
+                  <td>4–7 days / 1BHK</td>
+                </tr>
+                <tr>
+                  <td>Exterior Paint</td>
+                  <td>Per sq ft</td>
+                  <td class="rate-price">₹18</td>
+                  <td>7–14 days</td>
+                </tr>
+                <tr>
+                  <td>Texture Finish</td>
+                  <td>Per sq ft</td>
+                  <td class="rate-price">₹45</td>
+                  <td>2–4 days / room</td>
+                </tr>
+                <tr>
+                  <td>Waterproofing (Terrace)</td>
+                  <td>Per sq ft</td>
+                  <td class="rate-price">₹35</td>
+                  <td>3–5 days</td>
+                </tr>
+                <tr>
+                  <td>False Ceiling (Gypsum)</td>
+                  <td>Per sq ft</td>
+                  <td class="rate-price">₹85</td>
+                  <td>2–3 days / room</td>
+                </tr>
+                <tr>
+                  <td>Colour Consultation</td>
+                  <td>Per visit</td>
+                  <td class="rate-price">Free*</td>
+                  <td>2–3 hrs</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="rate-table-footnote">*Free with projects above ₹50,000 · Rates include materials, labour and GST · Subject to site assessment</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 5: RATE CALCULATOR (Interactive) ══ -->
+    <section class="section bg-alt" id="calculator" aria-label="Price estimate calculator">
+      <div class="container container-narrow">
+        <div class="sec-header center reveal">
+          <p class="eyebrow">Quick Estimate</p>
+          <h2 class="sec-title">Get an Instant<br>Rough Estimate</h2>
+          <p class="sec-subtitle">Use our calculator for a ballpark figure. For a precise quote, book a free site visit.</p>
+        </div>
+        <div class="calculator-card reveal">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="calc-service">Service Type</label>
+              <select id="calc-service" class="form-select">
+                <option value="12">Interior — Basic (₹12/sqft)</option>
+                <option value="20">Interior — Premium (₹20/sqft)</option>
+                <option value="18">Exterior Paint (₹18/sqft)</option>
+                <option value="45">Texture Finish (₹45/sqft)</option>
+                <option value="35">Waterproofing (₹35/sqft)</option>
+                <option value="85">False Ceiling (₹85/sqft)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="calc-area">Area (sq ft)</label>
+              <input type="number" id="calc-area" class="form-input" placeholder="e.g. 500" min="50" max="50000">
+            </div>
+          </div>
+          <div class="calc-result-box">
+            <div>
+              <div style="font-size:var(--fs-13);color:var(--tx-3);margin-bottom:var(--sp-1)">Estimated Range</div>
+              <div id="calc-result" class="calc-result-number">₹ —</div>
+              <div style="font-size:var(--fs-12);color:var(--tx-3);margin-top:var(--sp-1)">Approximate only. Actual cost after site visit.</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary">Book Free Site Visit →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 6: FAQ ACCORDION ══ -->
+    <section class="section" id="faq" aria-label="Frequently asked questions">
+      <div class="container container-narrow">
+        <div class="sec-header center reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="sec-title">Answers to Your<br>Questions</h2>
+        </div>
+        <div class="faq-list" role="list">
+          <div class="faq-item reveal delay-1" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              How long does a 2BHK interior paint job take?
+              <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">A standard 2BHK interior paint job typically takes 5–7 working days, including surface preparation, primer, two coats of paint and final cleanup. Texture finishes or premium finishes may take slightly longer. We always provide a timeline in writing before starting.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal delay-2" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Do I need to vacate my home during painting?
+              <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">For most interior painting jobs, you don't need to vacate. We work room by room and use low-VOC, minimal-odour paints. We cover all furniture and flooring carefully. However, for texture finishes or extensive waterproofing, we recommend staying elsewhere for 1–2 days.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal delay-3" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              What paint brands do you use?
+              <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We are authorised applicators for Asian Paints, Berger, Nerolac, Dulux and Nippon. We recommend the best brand for each specific application. You can also specify your preferred brand. All materials come with manufacturer guarantees on top of our workmanship warranty.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal delay-4" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Is the site visit really free?
+              <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Absolutely. Our site visits are completely free, with zero obligation. Our expert will visit your property, assess the scope of work, recommend finishes, and provide a detailed itemised estimate — all at no cost to you.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal delay-1" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Do you provide a warranty on your work?
+              <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes. All our work comes with a workmanship warranty — 1 year for basic paint, 2 years for premium paint, and up to 5 years for texture finishes and waterproofing. If any defect arises due to our workmanship, we fix it at no extra charge.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal delay-2" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              How is payment structured?
+              <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">We typically require 30% advance on contract signing, 40% at mid-project milestone, and the remaining 30% on satisfactory completion and your approval. We accept NEFT/RTGS, UPI, cheque and cash. A detailed invoice with GST is provided for every payment.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="footer__brand-logo" aria-label="RENOVA Home"><span class="footer__brand-mark" aria-hidden="true"><img src="assets/img/logo-mark-light.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span>RENO<span>VA</span></span></a>
+          <p class="footer__tagline">Artisan painting and home renovation services across Mumbai. Where walls find their story.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://wa.me/919820000123" class="footer__social" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Quick Links</h3>
+          <ul class="footer__links">
+            <li><a href="index.html"    class="footer__link">Home</a></li>
+            <li><a href="home2.html"    class="footer__link">home2</a></li>
+            <li><a href="about.html"    class="footer__link">About Us</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="blog.html"     class="footer__link">Blog</a></li>
+            <li><a href="contact.html"  class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Our Services</h3>
+          <ul class="footer__links">
+            <li><a href="services.html#interior"     class="footer__link">Interior Painting</a></li>
+            <li><a href="services.html#exterior"     class="footer__link">Exterior Painting</a></li>
+            <li><a href="services.html#texture"      class="footer__link">Texture Finishes</a></li>
+            <li><a href="services.html#waterproofing" class="footer__link">Waterproofing</a></li>
+            <li><a href="services.html#ceiling"      class="footer__link">False Ceiling</a></li>
+            <li><a href="services.html#consultation" class="footer__link">Color Consultation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Contact Us</h3>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>A-12, Veera Desai Road, Andheri West, Mumbai — 400053</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+91 98200 00123</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>hello@renovacraft.in</span>
+          </div>
+          <p class="footer__col-title" style="margin-top:var(--sp-6)">Newsletter</p>
+          <div class="footer__newsletter">
+            <label for="footer-email" class="visually-hidden">Email address</label>
+            <input type="email" id="footer-email" class="footer__newsletter-input" placeholder="Your email">
+            <button class="footer__newsletter-btn">→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 RENOVA Artisan Painting & Renovation. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy-policy.html" class="footer__legal-link">Privacy Policy</a>
+          <a href="terms.html"          class="footer__legal-link">Terms of Service</a>
+          <a href="sitemap.html"        class="footer__legal-link">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/filter.js"></script>
+  <script>
+    // Price Calculator
+    document.addEventListener('DOMContentLoaded', () => {
+      const serviceEl = document.getElementById('calc-service');
+      const areaEl    = document.getElementById('calc-area');
+      const resultEl  = document.getElementById('calc-result');
+
+      const calculate = () => {
+        const rate = parseFloat(serviceEl.value) || 0;
+        const area = parseFloat(areaEl.value) || 0;
+        if (!area || area < 10) { resultEl.textContent = '₹ —'; return; }
+        const low  = Math.round(rate * area * 0.9 / 100) * 100;
+        const high = Math.round(rate * area * 1.15 / 100) * 100;
+        resultEl.textContent = `₹${low.toLocaleString('en-IN')} – ₹${high.toLocaleString('en-IN')}`;
+      };
+
+      serviceEl.addEventListener('change', calculate);
+      areaEl.addEventListener('input', calculate);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#202124">
+  <meta name="msapplication-TileColor" content="#202124">
+  <title>Sitemap — RENOVA Painting & Renovation</title>
+  <meta name="description" content="Complete sitemap of RENOVA's website — find all pages, services, blog articles and resources.">
+  <link rel="canonical" href="sitemap.html">
+
+  <!-- XML Sitemap for Search Engines -->
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/hero-center.css">
+  <link rel="stylesheet" href="assets/css/section-align.css">
+  <link rel="stylesheet" href="assets/css/visual-polish.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <style>
+    .sitemap-hero {
+      background: var(--bg-dark);
+      padding: calc(var(--nav-h) + var(--sp-12)) 0 var(--sp-12);
+      position: relative;
+      overflow: hidden;
+    }
+    .sitemap-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(184,106,85,0.08) 0%, transparent 60%);
+    }
+
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--col-gap);
+    }
+
+    .sitemap-group {
+      background: var(--bg-card);
+      border: 1px solid var(--bd);
+      border-radius: var(--r-xl);
+      padding: var(--sp-7);
+      transition: var(--tr);
+    }
+    .sitemap-group:hover {
+      border-color: var(--ac-soft);
+      box-shadow: var(--sh-md);
+    }
+
+    .sitemap-group-icon {
+      width: 48px; height: 48px;
+      border-radius: var(--r-md);
+      background: var(--ac-light);
+      color: var(--ac);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--sp-5);
+    }
+    .sitemap-group-icon svg { width:22px; height:22px; }
+    .xml-icon {
+      width:56px; height:56px;
+      border-radius: var(--r-md);
+      background: var(--ac-light);
+      color: var(--ac);
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .xml-icon svg { width:28px; height:28px; }
+
+    .sitemap-group-title {
+      font-family: var(--serif);
+      font-size: var(--fs-22);
+      color: var(--tx-1);
+      margin-bottom: var(--sp-5);
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid var(--bd);
+    }
+
+    .sitemap-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+
+    .sitemap-link-item a {
+      font-size: var(--fs-14);
+      color: var(--tx-2);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      padding: var(--sp-2) 0;
+      transition: color var(--dur-200), padding-left var(--dur-200);
+      border-bottom: 1px solid transparent;
+    }
+    .sitemap-link-item a:hover {
+      color: var(--ac);
+      padding-left: var(--sp-3);
+    }
+    .sitemap-link-item a::before {
+      content: '→';
+      font-size: var(--fs-12);
+      opacity: 0.5;
+      transition: opacity var(--dur-200);
+    }
+    .sitemap-link-item a:hover::before { opacity: 1; }
+
+    .sitemap-sub {
+      font-size: var(--fs-12);
+      color: var(--tx-3);
+      margin-left: var(--sp-5);
+    }
+
+    .xml-cta {
+      background: var(--bg-alt);
+      border: 1px solid var(--bd);
+      border-radius: var(--r-xl);
+      padding: var(--sp-7) var(--sp-8);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-6);
+      margin-top: var(--sp-10);
+    }
+
+    @media (max-width: 1024px) {
+      .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .sitemap-grid { grid-template-columns: 1fr; }
+      .xml-cta { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__logo">RENOVA</div>
+      <div class="preloader__bar"></div>
+    </div>
+  </div>
+  <div class="page-transition" aria-hidden="true"></div>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+  </button>
+
+  <header class="navbar transparent" id="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="nav-logo" aria-label="RENOVA Home"><span class="nav-logo__mark" aria-hidden="true"><img src="assets/img/logo-mark.svg" alt="" width="38" height="38" loading="eager" decoding="async"></span><span class="nav-logo__text">RENO<span>VA</span></span></a>
+
+      <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+        <a href="index.html"    class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">home2</a>
+        <a href="about.html"   class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html"    class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="rtl-toggle" id="rtlToggle" aria-label="Switch to Right-to-Left" title="RTL" aria-pressed="false">RTL</button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="contact.html" class="btn btn-primary btn-sm" id="navCta">Free Quote</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <nav class="nav-overlay__links" aria-label="Mobile navigation">
+      <a href="index.html"    class="nav-overlay__link">Home</a>
+      <a href="home2.html"   class="nav-overlay__link">home2</a>
+      <a href="about.html"   class="nav-overlay__link">About</a>
+      <a href="services.html" class="nav-overlay__link">Services</a>
+      <a href="blog.html"    class="nav-overlay__link">Blog</a>
+      <a href="contact.html" class="nav-overlay__link">Contact</a>
+    </nav>
+    <div class="nav-overlay__btn">
+      <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="sitemap-hero" aria-label="Sitemap hero">
+      <div class="container">
+        <h1>Sitemap</h1>
+        <p>
+          A complete directory of all pages on the RENOVA website. Use this to quickly find any page, service, article or resource.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Full sitemap">
+      <div class="container">
+
+        <div class="sitemap-grid">
+
+          <!-- Main Pages -->
+          <div class="sitemap-group reveal delay-1">
+            <div class="sitemap-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+            <h2 class="sitemap-group-title">Main Pages</h2>
+            <ul class="sitemap-links" role="list">
+              <li class="sitemap-link-item"><a href="index.html">Home</a></li>
+              <li class="sitemap-link-item"><a href="home2.html">home2</a></li>
+              <li class="sitemap-link-item"><a href="about.html">About Us</a></li>
+              <li class="sitemap-link-item"><a href="contact.html">Contact</a></li>
+              <li class="sitemap-link-item"><a href="sitemap.html">Sitemap</a></li>
+              <li class="sitemap-link-item"><a href="404.html">404 — Page Not Found</a></li>
+              <li class="sitemap-link-item"><a href="maintenance.html">Maintenance Mode</a></li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div class="sitemap-group reveal delay-2">
+            <div class="sitemap-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
+            <h2 class="sitemap-group-title">Services</h2>
+            <ul class="sitemap-links" role="list">
+              <li class="sitemap-link-item"><a href="services.html">All Services</a></li>
+              <li class="sitemap-link-item">
+                <a href="services.html#interior">Interior Wall Painting</a>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="services.html#exterior">Exterior Painting</a>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="services.html#texture">Texture Finishes</a>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="services.html#waterproofing">Waterproofing</a>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="services.html#ceiling">False Ceiling</a>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="services.html#consultation">Colour Consultation</a>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="services.html#pricing">Pricing Guide</a>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="services.html#calculator">Price Calculator</a>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="services.html#faq">Service FAQ</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Blog -->
+          <div class="sitemap-group reveal delay-3">
+            <div class="sitemap-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg></div>
+            <h2 class="sitemap-group-title">Blog</h2>
+            <ul class="sitemap-links" role="list">
+              <li class="sitemap-link-item"><a href="blog.html">All Articles</a></li>
+              <li class="sitemap-link-item">
+                <a href="blog-detail.html">2026 Colour Trends</a>
+                <div class="sitemap-sub">Sep 1, 2026 · Featured</div>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="blog-detail.html">Choosing the Right Paint Finish</a>
+                <div class="sitemap-sub">Aug 24, 2026</div>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="blog-detail.html">Exterior Painting in Mumbai's Climate</a>
+                <div class="sitemap-sub">Aug 18, 2026</div>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="blog-detail.html">Biophilic Design Palettes</a>
+                <div class="sitemap-sub">Aug 10, 2026</div>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="blog-detail.html">10 Painting Mistakes to Avoid</a>
+                <div class="sitemap-sub">Aug 3, 2026</div>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="blog-detail.html">False Ceiling Design Ideas</a>
+                <div class="sitemap-sub">Jul 28, 2026</div>
+              </li>
+              <li class="sitemap-link-item">
+                <a href="blog-detail.html">Wall Preparation Guide</a>
+                <div class="sitemap-sub">Jul 20, 2026</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Legal & Info -->
+          <div class="sitemap-group reveal delay-4">
+            <div class="sitemap-group-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg></div>
+            <h2 class="sitemap-group-title">Legal &amp; Info</h2>
+            <ul class="sitemap-links" role="list">
+              <li class="sitemap-link-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li class="sitemap-link-item"><a href="terms.html">Terms &amp; Conditions</a></li>
+              <li class="sitemap-link-item"><a href="sitemap.html">HTML Sitemap</a></li>
+              <li class="sitemap-link-item"><a href="sitemap.xml">XML Sitemap</a></li>
+            </ul>
+
+            <h3 class="sitemap-subheading">Contact Points</h3>
+            <ul class="sitemap-links">
+              <li class="sitemap-link-item"><a href="contact.html">Request a Quote</a></li>
+              <li class="sitemap-link-item"><a href="contact.html#quote-form">Book Site Visit</a></li>
+              <li class="sitemap-link-item"><a href="tel:+919820000123">Call Us</a></li>
+              <li class="sitemap-link-item"><a href="https://wa.me/919820000123" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li class="sitemap-link-item"><a href="mailto:hello@renovacraft.in">Email Us</a></li>
+            </ul>
+
+            <h3 class="sitemap-subheading">Social Media</h3>
+            <ul class="sitemap-links">
+              <li class="sitemap-link-item"><a href="#" target="_blank" rel="noopener noreferrer">Instagram @renovacraft</a></li>
+              <li class="sitemap-link-item"><a href="#" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+              <li class="sitemap-link-item"><a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- XML Sitemap notice -->
+        <div class="xml-cta reveal">
+          <div class="xml-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="1,6 1,22 8,18 16,22 23,18 23,2 16,6 8,2"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
+          <div class="xml-cta__content">
+            <h3 class="xml-cta__title">XML Sitemap for Search Engines</h3>
+            <p class="xml-cta__desc">
+              If you're a search engine crawler or developer, you can access our machine-readable XML sitemap for indexing all pages.
+            </p>
+          </div>
+          <a href="sitemap.xml" class="btn btn-secondary">View sitemap.xml ↗</a>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="sitemap-stats-grid reveal">
+          <div class="sitemap-stat-card">
+            <div class="sitemap-stat-num">12</div>
+            <div class="sitemap-stat-label">Total Pages</div>
+          </div>
+          <div class="sitemap-stat-card">
+            <div class="sitemap-stat-num">6</div>
+            <div class="sitemap-stat-label">Service Sections</div>
+          </div>
+          <div class="sitemap-stat-card">
+            <div class="sitemap-stat-num">7+</div>
+            <div class="sitemap-stat-label">Blog Articles</div>
+          </div>
+          <div class="sitemap-stat-card">
+            <div class="sitemap-stat-num">4</div>
+            <div class="sitemap-stat-label">Legal Pages</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="footer__brand-logo" aria-label="RENOVA Home"><span class="footer__brand-mark" aria-hidden="true"><img src="assets/img/logo-mark-light.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span>RENO<span>VA</span></span></a>
+          <p class="footer__tagline">Artisan painting and home renovation services across Mumbai. Where walls find their story.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://wa.me/919820000123" class="footer__social" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Quick Links</h3>
+          <ul class="footer__links">
+            <li><a href="index.html"    class="footer__link">Home</a></li>
+            <li><a href="home2.html"    class="footer__link">home2</a></li>
+            <li><a href="about.html"    class="footer__link">About Us</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="blog.html"     class="footer__link">Blog</a></li>
+            <li><a href="contact.html"  class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Our Services</h3>
+          <ul class="footer__links">
+            <li><a href="services.html#interior"     class="footer__link">Interior Painting</a></li>
+            <li><a href="services.html#exterior"     class="footer__link">Exterior Painting</a></li>
+            <li><a href="services.html#texture"      class="footer__link">Texture Finishes</a></li>
+            <li><a href="services.html#waterproofing" class="footer__link">Waterproofing</a></li>
+            <li><a href="services.html#ceiling"      class="footer__link">False Ceiling</a></li>
+            <li><a href="services.html#consultation" class="footer__link">Color Consultation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Contact Us</h3>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>A-12, Veera Desai Road, Andheri West, Mumbai — 400053</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+91 98200 00123</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>hello@renovacraft.in</span>
+          </div>
+          <p class="footer__col-title" style="margin-top:var(--sp-6)">Newsletter</p>
+          <div class="footer__newsletter">
+            <label for="footer-email" class="visually-hidden">Email address</label>
+            <input type="email" id="footer-email" class="footer__newsletter-input" placeholder="Your email">
+            <button class="footer__newsletter-btn">→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 RENOVA Artisan Painting & Renovation. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy-policy.html" class="footer__legal-link">Privacy Policy</a>
+          <a href="terms.html"          class="footer__legal-link">Terms of Service</a>
+          <a href="sitemap.html"        class="footer__legal-link">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

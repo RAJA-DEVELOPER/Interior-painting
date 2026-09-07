@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">RENOVA</title>
+  <desc id="logoDesc">Premium Painting &amp; Home Renovation</desc>
+  <g>
+    <rect width="40" height="40" rx="9" fill="#FCFBF8"/>
+    <path d="M12.5 10.5 V29.2" stroke="#202124" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M12.5 10.5 H21.8 C24.9 10.5 26.8 12.2 26.8 15.1 C26.8 18 24.9 19.7 21.8 19.7 H12.5" fill="none" stroke="#202124" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18 19.7 L27 29.2" stroke="#202124" stroke-width="2.2" stroke-linecap="round"/>
+    <rect x="8" y="32" width="24" height="2.2" rx="1.1" fill="#B86A55"/>
+  </g>
+  <text x="52" y="27.5" font-family="Cormorant Garamond, Georgia, serif" font-size="26.5" font-weight="300" letter-spacing="0.09em" fill="#FCFBF8">RENO<tspan fill="#B86A55">VA</tspan></text>
+  <text x="52" y="36.5" font-family="Manrope, sans-serif" font-size="6.2" font-weight="600" letter-spacing="0.22em" fill="rgba(252,251,248,0.55)">ARTISAN PAINTING &amp; RENOVATION</text>
+</svg>

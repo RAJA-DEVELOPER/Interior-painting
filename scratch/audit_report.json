@@ -1,0 +1,961 @@
+{
+  "index.html": {
+    "sections": [
+      {
+        "num": 1,
+        "id": "hero",
+        "class": "hero-slider",
+        "containers": [
+          "container",
+          "container",
+          "container",
+          "slider__nav container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": false,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 1
+      },
+      {
+        "num": 2,
+        "id": "services",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 2
+      },
+      {
+        "num": 3,
+        "id": "transformations",
+        "class": "section bg-alt",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 6
+      },
+      {
+        "num": 4,
+        "id": "stats",
+        "class": "section bg-dark",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 15
+      },
+      {
+        "num": 5,
+        "id": "testimonials",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": false,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 3
+      },
+      {
+        "num": 6,
+        "id": "free-visit",
+        "class": "cta-section",
+        "containers": [
+          "container cta-section__content"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": true
+        },
+        "inlineStylesCount": 4
+      }
+    ],
+    "inlineStylesCount": 32,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "components.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "home2.html": {
+    "sections": [
+      {
+        "num": 1,
+        "id": "hero",
+        "class": "split-hero",
+        "containers": [],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 4
+      },
+      {
+        "num": 2,
+        "id": "projects",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": true
+        },
+        "inlineStylesCount": 0
+      },
+      {
+        "num": 3,
+        "id": "process",
+        "class": "section process-section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 0
+      },
+      {
+        "num": 4,
+        "id": "colours",
+        "class": "section color-palette-section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 12
+      },
+      {
+        "num": 5,
+        "id": "team",
+        "class": "section team-section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": true
+        },
+        "inlineStylesCount": 0
+      },
+      {
+        "num": 6,
+        "id": "social-proof",
+        "class": "section bg-dark",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 22
+      }
+    ],
+    "inlineStylesCount": 38,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "components.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "about.html": {
+    "sections": [
+      {
+        "num": 1,
+        "id": "about-hero",
+        "class": "about-hero",
+        "containers": [
+          "container about-hero__content"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 4
+      },
+      {
+        "num": 2,
+        "id": "story",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 11
+      },
+      {
+        "num": 3,
+        "id": "values",
+        "class": "section bg-alt",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 0
+      },
+      {
+        "num": 4,
+        "id": "journey",
+        "class": "section",
+        "containers": [
+          "container container-narrow",
+          "timeline-container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 5
+      },
+      {
+        "num": 5,
+        "id": "awards",
+        "class": "section bg-alt",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 0
+      },
+      {
+        "num": 6,
+        "id": "team",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": false,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 1
+      }
+    ],
+    "inlineStylesCount": 21,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "components.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "services.html": {
+    "sections": [
+      {
+        "num": 1,
+        "id": "services-hero",
+        "class": "services-hero",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 7
+      },
+      {
+        "num": 2,
+        "id": "interior",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 3
+      },
+      {
+        "num": 3,
+        "id": "waterproofing",
+        "class": "section bg-alt",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 34
+      },
+      {
+        "num": 4,
+        "id": "pricing",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": true
+        },
+        "inlineStylesCount": 10
+      },
+      {
+        "num": 5,
+        "id": "calculator",
+        "class": "section bg-alt",
+        "containers": [
+          "container container-narrow"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": true
+        },
+        "inlineStylesCount": 5
+      },
+      {
+        "num": 6,
+        "id": "faq",
+        "class": "section",
+        "containers": [
+          "container container-narrow"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 0
+      }
+    ],
+    "inlineStylesCount": 59,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "components.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "blog.html": {
+    "sections": [
+      {
+        "num": 1,
+        "id": "blog-hero",
+        "class": "blog-masthead",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 12
+      },
+      {
+        "num": 2,
+        "id": "featured",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 8
+      },
+      {
+        "num": 3,
+        "id": "articles",
+        "class": "section bg-alt",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": false,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 7
+      },
+      {
+        "num": 4,
+        "id": "spotlight",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": false,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 18
+      },
+      {
+        "num": 5,
+        "id": "topics",
+        "class": "section bg-alt",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 18
+      },
+      {
+        "num": 6,
+        "id": "newsletter",
+        "class": "section bg-dark",
+        "containers": [
+          "container container-tight"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 8
+      }
+    ],
+    "inlineStylesCount": 71,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "components.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "blog-detail.html": {
+    "sections": [
+      {
+        "num": 1,
+        "id": "article-hero",
+        "class": "article-hero",
+        "containers": [
+          "container article-hero__content"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": false,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 9
+      },
+      {
+        "num": 2,
+        "id": "article-content",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 22
+      },
+      {
+        "num": 3,
+        "id": "related",
+        "class": "section bg-alt",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": false,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 2
+      },
+      {
+        "num": 4,
+        "id": "comments",
+        "class": "section",
+        "containers": [
+          "container container-narrow"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": false,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 18
+      },
+      {
+        "num": 5,
+        "id": "recommended",
+        "class": "section bg-dark",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 15
+      },
+      {
+        "num": 6,
+        "id": "back-to-blog",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 4
+      }
+    ],
+    "inlineStylesCount": 70,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "components.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "contact.html": {
+    "sections": [
+      {
+        "num": 1,
+        "id": "contact-hero",
+        "class": "contact-hero",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 10
+      },
+      {
+        "num": 2,
+        "id": "quote-form",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 9
+      },
+      {
+        "num": 3,
+        "id": "why-us",
+        "class": "section bg-alt",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": true
+        },
+        "inlineStylesCount": 10
+      },
+      {
+        "num": 4,
+        "id": "testimonials",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 0
+      },
+      {
+        "num": 5,
+        "id": "faq",
+        "class": "section bg-alt",
+        "containers": [
+          "container container-narrow"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": false
+        },
+        "inlineStylesCount": 0
+      },
+      {
+        "num": 6,
+        "id": "social",
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": true,
+          "center": true,
+          "eyebrow": true,
+          "title": true,
+          "subtitle": true
+        },
+        "inlineStylesCount": 20
+      }
+    ],
+    "inlineStylesCount": 49,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "components.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "maintenance.html": {
+    "sections": [],
+    "inlineStylesCount": 13,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": false,
+    "hasFooter": true
+  },
+  "privacy-policy.html": {
+    "sections": [
+      {
+        "num": 1,
+        "id": null,
+        "class": "legal-hero",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": false,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 2
+      },
+      {
+        "num": 2,
+        "id": null,
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": false,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 2
+      }
+    ],
+    "inlineStylesCount": 5,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "components.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "terms.html": {
+    "sections": [
+      {
+        "num": 1,
+        "id": null,
+        "class": "legal-hero",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": false,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 2
+      },
+      {
+        "num": 2,
+        "id": null,
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": false,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 1
+      }
+    ],
+    "inlineStylesCount": 4,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "components.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "sitemap.html": {
+    "sections": [
+      {
+        "num": 1,
+        "id": null,
+        "class": "sitemap-hero",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": false,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 3
+      },
+      {
+        "num": 2,
+        "id": null,
+        "class": "section",
+        "containers": [
+          "container"
+        ],
+        "secHeader": {
+          "exists": false,
+          "center": false,
+          "eyebrow": false,
+          "title": false,
+          "subtitle": false
+        },
+        "inlineStylesCount": 19
+      }
+    ],
+    "inlineStylesCount": 23,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "components.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "404.html": {
+    "sections": [],
+    "inlineStylesCount": 9,
+    "stylesheets": [
+      "variables.css",
+      "base.css",
+      "components.css",
+      "animations.css",
+      "hero-center.css",
+      "section-align.css",
+      "visual-polish.css"
+    ],
+    "hasHeader": false,
+    "hasFooter": false
+  }
+}

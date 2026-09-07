@@ -1,0 +1,134 @@
+/* ============================================================
+   RENOVA — RTL Support (Right-to-Left)
+   Activated when <html dir="rtl"> — toggled via JS
+   Covers navbar, heroes, grids, cards, forms, footer
+   ============================================================ */
+
+/* Base */
+[dir="rtl"] { direction: rtl; }
+[dir="rtl"] body { text-align: right; }
+
+/* Navbar — flip inner order */
+[dir="rtl"] .navbar__inner { flex-direction: row-reverse; }
+[dir="rtl"] .nav-menu { flex-direction: row-reverse; }
+[dir="rtl"] .nav-actions { flex-direction: row-reverse; }
+[dir="rtl"] .nav-logo { flex-direction: row-reverse; }
+
+/* RTL toggle button */
+.rtl-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--tx-2);
+  background: transparent;
+  border: 1px solid transparent;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: all 0.2s;
+}
+.rtl-toggle:hover { background: var(--bg-alt); color: var(--ac); border-color: var(--bd); }
+[dir="rtl"] .rtl-toggle { background: var(--ac); color: #fff; border-color: var(--ac); }
+.navbar.transparent .rtl-toggle { color:#fff; background:rgba(255,255,255,0.10); border-color:rgba(255,255,255,0.16); backdrop-filter:blur(6px); }
+.navbar.transparent .rtl-toggle:hover { background:rgba(255,255,255,0.18); }
+.navbar.scrolled .rtl-toggle { color:var(--tx-2); background:transparent; border-color:transparent; }
+.navbar.scrolled .rtl-toggle:hover { background:var(--bg-alt); color:var(--ac); }
+
+/* Eyebrows & pills — flip icon side */
+[dir="rtl"] .eyebrow,
+[dir="rtl"] .eyebrow-pill,
+[dir="rtl"] .split-hero__kicker { flex-direction: row-reverse; }
+[dir="rtl"] .eyebrow::before { margin-left: 0; margin-right: 0; }
+
+/* Heroes — align right */
+[dir="rtl"] .split-hero__left { align-items: flex-end; text-align: right; }
+[dir="rtl"] .split-hero__content { text-align: right; align-items: flex-end; }
+[dir="rtl"] .about-hero__content,
+[dir="rtl"] .about-hero__inner,
+[dir="rtl"] .services-hero .container,
+[dir="rtl"] .contact-hero__intro,
+[dir="rtl"] .blog-masthead__intro,
+[dir="rtl"] .sitemap-hero .container,
+[dir="rtl"] .legal-hero .container { text-align: right; align-items: flex-end; }
+[dir="rtl"] .contact-hero .eyebrow,
+[dir="rtl"] .blog-masthead .eyebrow,
+[dir="rtl"] .about-hero .eyebrow-pill { justify-content: flex-end; }
+[dir="rtl"] .split-hero__left .eyebrow,
+[dir="rtl"] .about-hero__stats,
+[dir="rtl"] .split-hero__stats { flex-direction: row-reverse; }
+[dir="rtl"] .split-hero__stat-sep,
+[dir="rtl"] .about-hero__stat-sep { margin-left: 0; margin-right: 16px; }
+[dir="rtl"] .split-hero__stat:first-child,
+[dir="rtl"] .about-hero__stat:first-child { padding-right: 0; }
+[dir="rtl"] .split-hero__trust { flex-direction: row-reverse; }
+[dir="rtl"] .split-hero__avatars img { margin-left: 0; margin-right: -8px; }
+[dir="rtl"] .split-hero__avatars img:first-child { margin-right: 0; }
+
+/* Grids — keep columns but flip content */
+[dir="rtl"] .sec-header:not(.center) .sec-title,
+[dir="rtl"] .sec-header:not(.center) .sec-subtitle { text-align: right; margin-inline: 0; }
+[dir="rtl"] .sec-header.center .sec-title,
+[dir="rtl"] .sec-header.center .sec-subtitle { text-align: center; }
+
+/* Cards — text right */
+[dir="rtl"] .service-card,
+[dir="rtl"] .blog-card,
+[dir="rtl"] .team-card,
+[dir="rtl"] .pricing-card,
+[dir="rtl"] .value-card,
+[dir="rtl"] .award-item,
+[dir="rtl"] .highlight-card,
+[dir="rtl"] .t-card,
+[dir="rtl"] .topic-card { text-align: right; }
+[dir="rtl"] .service-card__link,
+[dir="rtl"] .blog-card__link,
+[dir="rtl"] .btn-arrow { flex-direction: row-reverse; }
+[dir="rtl"] .blog-card__cat { align-self: flex-end; }
+[dir="rtl"] .blog-card__link { align-self: flex-end; }
+
+/* Forms — labels right */
+[dir="rtl"] .form-label,
+[dir="rtl"] .form-group { text-align: right; }
+[dir="rtl"] .form-input,
+[dir="rtl"] .form-select,
+[dir="rtl"] .form-textarea { text-align: right; }
+[dir="rtl"] .service-option label { text-align: center; } /* keep center for options */
+
+/* Footer — grid flip */
+[dir="rtl"] .footer__grid { direction: rtl; }
+[dir="rtl"] .footer__contact-item { flex-direction: row-reverse; text-align: right; }
+[dir="rtl"] .footer__bottom { flex-direction: row-reverse; }
+
+/* Newsletter field — icon left in RTL should be right */
+[dir="rtl"] .newsletter-field { flex-direction: row-reverse; }
+[dir="rtl"] .newsletter-card-lux2 .newsletter-form,
+[dir="rtl"] .newsletter-card-lux .newsletter-form { flex-direction: row-reverse; }
+
+/* Filter bar — row reverse */
+[dir="rtl"] .filter-bar { flex-direction: row-reverse; justify-content: flex-end; }
+[dir="rtl"] .articles-header { flex-direction: row-reverse; }
+
+/* Timeline — mirror */
+[dir="rtl"] .timeline-line,
+[dir="rtl"] .timeline::before { left: auto; right: 50%; transform: translateX(50%); }
+@media (max-width: 768px) {
+  [dir="rtl"] .timeline-line,
+  [dir="rtl"] .timeline::before { right: 16px; left: auto; }
+  [dir="rtl"] .timeline-row { grid-template-columns: 1fr 32px; }
+}
+
+/* Split hero right deco — flip side */
+[dir="rtl"] .split-hero__left::after { right: auto; left: 0; }
+[dir="rtl"] .split-hero__deco { right: auto; left: 22px; border-right: none; border-left: 1.5px solid rgba(181,154,104,0.5); border-radius: 12px 0 0 0; }
+[dir="rtl"] .proof-lux__orb--1 { right: auto; left: -120px; }
+[dir="rtl"] .proof-lux__orb--2 { left: auto; right: -100px; }
+
+/* Ensure LTR inside RTL for code / numbers stays readable */
+[dir="rtl"] .stat-num,
+[dir="rtl"] .pricing-price,
+[dir="rtl"] .calc-result-number { direction: ltr; unicode-bidi: isolate; }

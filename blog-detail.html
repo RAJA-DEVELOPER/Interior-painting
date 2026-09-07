@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#202124">
+  <meta name="msapplication-TileColor" content="#202124">
+  <title>2026 Interior Colour Trends — RENOVA Blog</title>
+  <meta name="description" content="2026's interior colour trends are all about warm naturals, earthy tones and terracotta. Discover the palettes defining luxurious interiors this year.">
+  <link rel="canonical" href="blog-detail.html">
+  <meta property="og:type"  content="article">
+  <meta property="og:title" content="2026 Interior Paint Colour Trends — RENOVA Blog">
+  <meta property="og:image" content="https://picsum.photos/seed/renovapaint203/800/600">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "2026 Interior Paint Colour Trends: Warm Naturals, Earthy Tones & the Return of Terracotta",
+    "image": "https://picsum.photos/seed/renovapaint202/800/600",
+    "author": { "@type": "Person", "name": "Ananya Krishnan" },
+    "publisher": { "@type": "Organization", "name": "RENOVA" },
+    "datePublished": "2026-09-01",
+    "description": "Discover the paint colour trends defining interior design in 2026."
+  }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/hero-center.css">
+  <link rel="stylesheet" href="assets/css/section-align.css">
+  <link rel="stylesheet" href="assets/css/visual-polish.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <style>
+    .article-hero {
+      position: relative;
+      height: 72vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+    .article-hero__img { width:100%;height:100%;object-fit:cover; }
+    .article-hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(32,33,36,0.15) 0%, rgba(32,33,36,0.75) 100%);
+    }
+    .article-hero__content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding-bottom: var(--sp-16);
+    }
+
+    .reading-progress {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--ac), var(--ac-gold));
+      transform-origin: left;
+      transform: scaleX(0);
+      z-index: 999;
+      transition: transform 50ms linear;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: var(--sp-12);
+      align-items: start;
+    }
+    .article-body {
+      min-width: 0;
+    }
+    .article-toc {
+      position: sticky;
+      top: calc(var(--nav-h) + var(--sp-8));
+    }
+
+    .article-content {
+      font-size: var(--fs-17);
+      line-height: var(--lh-relaxed);
+      color: var(--tx-2);
+    }
+    .article-content h2 {
+      font-family: var(--serif);
+      font-size: var(--fs-32);
+      font-weight: var(--fw-reg);
+      color: var(--tx-1);
+      margin-top: var(--sp-12);
+      margin-bottom: var(--sp-5);
+      letter-spacing: var(--ls-snug);
+    }
+    .article-content h3 {
+      font-family: var(--serif);
+      font-size: var(--fs-24);
+      font-weight: var(--fw-reg);
+      color: var(--tx-1);
+      margin-top: var(--sp-9);
+      margin-bottom: var(--sp-4);
+    }
+    .article-content p { margin-bottom: var(--sp-6); }
+    .article-content ul, .article-content ol {
+      margin-block: var(--sp-6);
+      padding-left: var(--sp-7);
+    }
+    .article-content li { margin-bottom: var(--sp-3); }
+    .article-content blockquote {
+      border-left: 3px solid var(--ac);
+      padding: var(--sp-5) var(--sp-7);
+      margin-block: var(--sp-8);
+      background: var(--bg-alt);
+      border-radius: 0 var(--r-lg) var(--r-lg) 0;
+      font-family: var(--serif);
+      font-size: var(--fs-22);
+      color: var(--tx-1);
+      font-style: italic;
+      line-height: var(--lh-snug);
+    }
+    .article-content img {
+      width: 100%;
+      border-radius: var(--r-xl);
+      margin-block: var(--sp-8);
+    }
+    .article-content figcaption {
+      font-size: var(--fs-13);
+      color: var(--tx-3);
+      text-align: center;
+      margin-top: -var(--sp-4);
+      margin-bottom: var(--sp-8);
+    }
+
+    .colour-swatch-inline {
+      display: flex;
+      gap: var(--sp-3);
+      flex-wrap: wrap;
+      margin-block: var(--sp-7);
+    }
+    .colour-swatch-inline-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+    .colour-swatch-inline-dot {
+      width: 60px; height: 60px;
+      border-radius: var(--r-md);
+      box-shadow: var(--sh-sm);
+    }
+    .colour-swatch-inline-name {
+      font-size: var(--fs-12);
+      color: var(--tx-3);
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+    }
+    .toc-item {
+      font-size: var(--fs-13);
+      border-bottom: 1px solid var(--bd);
+    }
+    .toc-item:last-child { border-bottom: none; }
+    .toc-link {
+      display: block;
+      padding: var(--sp-3) 0;
+      color: var(--tx-3);
+      transition: color var(--dur-200), padding-left var(--dur-200);
+      font-weight: var(--fw-med);
+    }
+    .toc-link:hover, .toc-link.active {
+      color: var(--ac);
+      padding-left: var(--sp-3);
+    }
+    .legal-toc-link { display:block;padding:var(--sp-2) 0; font-size:var(--fs-13); color:var(--tx-3); transition:color var(--dur-200); }
+    .legal-toc-link.active { color:var(--ac); font-weight:var(--fw-semi); }
+    .legal-toc-link:hover { color:var(--ac); }
+
+    .article-share {
+      display: flex;
+      gap: var(--sp-3);
+      flex-wrap: wrap;
+      padding-block: var(--sp-6);
+      border-top: 1px solid var(--bd);
+      margin-top: var(--sp-10);
+    }
+
+    .svc-icon-light {
+      width:52px; height:52px;
+      border-radius: var(--r-lg);
+      background: rgba(255,255,255,0.08);
+      color: var(--ac);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .svc-icon-light svg { width:26px; height:26px; }
+    @media (max-width: 1024px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .article-toc { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress -->
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__logo">RENOVA</div>
+      <div class="preloader__bar"></div>
+    </div>
+  </div>
+  <div class="page-transition" aria-hidden="true"></div>
+
+  <a href="https://wa.me/919820000123" class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+  </button>
+
+  <!-- NAVBAR -->
+  <header class="navbar transparent" id="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="nav-logo" aria-label="RENOVA Home"><span class="nav-logo__mark" aria-hidden="true"><img src="assets/img/logo-mark.svg" alt="" width="38" height="38" loading="eager" decoding="async"></span><span class="nav-logo__text">RENO<span>VA</span></span></a>
+
+      <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+        <a href="index.html"    class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">home2</a>
+        <a href="about.html"   class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html"    class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="rtl-toggle" id="rtlToggle" aria-label="Switch to Right-to-Left" title="RTL" aria-pressed="false">RTL</button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="contact.html" class="btn btn-primary btn-sm" id="navCta">Free Quote</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <nav class="nav-overlay__links" aria-label="Mobile navigation">
+      <a href="index.html"    class="nav-overlay__link">Home</a>
+      <a href="home2.html"   class="nav-overlay__link">home2</a>
+      <a href="about.html"   class="nav-overlay__link">About</a>
+      <a href="services.html" class="nav-overlay__link">Services</a>
+      <a href="blog.html"    class="nav-overlay__link">Blog</a>
+      <a href="contact.html" class="nav-overlay__link">Contact</a>
+    </nav>
+    <div class="nav-overlay__btn">
+      <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ══ SECTION 1: HERO ══ -->
+    <section class="article-hero" id="article-hero" aria-label="Article hero">
+      <img class="article-hero__img" src="https://images.unsplash.com/photo-1617096200347-cb04ae810b1d?auto=format&fit=crop&w=1920&q=85"
+           alt="2026 Interior Colour Trends — warm terracotta living room" loading="eager">
+      <div class="article-hero__overlay"></div>
+      <div class="container article-hero__content">
+<div style="max-width:72ch">
+          <span class="blog-card__cat" style="display:inline-block;margin-bottom:var(--sp-4)">Colour Trends</span>
+          <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:var(--fw-light);color:#fff;line-height:var(--lh-tight);letter-spacing:var(--ls-snug);margin-bottom:var(--sp-7);animation:fadeUp 0.9s var(--ease-out) 0.3s both">
+            2026 Interior Paint Colour Trends: Warm Naturals, Earthy Tones & the Return of Terracotta
+          </h1>
+          <div style="display:flex;align-items:center;gap:var(--sp-5);flex-wrap:wrap;animation:fadeUp 0.9s var(--ease-out) 0.5s both">
+            <div style="display:flex;align-items:center;gap:var(--sp-3)">
+              <img src="https://images.unsplash.com/photo-1728060264741-94b6214fe18d?auto=format&fit=crop&w=800&q=80"
+                   alt="Ananya Krishnan" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.30)">
+              <div>
+                <div style="font-size:var(--fs-15);font-weight:var(--fw-semi);color:#fff">Ananya Krishnan</div>
+                <div class="article-hero__author-role">Creative Director · RENOVA</div>
+              </div>
+            </div>
+            <div class="article-hero__meta-items">
+              <span>September 1, 2026</span>
+              <span>·</span>
+              <span>8 min read</span>
+              <span>·</span>
+              <span>2.1K views</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 2: ARTICLE CONTENT ══ -->
+    <section class="section" id="article-content" aria-label="Article content">
+      <div class="container">
+        <div class="article-layout">
+
+          <!-- Article Body -->
+          <article class="article-body" itemscope itemtype="https://schema.org/BlogPosting">
+            <div class="article-content" itemprop="articleBody">
+
+              <p><strong>The year 2026 marks a definitive shift</strong> in interior design towards warmth, authenticity and a profound connection to nature. As post-pandemic design philosophy matures, we're moving away from the stark whites and cool greys of the previous decade into a richer, more soulful palette.</p>
+
+              <p>After years of minimalism and cool-toned Scandinavian aesthetics, designers across Mumbai, Delhi and Bangalore are reaching for earthy terracottas, antique brass tones, sage greens and deep warm neutrals. The result is spaces that feel grounded, luxurious and uniquely personal.</p>
+
+              <blockquote>
+                "Colour is the most immediate and visceral way to change how a room feels. In 2026, people want their homes to feel like a warm embrace — not a show home."
+                <cite style="display:block;font-size:var(--fs-14);font-style:normal;color:var(--tx-3);margin-top:var(--sp-3)">— Ananya Krishnan, Creative Director, RENOVA</cite>
+              </blockquote>
+
+              <h2 id="trend-1">1. Terracotta Dusk — The Year's Defining Tone</h2>
+
+              <p>Terracotta has been quietly building momentum, and 2026 is the year it fully arrives. But this isn't the flat, predictable burnt orange of the 1970s — 2026's terracotta is refined, warm and deeply nuanced. Think sunset on a Rajasthani fort, or the clay pots in your grandmother's kitchen, elevated to a luxury palette.</p>
+
+              <p>The key is in the undertones. The terracottas defining 2026 have a distinctly warm, slightly dusky quality — they read more as a sophisticated warm brown in lower light and bloom into a rich reddish-amber in natural sunlight. This makes them remarkably versatile across different orientations.</p>
+
+              <figure>
+                <img src="https://picsum.photos/seed/renovapaint201/800/600"
+                     alt="Luxurious bedroom with terracotta feature wall and warm accents" loading="lazy">
+                <figcaption>A Bandra penthouse bedroom featuring RENOVA's custom Terracotta Dusk finish — with limewash technique for added depth</figcaption>
+              </figure>
+
+              <p><strong>Best rooms for terracotta:</strong> Living rooms and dining areas benefit most from terracotta's warmth. Pair it with natural wood, linen textiles and antique brass fixtures for a complete design narrative.</p>
+
+              <h3>Recommended palette combinations</h3>
+              <div class="colour-swatch-inline">
+                <div class="colour-swatch-inline-item">
+                  <div class="colour-swatch-inline-dot" style="background:#B86A55" title="Terracotta Dusk"></div>
+                  <span class="colour-swatch-inline-name">Terracotta Dusk</span>
+                </div>
+                <div class="colour-swatch-inline-item">
+                  <div class="colour-swatch-inline-dot" style="background:#F4EFE7" title="Linen White"></div>
+                  <span class="colour-swatch-inline-name">Linen White</span>
+                </div>
+                <div class="colour-swatch-inline-item">
+                  <div class="colour-swatch-inline-dot" style="background:#B59A68" title="Antique Brass"></div>
+                  <span class="colour-swatch-inline-name">Antique Brass</span>
+                </div>
+                <div class="colour-swatch-inline-item">
+                  <div class="colour-swatch-inline-dot" style="background:#7B6B5A" title="Warm Walnut"></div>
+                  <span class="colour-swatch-inline-name">Warm Walnut</span>
+                </div>
+              </div>
+
+              <h2 id="trend-2">2. Sage & Moss — Bringing the Garden Inside</h2>
+
+              <p>Sage green has been on a steady ascent for three years, but 2026 sees it evolve beyond the soft, pale sage of farmhouse kitchens into deeper, more complex moss greens and forest tones. These are greens with complexity — sometimes reading as green, sometimes as grey, always feeling alive.</p>
+
+              <p>The biophilic design movement — designing with nature at its core — has made these greens a natural fit for Indian interiors, where we've always had a deep cultural connection to botanical spaces. When applied on a single feature wall with the right texture, they create a focal point of tremendous depth.</p>
+
+              <figure>
+                <img src="https://images.unsplash.com/photo-1727192807128-0cee790dcc83?auto=format&fit=crop&w=800&q=80"
+                     alt="Bedroom with sage green accent wall and natural wood elements" loading="lazy">
+                <figcaption>Sage garden feature wall in a South Mumbai apartment — note how it pairs with the natural teak headboard</figcaption>
+              </figure>
+
+              <h2 id="trend-3">3. Antique Brass & Gold Ochre — The Luxury Neutrals</h2>
+
+              <p>The warm neutrals of 2026 are anything but boring. Antique brass, gold ochre and aged amber tones are replacing the cold grey-whites that dominated the 2010s. These are colours with history — they recall antique jewelry, aged wood and the golden hour of a Mumbai sunset.</p>
+
+              <p>What makes them work beautifully in Indian interiors is their natural affinity with our traditional materials — rosewood furniture, brass fittings, terracotta tiles and stone flooring all look more vibrant against these backgrounds.</p>
+
+              <h2 id="trend-4">4. Deep Charcoal — The New Dramatic Dark</h2>
+
+              <p>For those looking to make a bold statement, deep charcoals and off-blacks are having a significant moment. But 2026's dark tones are warmer than before — charcoals with brown or green undertones rather than the cool blue-blacks of previous years.</p>
+
+              <p>These work brilliantly in home offices, media rooms and library walls where you want to create focus and a sense of immersive depth. Paired with warm lighting, they transform a room into something genuinely theatrical.</p>
+
+              <ul>
+                <li>Use dark tones on a single wall — usually the wall behind a sofa or bed</li>
+                <li>Pair with warm lighting (2700K–3000K) to avoid a cold feel</li>
+                <li>Balance with light textiles, warm metallics and natural wood</li>
+                <li>Consider a matte or very low-sheen finish to avoid harsh reflections</li>
+              </ul>
+
+              <h2 id="how-to-use">How to Bring These Trends Into Your Home</h2>
+
+              <p>The most successful approach is a considered, layered application of these palettes rather than painting every room in a trend colour. Here's our recommended framework:</p>
+
+              <ol>
+                <li><strong>Start with your dominant neutral</strong> — choose a warm off-white or linen tone for most of your wall space</li>
+                <li><strong>Add one or two feature walls</strong> in a trend colour — terracotta in the living room, sage in a bedroom</li>
+                <li><strong>Layer the depth</strong> through furnishings, textiles and fixtures in complementary tones</li>
+                <li><strong>Finish with texture</strong> — a limewash or Venetian plaster treatment adds depth that flat paint can't achieve</li>
+              </ol>
+
+              <p>The goal is a home that feels curated and personal — not a showcase of every trend at once. Let one palette narrative thread through your entire space.</p>
+
+            </div>
+
+            <!-- Author Box -->
+            <div class="author-bio-card">
+              <img src="https://images.unsplash.com/photo-1772475385299-b326e4d28ef1?auto=format&fit=crop&w=800&q=80"
+                   alt="Ananya Krishnan" class="author-bio-avatar">
+              <div>
+                <div class="author-bio-name">Ananya Krishnan</div>
+                <div class="author-bio-role">Creative Director & Senior Colour Consultant</div>
+                <p class="author-bio-text">Ananya brings 12 years of interior design and colour consulting expertise to RENOVA. A graduate of NID Ahmedabad, she leads our design strategy and client consultation practice.</p>
+              </div>
+            </div>
+
+            <!-- Share -->
+            <div class="article-share">
+              <span class="article-share-label">Share this article:</span>
+              <a href="#" class="btn btn-sm btn-secondary">Twitter / X</a>
+              <a href="#" class="btn btn-sm btn-secondary">WhatsApp</a>
+              <a href="#" class="btn btn-sm btn-secondary">LinkedIn</a>
+              <a href="#" class="btn btn-sm btn-secondary">Copy Link</a>
+            </div>
+          </article>
+
+          <!-- Sidebar TOC + CTA -->
+          <aside class="article-toc" aria-label="Table of contents">
+            <div class="article-toc-widget">
+              <h4 class="article-toc-title">In This Article</h4>
+              <ol class="toc-list">
+                <li class="toc-item"><a href="#trend-1" class="legal-toc-link">1. Terracotta Dusk</a></li>
+                <li class="toc-item"><a href="#trend-2" class="legal-toc-link">2. Sage & Moss</a></li>
+                <li class="toc-item"><a href="#trend-3" class="legal-toc-link">3. Antique Brass & Ochre</a></li>
+                <li class="toc-item"><a href="#trend-4" class="legal-toc-link">4. Deep Charcoal</a></li>
+                <li class="toc-item"><a href="#how-to-use" class="legal-toc-link">How to Use These Trends</a></li>
+              </ol>
+            </div>
+            <div class="sidebar-cta-widget">
+              <p class="eyebrow" style="justify-content:center;color:var(--ac)">Book Today</p>
+              <p class="sidebar-cta-title">Free Colour Consultation</p>
+              <p class="sidebar-cta-desc">Our design experts will help you find the perfect 2026 palette for your home.</p>
+              <a href="contact.html" class="btn btn-primary">Book Free Visit</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 3: RELATED ARTICLES ══ -->
+    <section class="section bg-alt" id="related" aria-label="Related articles">
+      <div class="container">
+        <div class="sec-header reveal">
+          <p class="eyebrow">Read Next</p>
+          <h2 class="sec-title" style="margin-bottom:0">Related Articles</h2>
+        </div>
+        <div class="grid grid-3">
+          <article class="blog-card reveal delay-1">
+            <div class="blog-card__img">
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80"
+                   alt="How to choose the right paint finish" loading="lazy">
+            </div>
+            <div class="blog-card__body">
+              <a href="blog-detail.html" class="blog-card__cat">Painting Tips</a>
+              <h3 class="blog-card__title"><a href="blog-detail.html">How to Choose the Right Paint Finish for Every Room</a></h3>
+              <div class="blog-card__meta"><span>Aug 24, 2026</span><span>·</span><span>5 min</span></div>
+              <a href="blog-detail.html" class="blog-card__link">Read More →</a>
+            </div>
+          </article>
+          <article class="blog-card reveal delay-2">
+            <div class="blog-card__img">
+              <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80"
+                   alt="Biophilic design palette guide" loading="lazy">
+            </div>
+            <div class="blog-card__body">
+              <a href="blog-detail.html" class="blog-card__cat">Design Trends</a>
+              <h3 class="blog-card__title"><a href="blog-detail.html">Biophilic Design: Nature-Inspired Palettes That Transform Homes</a></h3>
+              <div class="blog-card__meta"><span>Aug 10, 2026</span><span>·</span><span>6 min</span></div>
+              <a href="blog-detail.html" class="blog-card__link">Read More →</a>
+            </div>
+          </article>
+          <article class="blog-card reveal delay-3">
+            <div class="blog-card__img">
+              <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+                   alt="Common painting mistakes to avoid" loading="lazy">
+            </div>
+            <div class="blog-card__body">
+              <a href="blog-detail.html" class="blog-card__cat">DIY Tips</a>
+              <h3 class="blog-card__title"><a href="blog-detail.html">10 Mistakes Homeowners Make When Painting</a></h3>
+              <div class="blog-card__meta"><span>Aug 3, 2026</span><span>·</span><span>9 min</span></div>
+              <a href="blog-detail.html" class="blog-card__link">Read More →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 4: COMMENTS / ENGAGEMENT ══ -->
+    <section class="section" id="comments" aria-label="Reader comments">
+      <div class="container container-narrow">
+        <h2 style="font-family:var(--serif);font-size:var(--fs-h3);color:var(--tx-1);margin-bottom:var(--sp-8)" class="reveal">Join the Conversation</h2>
+        <div class="comments-list">
+          <div class="comment-item reveal delay-1">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+                 alt="Priya S" class="comment-avatar">
+            <div>
+              <div class="comment-header">
+                <span class="comment-author">Priya S.</span>
+                <span class="comment-time">2 hours ago</span>
+              </div>
+              <p class="comment-body">We just redid our living room in a terracotta tone and it's absolutely transformed the space. This article perfectly captures why it works so well. Thank you for such detailed guidance!</p>
+            </div>
+          </div>
+          <div class="comment-item reveal delay-2">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
+                 alt="Karan M" class="comment-avatar">
+            <div>
+              <div class="comment-header">
+                <span class="comment-author">Karan M.</span>
+                <span class="comment-time">Yesterday</span>
+              </div>
+              <p class="comment-body">The colour swatch combinations are brilliant. I've saved this article to share with my interior designer. The palette breakdown is exactly the kind of practical guide I needed.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comment Form -->
+        <div class="comment-form-card reveal">
+          <h3 class="comment-form-title">Leave a Comment</h3>
+          <form data-validate aria-label="Comment form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="comment-name">Your Name</label>
+                <input type="text" id="comment-name" name="name" class="form-input" placeholder="Priya Mehta">
+                <div class="form-error"></div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="comment-email">Email Address</label>
+                <input type="email" id="comment-email" name="email" class="form-input" placeholder="priya@example.com">
+                <div class="form-error"></div>
+              </div>
+            </div>
+            <div class="form-group" >
+              <label class="form-label" for="comment-text">Your Comment</label>
+              <textarea id="comment-text" name="message" class="form-textarea" placeholder="Share your thoughts..." rows="4"></textarea>
+              <div class="form-error"></div>
+            </div>
+            <button type="submit" class="btn btn-primary" >Post Comment</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 5: RECOMMENDED SERVICES ══ -->
+    <section class="section bg-dark" id="recommended" aria-label="Recommended services">
+      <div class="container">
+        <div class="sec-header center reveal">
+          <p class="eyebrow" style="color:var(--ac)">Inspired?</p>
+          <h2 class="sec-title" style="color:#fff">
+            Bring These Trends to<br>Your Home
+          </h2>
+        </div>
+        <div class="grid grid-3">
+          <a href="services.html#consultation" class="recommended-card reveal delay-1 hover-lift">
+            <span class="svc-icon-light" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></span>
+            <h3 class="recommended-card__title">Colour Consultation</h3>
+            <p class="recommended-card__desc">Expert palette selection for your specific space and lighting.</p>
+            <span class="recommended-card__link">Free with any project →</span>
+          </a>
+          <a href="services.html#interior" class="recommended-card reveal delay-2 hover-lift">
+            <span class="svc-icon-light" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>
+            <h3 class="recommended-card__title">Interior Painting</h3>
+            <p class="recommended-card__desc">Premium interior paint in any shade, applied with artisan precision.</p>
+            <span class="recommended-card__link">From ₹12/sqft →</span>
+          </a>
+          <a href="services.html#texture" class="recommended-card reveal delay-3 hover-lift">
+            <span class="svc-icon-light" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
+            <h3 class="recommended-card__title">Texture Finishes</h3>
+            <p class="recommended-card__desc">Limewash, Venetian plaster and artisan finishes to add depth.</p>
+            <span class="recommended-card__link">From ₹45/sqft →</span>
+          </a>
+        </div>
+        <div style="text-align:center;margin-top:var(--sp-10)" class="reveal">
+          <a href="contact.html" class="btn btn-primary btn-lg">Book a Free Site Visit</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 6: BACK TO BLOG ══ -->
+    <section class="section" id="back-to-blog" aria-label="Back to blog navigation">
+      <div class="container" style="text-align:center">
+        <p class="eyebrow reveal" style="justify-content:center">Keep Reading</p>
+        <h2 style="font-family:var(--serif);font-size:var(--fs-h3);color:var(--tx-1);margin-bottom:var(--sp-8)" class="reveal">More from The Renovation Journal</h2>
+        <div style="display:flex;justify-content:center;gap:var(--sp-4);flex-wrap:wrap" class="reveal">
+          <a href="blog.html" class="btn btn-primary btn-lg">← Back to All Articles</a>
+          <a href="contact.html" class="btn btn-secondary btn-lg">Book Free Consultation →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="footer__brand-logo" aria-label="RENOVA Home"><span class="footer__brand-mark" aria-hidden="true"><img src="assets/img/logo-mark-light.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span>RENO<span>VA</span></span></a>
+          <p class="footer__tagline">Artisan painting and home renovation services across Mumbai. Where walls find their story.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://wa.me/919820000123" class="footer__social" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Quick Links</h3>
+          <ul class="footer__links">
+            <li><a href="index.html"    class="footer__link">Home</a></li>
+            <li><a href="home2.html"    class="footer__link">home2</a></li>
+            <li><a href="about.html"    class="footer__link">About Us</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="blog.html"     class="footer__link">Blog</a></li>
+            <li><a href="contact.html"  class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Our Services</h3>
+          <ul class="footer__links">
+            <li><a href="services.html#interior"     class="footer__link">Interior Painting</a></li>
+            <li><a href="services.html#exterior"     class="footer__link">Exterior Painting</a></li>
+            <li><a href="services.html#texture"      class="footer__link">Texture Finishes</a></li>
+            <li><a href="services.html#waterproofing" class="footer__link">Waterproofing</a></li>
+            <li><a href="services.html#ceiling"      class="footer__link">False Ceiling</a></li>
+            <li><a href="services.html#consultation" class="footer__link">Color Consultation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Contact Us</h3>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>A-12, Veera Desai Road, Andheri West, Mumbai — 400053</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+91 98200 00123</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>hello@renovacraft.in</span>
+          </div>
+          <p class="footer__col-title" style="margin-top:var(--sp-6)">Newsletter</p>
+          <div class="footer__newsletter">
+            <label for="footer-email" class="visually-hidden">Email address</label>
+            <input type="email" id="footer-email" class="footer__newsletter-input" placeholder="Your email">
+            <button class="footer__newsletter-btn">→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 RENOVA Artisan Painting & Renovation. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy-policy.html" class="footer__legal-link">Privacy Policy</a>
+          <a href="terms.html"          class="footer__legal-link">Terms of Service</a>
+          <a href="sitemap.html"        class="footer__legal-link">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/form.js"></script>
+  <script>
+    // ── Dynamic Blog Detail — show clicked card's image & content ──
+    const BLOG_POSTS = {
+      'paint-finish': {
+        cat: 'Painting Tips', title: 'How to Choose the Right Paint Finish for Every Room',
+        date: 'Aug 24, 2026', read: '5 min', views: '1.8K',
+        img: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1920&q=85',
+        thumb: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=800&q=80',
+        excerpt: 'Matte, eggshell, satin or gloss? Each finish has a distinct purpose — this guide helps you match the right finish to the right space.',
+        content: `
+          <p><strong>Choosing the right paint finish is as important as choosing the colour.</strong> The finish determines how light reflects, how durable the surface is, and how easily it can be cleaned — all critical for Mumbai homes.</p>
+          <h2 id="trend-1">1. Matte — Velvety & Sophisticated</h2><p>Matte has no shine, hiding wall imperfections beautifully. Perfect for bedrooms and living rooms where you want a soft, inviting look. Not ideal for high-traffic or wet areas.</p>
+          <h2 id="trend-2">2. Eggshell — The Versatile Middle</h2><p>With a subtle low sheen, eggshell is the most forgiving finish for most rooms. It offers a gentle glow, is more washable than matte, and works beautifully in living and dining areas.</p>
+          <h2 id="trend-3">3. Satin — Durable & Luminous</h2><p>Satin has a smooth, pearl-like sheen. Highly washable and moisture-resistant — ideal for kitchens, kids rooms and hallways. It reflects light, making small rooms feel brighter.</p>
+          <h2 id="trend-4">4. Gloss — Bold & Reflective</h2><p>High gloss is the most durable and reflective. Best reserved for trims, doors and accent details — it highlights imperfections, so surface prep must be flawless.</p>
+          <h2 id="how-to-use">How to Decide</h2><p>Use matte/eggshell for low-traffic living areas, satin for kitchens and hallways, and gloss only for details. Test swatches in your actual lighting before committing.</p>
+        `
+      },
+      'exterior-guide': {
+        cat: 'Renovation Guide', title: "The Complete Guide to Exterior Painting in Mumbai's Climate",
+        date: 'Aug 18, 2026', read: '7 min', views: '2.4K',
+        img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1920&q=85',
+        thumb: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80',
+        excerpt: "Mumbai's monsoons, heat and humidity demand special coatings and timing — here's everything you need to know.",
+        content: `
+          <p><strong>Exterior painting in Mumbai is not just cosmetic — it's protection.</strong> The city's coastal climate throws monsoon rain, intense UV and humidity at your walls year-round.</p>
+          <h2 id="trend-1">1. Timing Is Everything</h2><p>Paint only in dry months — October to May. Monsoon moisture trapped under paint causes peeling and fungus. Allow 48 hours of dry weather after the last rain.</p>
+          <h2 id="trend-2">2. Choose Weather-Shield Coatings</h2><p>Use 100% acrylic exterior emulsion with anti-fungal and UV-resistant properties. Look for 5-year waterproofing warranties and crack-bridging ability for Mumbai's expansion-contraction cycles.</p>
+          <h2 id="trend-3">3. Prep Like a Pro</h2><p>Pressure-wash, repair cracks with polymer-modified mortar, and apply a penetrating primer. Skipping prep is the #1 cause of exterior paint failure in coastal homes.</p>
+          <h2 id="trend-4">4. Maintenance Schedule</h2><p>Inspect every 12 months, touch up cracks immediately, and plan a full repaint every 5–7 years. Regular washing of exterior walls also extends coating life.</p>
+          <h2 id="how-to-use">Our Recommendation</h2><p>Book a free site visit — we assess your building's exposure, existing coating and recommend the right system with a written timeline and warranty.</p>
+        `
+      },
+      'biophilic': {
+        cat: 'Design Trends', title: 'Biophilic Design: How Nature-Inspired Palettes Transform Your Home',
+        date: 'Aug 10, 2026', read: '6 min', views: '1.9K',
+        img: 'https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?auto=format&fit=crop&w=1920&q=85',
+        thumb: 'https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?auto=format&fit=crop&w=800&q=80',
+        excerpt: 'Sage greens, terracotta and warm browns dominate biophilic design — learn how to bring the calm of nature indoors.',
+        content: `
+          <p><strong>Biophilic design connects your home to nature through colour, material and light.</strong> In Mumbai's dense urban context, this approach brings measurable calm.</p>
+          <h2 id="trend-1">1. Sage & Olive — The Calming Greens</h2><p>Muted sage and olive greens lower perceived stress and pair beautifully with light wood and linen. Use on a feature wall or in bedrooms for a restful retreat.</p>
+          <h2 id="trend-2">2. Terracotta & Clay — Earthy Warmth</h2><p>Terracotta grounds a space, adding warmth without heaviness. It works with both traditional wood furniture and modern minimal pieces.</p>
+          <h2 id="trend-3">3. Stone & Sand — Quiet Neutrals</h2><p>Warm stone greys and sand beiges let natural materials shine. They are the perfect backdrop for plants, art and textured textiles.</p>
+          <h2 id="trend-4">4. Layering the Palette</h2><p>Combine one dominant neutral (stone), one earthy accent (terracotta) and one natural green (sage) — add plants, wood and natural light for the full biophilic effect.</p>
+          <h2 id="how-to-use">Bring It Home</h2><p>Start with textiles and paint — a sage bedroom wall or terracotta living accent — then layer with plants and wood. Small changes, big calm.</p>
+        `
+      },
+      'mistakes': {
+        cat: 'DIY Tips', title: '10 Mistakes Homeowners Make When Painting — And How to Avoid Them',
+        date: 'Aug 3, 2026', read: '9 min', views: '2.8K',
+        img: 'https://picsum.photos/seed/renovapaint208/800/600',
+        thumb: 'https://picsum.photos/seed/renovapaint208/800/600',
+        excerpt: 'From skipping primer to choosing the wrong roller — avoid these common mistakes for a flawless finish.',
+        content: `
+          <p><strong>Even a small painting mistake can cost you a smooth, lasting finish.</strong> Here are the 10 most common errors we see — and how to avoid them.</p>
+          <h2 id="trend-1">1. Skipping Primer</h2><p>Primer ensures adhesion and true colour. Always prime, especially on new, repaired or dark surfaces.</p>
+          <h2 id="trend-2">2. Wrong Roller Nap</h2><p>Smooth walls need short nap (6mm), textured walls need long nap (13mm). Wrong nap = streaks or excess paint.</p>
+          <h2 id="trend-3">3. Painting in Humidity</h2><p>High humidity slows drying and causes bubbling. Paint in dry weather with ventilation.</p>
+          <h2 id="trend-4">4. Not Preparing Walls</h2><p>Clean, sand, fill cracks and mask properly. 80% of a perfect finish is in the prep.</p>
+          <h2 id="how-to-use">Pro Tip</h2><p>When in doubt, hire a professional for at least the first coat and prep — it saves repaint costs and ensures warranty coverage.</p>
+        `
+      },
+      'false-ceiling': {
+        cat: 'Interior Design', title: 'False Ceiling Designs That Make Your Rooms Look Taller & More Luxurious',
+        date: 'Jul 28, 2026', read: '6 min', views: '2.1K',
+        img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1920&q=85',
+        thumb: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80',
+        excerpt: 'The right false ceiling can dramatically increase perceived height and luxury — explore the top 8 designs for Mumbai homes.',
+        content: `
+          <p><strong>A well-designed false ceiling does more than hide wiring — it sculpts height, light and luxury.</strong> Here are the 8 designs transforming Mumbai apartments.</p>
+          <h2 id="trend-1">1. Cove Lighting Ceiling</h2><p>Recessed LED cove around the perimeter creates a floating effect and adds 6–8 inches of perceived height. Perfect for living rooms.</p>
+          <h2 id="trend-2">2. Tray Ceiling</h2><p>A stepped central recess adds depth and is ideal for dining areas. Paint the recess a slightly darker tone for drama.</p>
+          <h2 id="trend-3">3. Beam & Panel</h2><p>Faux wood beams or gypsum panels add architectural rhythm, especially in large living-dining combined spaces.</p>
+          <h2 id="trend-4">4. Minimal Flush</h2><p>A flat gypsum board with hidden lights is the modern, low-height-loss option for compact 2BHKs.</p>
+          <h2 id="how-to-use">Design Advice</h2><p>Match ceiling design to room height — low rooms need minimal depth and light colours; taller rooms can handle deeper trays and darker accents.</p>
+        `
+      },
+      'wall-prep': {
+        cat: 'Painting Tips', title: "Wall Preparation: The Step Most People Skip — But Shouldn't",
+        date: 'Jul 20, 2026', read: '5 min', views: '1.6K',
+        img: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=85',
+        thumb: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80',
+        excerpt: '80% of a perfect paint finish is in the preparation — cleaning, sanding, filling and priming.',
+        content: `
+          <p><strong>Preparation is the foundation of every lasting paint job.</strong> Skip it and even the most expensive paint will peel, bubble or look uneven.</p>
+          <h2 id="trend-1">1. Clean Thoroughly</h2><p>Wash walls with mild detergent to remove dust, grease and fungus. Let dry completely — 24 hours in humid weather.</p>
+          <h2 id="trend-2">2. Sand & Smooth</h2><p>Sand with 180-grit to key the surface, then wipe dust. This ensures new paint bonds mechanically.</p>
+          <h2 id="trend-3">3. Fill & Repair</h2><p>Fill cracks and holes with polymer-modified putty, sand again when dry, and spot-prime repairs so they don't flash through.</p>
+          <h2 id="trend-4">4. Prime Properly</h2><p>Use a penetrating wall primer on bare or repaired surfaces. It seals, equalizes suction and gives true top-coat colour.</p>
+          <h2 id="how-to-use">Checklist Before Painting</h2><p>Clean → Sand → Fill → Sand → Prime → Topcoat. Follow this sequence and your finish will stay flawless for years.</p>
+        `
+      }
+    };
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(location.search);
+      let postId = params.get('post') || localStorage.getItem('renova_last_post') || 'paint-finish';
+      if (!BLOG_POSTS[postId]) postId = 'paint-finish';
+      const post = BLOG_POSTS[postId];
+      localStorage.setItem('renova_last_post', postId);
+      // Update hero
+      const heroImg = document.querySelector('.article-hero__img');
+      if (heroImg) { heroImg.src = post.img; heroImg.alt = post.title; }
+      const heroCat = document.querySelector('.article-hero__content .blog-card__cat');
+      if (heroCat) heroCat.textContent = post.cat;
+      const heroTitle = document.querySelector('.article-hero__content h1');
+      if (heroTitle) heroTitle.textContent = post.title;
+      const metaItems = document.querySelector('.article-hero__meta-items');
+      if (metaItems) metaItems.innerHTML = `<span>${post.date}</span><span>·</span><span>${post.read} read</span><span>·</span><span>${post.views} views</span>`;
+      // Update article content
+      const articleContent = document.querySelector('.article-content');
+      if (articleContent) articleContent.innerHTML = post.content;
+      // Update page title & meta
+      document.title = post.title + ' — RENOVA Blog';
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', post.title);
+      const ogImg = document.querySelector('meta[property="og:image"]');
+      if (ogImg) ogImg.setAttribute('content', post.thumb);
+      // Store for related clicks
+      document.querySelectorAll('a[href^="blog-detail.html"]').forEach(a => {
+        if (!a.search) a.href = `blog-detail.html?post=${postId}`;
+      });
+    });
+    // Save clicked post to localStorage from blog.html
+    document.addEventListener('click', (e) => {
+      const card = e.target.closest('[data-post]');
+      if (card && card.dataset.post) localStorage.setItem('renova_last_post', card.dataset.post);
+      const link = e.target.closest('a[href*="blog-detail.html?post="]');
+      if (link) {
+        try { const u = new URL(link.href, location.origin); const p = u.searchParams.get('post'); if (p) localStorage.setItem('renova_last_post', p); } catch {}
+      }
+    });
+  </script>
+  <script>
+    // Reading Progress Bar
+    document.addEventListener('DOMContentLoaded', () => {
+      const bar = document.getElementById('readingProgress');
+      const article = document.querySelector('.article-content');
+      if (!bar || !article) return;
+      document.addEventListener('scroll', () => {
+        const rect  = article.getBoundingClientRect();
+        const total = article.offsetHeight;
+        const read  = Math.min(Math.max(-rect.top, 0), total);
+        bar.style.transform = `scaleX(${read / total})`;
+      }, { passive: true });
+    });
+  </script>
+</body>
+</html>

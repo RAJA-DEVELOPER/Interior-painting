@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#202124">
+  <meta name="msapplication-TileColor" content="#202124">
+  <title>About Us — RENOVA Painting & Renovation</title>
+  <meta name="description" content="Learn about RENOVA's 14-year journey as Mumbai's premier painting and renovation company. Meet our team, our values, and our story.">
+  <link rel="canonical" href="about.html">
+  <meta property="og:title" content="About RENOVA — Our Story & Team">
+  <meta property="og:image" content="https://picsum.photos/seed/renovapaint200/800/600">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/hero-center.css">
+  <link rel="stylesheet" href="assets/css/section-align.css">
+  <link rel="stylesheet" href="assets/css/visual-polish.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <style>
+    /* About-specific styles — hero now handled by hero-center.css luxury redesign */
+
+    .story-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-20);
+      align-items: center;
+    }
+    .story-img-stack {
+      position: relative;
+      height: 560px;
+    }
+    .story-img-main {
+      position: absolute;
+      width: 75%;
+      height: 440px;
+      right: 0; top: 0;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+    }
+    .story-img-accent {
+      position: absolute;
+      width: 55%;
+      height: 280px;
+      left: 0; bottom: 0;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 6px solid var(--bg);
+      box-shadow: var(--sh-lg);
+    }
+    .story-img-main img,
+    .story-img-accent img { width:100%;height:100%;object-fit:cover; }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--col-gap);
+    }
+    .value-card {
+      padding: var(--sp-8);
+      border-radius: var(--r-xl);
+      border: 1px solid var(--bd);
+      background: var(--bg-card);
+      transition: var(--tr);
+    }
+    .value-card:hover {
+      border-color: var(--ac);
+      box-shadow: var(--sh-md);
+      transform: translateY(-4px);
+    }
+    .value-icon {
+      width: 56px; height: 56px;
+      border-radius: var(--r-lg);
+      background: var(--ac-light);
+      color: var(--ac);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--sp-5);
+    }
+    .value-icon svg { width: 26px; height: 26px; }
+    .award-icon {
+      width: 64px; height: 64px;
+      border-radius: var(--r-lg);
+      background: var(--ac-light);
+      color: var(--ac);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--sp-4);
+    }
+    .award-icon svg { width: 30px; height: 30px; }
+    .award-icon--muted { background: var(--bg-muted); }
+    .value-title {
+      font-family: var(--serif);
+      font-size: var(--fs-22);
+      color: var(--tx-1);
+      margin-bottom: var(--sp-3);
+    }
+    .value-desc {
+      font-size: var(--fs-14);
+      color: var(--tx-3);
+      line-height: var(--lh-relaxed);
+    }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--col-gap);
+    }
+    .award-item {
+      text-align: center;
+      padding: var(--sp-8) var(--sp-6);
+      border: 1px solid var(--bd);
+      border-radius: var(--r-xl);
+      background: var(--bg-card);
+    }
+    .award-year {
+      font-size: var(--fs-11);
+      font-weight: var(--fw-semi);
+      letter-spacing: var(--ls-widest);
+      color: var(--ac);
+      text-transform: uppercase;
+      margin-bottom: var(--sp-3);
+    }
+    .award-title {
+      font-family: var(--serif);
+      font-size: var(--fs-20);
+      color: var(--tx-1);
+      margin-bottom: var(--sp-2);
+    }
+    .award-org {
+      font-size: var(--fs-13);
+      color: var(--tx-3);
+    }
+
+    @media (max-width: 1024px) {
+      .values-grid { grid-template-columns: repeat(2,1fr); }
+      .awards-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 768px) {
+      .story-split { grid-template-columns: 1fr; }
+      .story-img-stack { height: 360px; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .awards-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .awards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__logo">RENOVA</div>
+      <div class="preloader__bar"></div>
+    </div>
+  </div>
+  <div class="page-transition" aria-hidden="true"></div>
+
+  <a href="https://wa.me/919820000123" class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+  </button>
+
+  <!-- NAVBAR -->
+  <header class="navbar transparent" id="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="nav-logo" aria-label="RENOVA Home"><span class="nav-logo__mark" aria-hidden="true"><img src="assets/img/logo-mark.svg" alt="" width="38" height="38" loading="eager" decoding="async"></span><span class="nav-logo__text">RENO<span>VA</span></span></a>
+
+      <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+        <a href="index.html"    class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">home2</a>
+        <a href="about.html"   class="nav-link active">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html"    class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="rtl-toggle" id="rtlToggle" aria-label="Switch to Right-to-Left" title="RTL" aria-pressed="false">RTL</button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="contact.html" class="btn btn-primary btn-sm" id="navCta">Free Quote</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <nav class="nav-overlay__links" aria-label="Mobile navigation">
+      <a href="index.html"    class="nav-overlay__link">Home</a>
+      <a href="home2.html"   class="nav-overlay__link">home2</a>
+      <a href="about.html"   class="nav-overlay__link">About</a>
+      <a href="services.html" class="nav-overlay__link">Services</a>
+      <a href="blog.html"    class="nav-overlay__link">Blog</a>
+      <a href="contact.html" class="nav-overlay__link">Contact</a>
+    </nav>
+    <div class="nav-overlay__btn">
+      <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ══ SECTION 1: EDITORIAL HERO — LUXURY REDESIGN ══ -->
+    <section class="about-hero" id="about-hero" aria-label="About RENOVA hero">
+      <div class="about-hero__bg">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=85"
+             alt="RENOVA luxury interior — crafted walls and warm light" loading="eager" decoding="async"
+             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=85'">
+        <div class="about-hero__overlay"></div>
+        <div class="about-hero__orb" aria-hidden="true"></div>
+      </div>
+      <div class="container about-hero__content">
+        <div class="about-hero__inner">
+          <span class="eyebrow-pill">Our Story — Since 2012 · Mumbai</span>
+          <h1>We Don't Just Paint Walls —<br>We Craft <em>Experiences</em></h1>
+          <p>Fourteen years of artisanal excellence, thousands of transformed homes, and one unwavering commitment — your space deserves the best.</p>
+          <div class="about-hero__stats" aria-label="Key achievements">
+            <div class="about-hero__stat">
+              <strong>14<span>+</span></strong>
+              <em>Years</em>
+            </div>
+            <div class="about-hero__stat-sep" aria-hidden="true"></div>
+            <div class="about-hero__stat">
+              <strong>4.2K<span>+</span></strong>
+              <em>Projects</em>
+            </div>
+            <div class="about-hero__stat-sep" aria-hidden="true"></div>
+            <div class="about-hero__stat">
+              <strong>80<span>+</span></strong>
+              <em>Artisans</em>
+            </div>
+            <div class="about-hero__stat-sep" aria-hidden="true"></div>
+            <div class="about-hero__stat">
+              <strong>4.9<span>★</span></strong>
+              <em>Rating</em>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-hero__scroll" aria-hidden="true">
+        <span>Discover our journey</span>
+        <span class="about-hero__scroll-line"></span>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 2: OUR STORY ══ -->
+    <section class="section" id="story" aria-label="Our story">
+      <div class="container">
+        <div class="story-split">
+          <div class="story-img-stack reveal-left">
+            <div class="story-img-main hover-img">
+              <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=700&q=80"
+                   alt="RENOVA master painter applying premium finish" loading="lazy">
+            </div>
+            <div class="story-img-accent">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=80"
+                   alt="Skilled craftsman working on detailed renovation" loading="lazy">
+            </div>
+          </div>
+          <div class="reveal-right">
+            <p class="sec-counter">01 / Our Story</p>
+            <p class="eyebrow">Founded 2012</p>
+            <h2 class="sec-title">From a Single Brush<br>to Mumbai's Most<br><em>Trusted Name</em></h2>
+            <p style="font-size:var(--fs-17);color:var(--tx-2);line-height:var(--lh-relaxed);margin-bottom:var(--sp-6)">
+              RENOVA began in 2012 when Rajiv Menon — a young civil engineer with an obsession for beautiful spaces — completed his first apartment renovation in Andheri. Armed with premium materials, obsessive attention to detail, and a small team of skilled painters, word spread fast.
+            </p>
+            <p style="font-size:var(--fs-17);color:var(--tx-2);line-height:var(--lh-relaxed);margin-bottom:var(--sp-8)">
+              Today, RENOVA is Mumbai's most sought-after painting and renovation brand, trusted by homeowners, architects, interior designers and corporate clients alike. Over 4,200 projects. Zero compromises.
+            </p>
+            <div class="story-stats-row">
+              <div class="story-stat-item">
+                <div class="story-stat-num">14</div>
+                <div class="story-stat-label">Years</div>
+              </div>
+              <div class="story-stat-divider"></div>
+              <div class="story-stat-item">
+                <div class="story-stat-num">80+</div>
+                <div class="story-stat-label">Artisans</div>
+              </div>
+              <div class="story-stat-divider"></div>
+              <div class="story-stat-item">
+                <div class="story-stat-num">4.2k</div>
+                <div class="story-stat-label">Projects</div>
+              </div>
+            </div>
+            <a href="contact.html" class="btn btn-primary">Work With Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 3: CORE VALUES ══ -->
+    <section class="section bg-alt" id="values" aria-label="Our core values">
+      <div class="container">
+        <div class="sec-header center reveal">
+          <p class="sec-counter">02 / Values</p>
+          <p class="eyebrow">What We Stand For</p>
+          <h2 class="sec-title">Built on Four<br>Unshakeable Pillars</h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-card reveal delay-1">
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+            <h3 class="value-title">Precision</h3>
+            <p class="value-desc">Every edge, every corner, every surface treated with the same meticulous care. We measure twice, paint once, and never cut corners.</p>
+          </div>
+          <div class="value-card reveal delay-2">
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7 7a2.41 2.41 0 0 0 3.41 0l7-7a2.41 2.41 0 0 0 0-3.41l-7-7a2.41 2.41 0 0 0-3.41 0l-7 7z"/><path d="M12 2v21"/><path d="M2 10h20"/><path d="M7 3 12 10 17 3"/></svg></span>
+            <h3 class="value-title">Quality</h3>
+            <p class="value-desc">We use only premium paints, primers and materials from trusted brands. Quality that looks beautiful today and stands strong for decades.</p>
+          </div>
+          <div class="value-card reveal delay-3">
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <h3 class="value-title">Integrity</h3>
+            <p class="value-desc">Transparent pricing, honest timelines, and no hidden costs. Our clients know exactly what they're getting before we begin.</p>
+          </div>
+          <div class="value-card reveal delay-4">
+            <span class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 7 7c0 3-1.5 5-4 6.5V18H9v-2.5C6.5 14 5 12 5 9a7 7 0 0 1 7-7z"/><path d="M5 3v4M3 5h4M19 13v2M21 14h-2"/></svg></span>
+            <h3 class="value-title">Artistry</h3>
+            <p class="value-desc">We approach every project as artists, not just contractors. The result is always more than paint on a wall — it's a transformed space.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 4: TIMELINE ══ -->
+    <section class="section" id="journey" aria-label="Company journey timeline">
+      <div class="container container-narrow">
+        <div class="sec-header center reveal">
+          <p class="sec-counter">03 / Journey</p>
+          <p class="eyebrow">Our Milestones</p>
+          <h2 class="sec-title">A Decade of<br>Growth & Excellence</h2>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+
+          <!-- Timeline items alternate left/right -->
+          <div class="timeline-row">
+            <div class="timeline-content reveal-left">
+              <div class="timeline-year">2012</div>
+              <h3 class="timeline-title">The Beginning</h3>
+              <p class="timeline-desc">Rajiv Menon completes first 3BHK renovation in Andheri. RENOVA is born with 3 painters and a vision.</p>
+            </div>
+            <div class="timeline-dot" style="margin:auto"></div>
+            <div></div>
+          </div>
+
+          <div class="timeline-row">
+            <div></div>
+            <div class="timeline-dot" style="margin:auto"></div>
+            <div class="timeline-content reveal-right">
+              <div class="timeline-year">2015</div>
+              <h3 class="timeline-title">100th Project Milestone</h3>
+              <p class="timeline-desc">Completed our 100th project and launched the Texture Finishes service line, bringing Venetian plaster to Mumbai.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-content reveal-left">
+              <div class="timeline-year">2018</div>
+              <h3 class="timeline-title">Commercial Expansion</h3>
+              <p class="timeline-desc">First major corporate contract with a Fortune 500 company. RENOVA enters the commercial renovation segment.</p>
+            </div>
+            <div class="timeline-dot" style="margin:auto"></div>
+            <div></div>
+          </div>
+
+          <div class="timeline-row">
+            <div></div>
+            <div class="timeline-dot" style="margin:auto"></div>
+            <div class="timeline-content reveal-right">
+              <div class="timeline-year">2021</div>
+              <h3 class="timeline-title">1000+ Projects</h3>
+              <p class="timeline-desc">A landmark year — 1000+ completed projects, 4.9-star Google rating, and launch of our Colour Consultation studio.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-content reveal-left">
+              <div class="timeline-year">2024</div>
+              <h3 class="timeline-title">Best Contractor Award</h3>
+              <p class="timeline-desc">Named Best Painting Contractor at the Mumbai Home Expo 2024. Now serving 4,200+ projects across the city.</p>
+            </div>
+            <div class="timeline-dot" style="margin:auto"></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 5: AWARDS & CERTIFICATIONS ══ -->
+    <section class="section bg-alt" id="awards" aria-label="Awards and certifications">
+      <div class="container">
+        <div class="sec-header center reveal">
+          <p class="sec-counter">04 / Recognition</p>
+          <p class="eyebrow">Awards & Certifications</p>
+          <h2 class="sec-title">Excellence Recognised<br>by the Industry</h2>
+        </div>
+        <div class="awards-grid">
+          <div class="award-item reveal delay-1">
+            <div class="award-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v9a6 6 0 0 0 12 0V2Z"/></svg></div>
+            <div class="award-year">2025</div>
+            <div class="award-title">Best Contractor</div>
+            <div class="award-org">Mumbai Home Expo</div>
+          </div>
+          <div class="award-item reveal delay-2">
+            <div class="award-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="award-year">2024</div>
+            <div class="award-title">4.9-Star Rating</div>
+            <div class="award-org">Google · 840+ Reviews</div>
+          </div>
+          <div class="award-item reveal delay-3">
+            <div class="award-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div class="award-year">2023</div>
+            <div class="award-title">ISO 9001:2015</div>
+            <div class="award-org">Quality Management System</div>
+          </div>
+          <div class="award-item reveal delay-4">
+            <div class="award-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+            <div class="award-year">2022</div>
+            <div class="award-title">Asiapaint Preferred</div>
+            <div class="award-org">Asian Paints Partner Network</div>
+          </div>
+          <div class="award-item reveal delay-1">
+            <div class="award-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15"/><circle cx="12" cy="18" r="4"/><path d="M8 14h8"/></svg></div>
+            <div class="award-year">2021</div>
+            <div class="award-title">Contractor of the Year</div>
+            <div class="award-org">Maharashtra Builders Guild</div>
+          </div>
+          <div class="award-item reveal delay-2">
+            <div class="award-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div class="award-year">2020</div>
+            <div class="award-title">Fully Insured</div>
+            <div class="award-org">Workers & Property Coverage</div>
+          </div>
+          <div class="award-item reveal delay-3">
+            <div class="award-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+            <div class="award-year">2023</div>
+            <div class="award-title">Green Certified</div>
+            <div class="award-org">Low-VOC Paint Specialist</div>
+          </div>
+          <div class="award-item reveal delay-4">
+            <div class="award-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="6" rx="2"/><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 10h20"/></svg></div>
+            <div class="award-year">2019</div>
+            <div class="award-title">MSME Registered</div>
+            <div class="award-org">Ministry of MSME, India</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 6: MEET THE TEAM ══ -->
+    <section class="section" id="team" aria-label="Meet the team">
+      <div class="container">
+        <div class="sec-header-split">
+          <div>
+            <p class="sec-counter reveal">05 / Team</p>
+            <p class="eyebrow reveal">Meet the People</p>
+            <h2 class="sec-title reveal" style="margin-bottom:0">The Artisans<br>Behind the Work</h2>
+          </div>
+          <a href="contact.html" class="btn btn-secondary reveal">Join Our Team ↗</a>
+        </div>
+        <div class="team-grid">
+          <article class="team-card reveal delay-1">
+            <div class="team-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80"
+                   alt="Rajiv Menon — Founder & CEO" loading="lazy">
+              <div class="team-card__overlay">
+                <div class="team-card__socials">
+                  <a href="#" class="team-card__social" aria-label="LinkedIn">in</a>
+                  <a href="#" class="team-card__social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <h3 class="team-card__name">Rajiv Menon</h3>
+            <p class="team-card__role">Founder & CEO</p>
+          </article>
+          <article class="team-card reveal delay-2">
+            <div class="team-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80"
+                   alt="Ananya Krishnan — Creative Director" loading="lazy">
+              <div class="team-card__overlay">
+                <div class="team-card__socials">
+                  <a href="#" class="team-card__social" aria-label="LinkedIn">in</a>
+                  <a href="#" class="team-card__social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <h3 class="team-card__name">Ananya Krishnan</h3>
+            <p class="team-card__role">Creative Director</p>
+          </article>
+          <article class="team-card reveal delay-3">
+            <div class="team-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80"
+                   alt="Suresh Patil — Head of Operations" loading="lazy">
+              <div class="team-card__overlay">
+                <div class="team-card__socials">
+                  <a href="#" class="team-card__social" aria-label="LinkedIn">in</a>
+                </div>
+              </div>
+            </div>
+            <h3 class="team-card__name">Suresh Patil</h3>
+            <p class="team-card__role">Head of Operations</p>
+          </article>
+          <article class="team-card reveal delay-4">
+            <div class="team-card__img-wrap">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=500&q=80"
+                   alt="Meera Joshi — Senior Colour Consultant" loading="lazy">
+              <div class="team-card__overlay">
+                <div class="team-card__socials">
+                  <a href="#" class="team-card__social" aria-label="LinkedIn">in</a>
+                  <a href="#" class="team-card__social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <h3 class="team-card__name">Meera Joshi</h3>
+            <p class="team-card__role">Senior Colour Consultant</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="footer__brand-logo" aria-label="RENOVA Home"><span class="footer__brand-mark" aria-hidden="true"><img src="assets/img/logo-mark-light.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span>RENO<span>VA</span></span></a>
+          <p class="footer__tagline">Artisan painting and home renovation services across Mumbai. Where walls find their story.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://wa.me/919820000123" class="footer__social" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Quick Links</h3>
+          <ul class="footer__links">
+            <li><a href="index.html"    class="footer__link">Home</a></li>
+            <li><a href="home2.html"    class="footer__link">home2</a></li>
+            <li><a href="about.html"    class="footer__link">About Us</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="blog.html"     class="footer__link">Blog</a></li>
+            <li><a href="contact.html"  class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Our Services</h3>
+          <ul class="footer__links">
+            <li><a href="services.html#interior"     class="footer__link">Interior Painting</a></li>
+            <li><a href="services.html#exterior"     class="footer__link">Exterior Painting</a></li>
+            <li><a href="services.html#texture"      class="footer__link">Texture Finishes</a></li>
+            <li><a href="services.html#waterproofing" class="footer__link">Waterproofing</a></li>
+            <li><a href="services.html#ceiling"      class="footer__link">False Ceiling</a></li>
+            <li><a href="services.html#consultation" class="footer__link">Color Consultation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Contact Us</h3>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>A-12, Veera Desai Road, Andheri West, Mumbai — 400053</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+91 98200 00123</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>hello@renovacraft.in</span>
+          </div>
+          <p class="footer__col-title" style="margin-top:var(--sp-6)">Newsletter</p>
+          <div class="footer__newsletter">
+            <label for="footer-email" class="visually-hidden">Email address</label>
+            <input type="email" id="footer-email" class="footer__newsletter-input" placeholder="Your email">
+            <button class="footer__newsletter-btn">→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 RENOVA Artisan Painting & Renovation. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy-policy.html" class="footer__legal-link">Privacy Policy</a>
+          <a href="terms.html"          class="footer__legal-link">Terms of Service</a>
+          <a href="sitemap.html"        class="footer__legal-link">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>
