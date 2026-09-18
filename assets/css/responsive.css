@@ -19,6 +19,7 @@
   .nav-logo__mark { width: 34px !important; height: 34px !important; }
   .nav-logo__text { font-size: 22px !important; }
   #navCta { padding: 8px 16px !important; font-size: 11px !important; }
+  .nav-login { padding: 8px 14px !important; font-size: 11px !important; }
   .rtl-toggle, .theme-toggle { width: 36px !important; height: 36px !important; font-size: 10px !important; }
   .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .pricing-grid { grid-template-columns: repeat(2, 1fr) !important; }
@@ -35,8 +36,19 @@
   .split-hero { grid-template-columns: 1fr !important; }
   .split-hero__left { padding: calc(var(--nav-h) + 24px) var(--gutter) 32px !important; }
   .split-hero__right { padding: 16px !important; }
-  .split-hero__media { height: 52vh !important; min-height: 380px !important; }
-  .about-hero { min-height: 80vh !important; }
+  /* Uniform hero height — overrides individual heights (hero-center.css) */
+  .hero-slider,
+  .about-hero,
+  .services-hero,
+  .split-hero,
+  .contact-hero,
+  .blog-masthead,
+  .article-hero,
+  .sitemap-hero,
+  .legal-hero {
+    min-height: clamp(520px, 78vh, 760px) !important;
+  }
+  .split-hero__media { height: clamp(340px, 56vh, 520px) !important; min-height: 340px !important; }
   .contact-hero__grid, .blog-masthead__grid { grid-template-columns: 1fr !important; gap: 24px !important; }
   .social-proof-grid, .proof-lux__grid, .newsletter-lux__grid { grid-template-columns: 1fr !important; gap: 28px !important; }
   .process-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px !important; }
@@ -57,6 +69,7 @@
   .nav-logo__text { font-size: 20px !important; }
   .nav-actions { gap: 6px !important; }
   #navCta { display: none !important; } /* hide Free Quote on tablet, keep in overlay */
+  .nav-login { padding: 8px 14px !important; font-size: 11px !important; }
   .rtl-toggle, .theme-toggle { width: 34px !important; height: 34px !important; }
   .hamburger { width: 34px !important; height: 34px !important; }
   .nav-overlay__link { font-size: 28px !important; }
@@ -103,7 +116,19 @@
   .values-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .about-hero__stats { gap: 0; padding: 10px 12px; }
   .about-hero__stat strong { font-size: 20px; }
-  .split-hero__media { height: 48vh !important; min-height: 340px !important; border-radius: 20px !important; }
+  /* Uniform hero height — tablet */
+  .hero-slider,
+  .about-hero,
+  .services-hero,
+  .split-hero,
+  .contact-hero,
+  .blog-masthead,
+  .article-hero,
+  .sitemap-hero,
+  .legal-hero {
+    min-height: clamp(480px, 72vh, 640px) !important;
+  }
+  .split-hero__media { height: clamp(320px, 48vh, 420px) !important; min-height: 300px !important; border-radius: 20px !important; }
   .split-hero__badge { padding: 10px 14px !important; }
   .proof-bento { grid-template-columns: 1fr !important; }
   .newsletter-card-lux, .newsletter-card-lux2 { padding: 20px !important; border-radius: 20px !important; }
@@ -122,6 +147,7 @@
   .nav-logo__text { font-size: 18px !important; }
   .nav-actions { gap: 6px !important; }
   .rtl-toggle, .theme-toggle { width: 32px !important; height: 32px !important; font-size: 9px !important; }
+  .nav-login { padding: 7px 12px !important; font-size: 10px !important; }
   .hamburger { width: 32px !important; height: 32px !important; }
   .nav-overlay__link { font-size: 24px !important; }
   .sec-title { font-size: clamp(1.45rem, 7vw, 2rem); }
@@ -134,7 +160,19 @@
   .split-hero__stats { flex-wrap: wrap; gap: 0; }
   .split-hero__stat { flex: 1 1 30%; min-width: 80px; padding-right: 8px; }
   .split-hero__stat strong { font-size: 22px; }
-  .split-hero__media { height: 42vh !important; min-height: 300px !important; border-radius: 18px !important; }
+  /* Uniform hero height — small tablet */
+  .hero-slider,
+  .about-hero,
+  .services-hero,
+  .split-hero,
+  .contact-hero,
+  .blog-masthead,
+  .article-hero,
+  .sitemap-hero,
+  .legal-hero {
+    min-height: clamp(420px, 66vh, 560px) !important;
+  }
+  .split-hero__media { height: clamp(280px, 42vh, 360px) !important; min-height: 280px !important; border-radius: 18px !important; }
   .team-grid { grid-template-columns: 1fr !important; }
   .topics-grid { grid-template-columns: 1fr !important; }
   .awards-grid, .awards-lux__grid { grid-template-columns: 1fr !important; }
@@ -182,6 +220,8 @@
   .navbar__inner { gap: 6px !important; }
   .nav-logo__mark { width: 28px !important; height: 28px !important; }
   .nav-logo__text { font-size: 16px !important; }
+  .footer__brand-logo { font-size: 16px !important; }
+  .footer__brand-mark { width: 28px !important; height: 28px !important; }
   .rtl-toggle, .theme-toggle { width: 30px !important; height: 30px !important; font-size: 9px !important; }
   .hamburger { width: 30px !important; height: 30px !important; }
   .hamburger span { width: 18px !important; }
@@ -210,6 +250,8 @@
   .nav-logo { gap: 6px !important; }
   .nav-logo__mark { width: 26px !important; height: 26px !important; }
   .nav-logo__text { font-size: 15px !important; letter-spacing: 0.04em !important; }
+  .footer__brand-logo { font-size: 15px !important; }
+  .footer__brand-mark { width: 26px !important; height: 26px !important; }
   .nav-actions { gap: 4px !important; }
   .rtl-toggle, .theme-toggle { width: 28px !important; height: 28px !important; font-size: 8px !important; }
   .hamburger { width: 28px !important; height: 28px !important; }
@@ -219,7 +261,19 @@
   .sec-subtitle { font-size: 13px; line-height: 1.6; }
   .eyebrow, .eyebrow-pill { font-size: 8.5px; letter-spacing: 0.11em; }
   .split-hero__left { padding: calc(var(--nav-h) + 16px) var(--gutter) 24px !important; }
-  .split-hero__media { height: 38vh !important; min-height: 260px !important; border-radius: 16px !important; }
+  /* Uniform hero height — mobile */
+  .hero-slider,
+  .about-hero,
+  .services-hero,
+  .split-hero,
+  .contact-hero,
+  .blog-masthead,
+  .article-hero,
+  .sitemap-hero,
+  .legal-hero {
+    min-height: clamp(400px, 62vh, 520px) !important;
+  }
+  .split-hero__media { height: clamp(260px, 38vh, 320px) !important; min-height: 260px !important; border-radius: 16px !important; }
   .split-hero__float--top { padding: 10px 12px; }
   .split-hero__float-title { font-size: 12px; }
   .split-hero__badge { padding: 10px 12px !important; }
@@ -241,7 +295,8 @@
   .highlight-card__body h3 { font-size: 16px !important; }
   .highlight-card__body p { font-size: 13px !important; }
   .footer__grid { gap: 18px !important; }
-  .footer__brand-logo { font-size: 22px; }
+  .footer__brand-logo { font-size: 15px; }
+  .footer__brand-mark { width: 26px; height: 26px; }
   .btn { font-size: 11.5px; letter-spacing: 0.06em; }
   .filter-bar { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; max-width: 100% !important; gap: 6px !important; }
   .filter-bar::-webkit-scrollbar { display: none; }
@@ -374,6 +429,11 @@
   .container, .container-narrow { max-width: 100% !important; min-width: 0 !important; width: 100% !important; padding-inline: 14px !important; box-sizing: border-box !important; margin-inline: auto !important; }
   .container-narrow { max-width: 100% !important; }
   #journey .container-narrow { display: flex !important; flex-direction: column !important; align-items: stretch !important; }
+  /* About journey — 768 container fix (was out of container) */
+  .timeline-container { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; padding-inline: 0 !important; }
+  .timeline-row { width: 100% !important; max-width: 100% !important; min-width: 0 !important; box-sizing: border-box !important; gap: var(--sp-4) !important; }
+  .timeline-content { min-width: 0 !important; max-width: 100% !important; width: 100% !important; box-sizing: border-box !important; overflow-wrap: break-word !important; word-break: break-word !important; }
+  .timeline-year, .timeline-title, .timeline-desc { max-width: 100% !important; overflow-wrap: break-word !important; }
   /* blog-layout — clean stacked flex for perfect alignment */
   #articles .blog-layout,
   .blog-layout { display: flex !important; flex-direction: column !important; gap: 24px !important; min-width: 0 !important; max-width: 100% !important; width: 100% !important; align-items: stretch !important; }

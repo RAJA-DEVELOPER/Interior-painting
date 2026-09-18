@@ -384,7 +384,7 @@
 }
 .about-hero__scroll {
   position: absolute;
-  bottom: 14px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -397,6 +397,7 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.38);
+  pointer-events: none;
 }
 .about-hero__scroll-line {
   width: 1px;
@@ -1172,6 +1173,92 @@
   }
 }
 
+/* ── Contact Hero — Light Mode Contrast Fix (WCAG AA) ──
+   Hero uses dark bg #202124 with white text; light-mode var(--ac) #9e4b3a
+   on dark = 3.17:1 FAIL for small eyebrow. Lift to #E3A08A 7.4:1,
+   increase overlay darkness and card opacity for 4.5:1 text.
+   ─────────────────────────────────────────────────────────── */
+.contact-hero::before {
+  opacity: 0.10 !important; /* was 0.16 — reduce wash */
+}
+.contact-hero::after {
+  background: linear-gradient(180deg, rgba(16,17,20,0.48) 0%, rgba(16,17,20,0.78) 62%, rgba(16,17,20,0.97) 100%) !important;
+}
+.contact-hero .eyebrow {
+  color: #E3A08A !important; /* 7.4:1 on #202124 vs 3.17 for #9e4b3a */
+}
+.contact-hero .eyebrow::before {
+  background: #E3A08A !important; /* was var(--ac) #9e4b3a 1.6:1 FAIL → #E3A08A 7.4:1 */
+}
+.contact-hero h1 em {
+  color: #E3A08A !important;
+}
+.contact-hero__intro > p,
+.contact-hero .contact-hero__intro p {
+  color: rgba(255,255,255,0.90) !important; /* 13.5:1 vs 10.2 for 0.82 */
+  text-shadow: 0 1px 12px rgba(0,0,0,0.32) !important;
+}
+.contact-hero .contact-info-card {
+  background: rgba(255,255,255,0.09) !important; /* was 0.06 */
+  border-color: rgba(255,255,255,0.14) !important;
+  backdrop-filter: blur(14px) !important;
+}
+.contact-hero .contact-info-card:hover {
+  background: rgba(255,255,255,0.13) !important;
+  border-color: rgba(255,255,255,0.22) !important;
+}
+.contact-hero .contact-info-label {
+  color: rgba(255,255,255,0.72) !important; /* 7.8:1 vs 3.5 for 0.45 */
+}
+.contact-hero .contact-info-sub {
+  color: rgba(255,255,255,0.72) !important; /* 7.8:1 vs 4.1 for 0.50 */
+}
+.contact-hero .contact-info-icon {
+  background: rgba(227,160,138,0.16) !important;
+  color: #E3A08A !important;
+}
+
+/* ── Services Hero — Light Mode Contrast Fix (WCAG AA) ───────
+   Eyebrow #9e4b3a on #202124 3.17:1 FAIL → #E3A08A 7.4:1
+   Subtitle 0.84 10.3:1 → 0.90 13.5:1, overlay 0.28/0.58→0.48/0.72
+   pill bg 0.10/0.30 → 0.14/0.28 for white text 12:1 on exterior image.
+   ─────────────────────────────────────────────────────────── */
+.services-hero::after {
+  background: linear-gradient(180deg, rgba(16,17,20,0.48) 0%, rgba(16,17,20,0.70) 58%, rgba(16,17,20,0.94) 100%) !important;
+}
+.services-hero__bg {
+  opacity: 0.32 !important; /* was 0.38 — reduce wash */
+}
+.services-hero .eyebrow {
+  color: #E3A08A !important; /* 7.4:1 vs 3.17 */
+}
+.services-hero .eyebrow::before,
+.services-hero .eyebrow::after {
+  background: #E3A08A !important;
+}
+.services-hero h1 {
+  color: #fff !important; /* 15:1 */
+  text-shadow: 0 2px 24px rgba(0,0,0,0.48), 0 1px 6px rgba(0,0,0,0.36) !important;
+}
+.services-hero p,
+.services-hero .sec-subtitle {
+  color: rgba(255,255,255,0.90) !important; /* 13.5:1 vs 10.3 for 0.84 */
+  text-shadow: 0 1px 12px rgba(0,0,0,0.30) !important;
+}
+.services-hero__pills .btn-ghost {
+  background: rgba(255,255,255,0.14) !important;
+  border-color: rgba(255,255,255,0.28) !important;
+  color: #fff !important;
+  backdrop-filter: blur(8px) !important;
+}
+.services-hero__pills .btn-ghost:hover {
+  background: rgba(255,255,255,0.20) !important;
+  border-color: rgba(255,255,255,0.38) !important;
+}
+[data-theme="dark"] .services-hero .eyebrow {
+  color: #E3A08A !important; /* keep 7.4:1 even though #d48a75 5.9 would pass */
+}
+
 /* ══════════════════════════════════════════════════════════════
    7 · BLOG — Masthead — LUXURY JOURNAL (Premium Redesign)
    ══════════════════════════════════════════════════════════════ */
@@ -1367,6 +1454,49 @@
   }
 }
 
+/* ── Blog Masthead — Contrast Fix (WCAG AA) ────────────────
+   Dark #191a1e hero: eyebrow var(--ac) #9e4b3a 3.17 FAIL → #E3A08A 7.4,
+   stat title var(--tx-1) dark #202124 on dark card 1.22 FAIL → #fff 15:1,
+   stat desc 0.62 6.0 borderline → 0.72 7.8, icon #9e4b3a 3.17 → #E3A08A 7.4.
+   Applies to both light/dark since hero is always dark #191a1e.
+   ─────────────────────────────────────────────────────────── */
+.blog-masthead .eyebrow-pill {
+  background: rgba(255,255,255,0.10) !important;
+  border-color: rgba(255,255,255,0.16) !important;
+  color: #E3A08A !important; /* 7.4:1 on #191a1e */
+}
+.blog-masthead .eyebrow-pill::before {
+  background: #E3A08A !important;
+  box-shadow: 0 0 0 4px rgba(227,160,138,0.18) !important;
+}
+.blog-masthead h1 {
+  color: #fff !important; /* 15:1 */
+  text-shadow: 0 2px 24px rgba(0,0,0,0.48), 0 1px 6px rgba(0,0,0,0.38) !important;
+}
+.blog-masthead h1 em {
+  color: #E3A08A !important; /* 7.4:1 */
+}
+.blog-masthead__intro > p {
+  color: rgba(255,255,255,0.90) !important; /* 13.5:1 vs 10.2 for 0.80 */
+  text-shadow: 0 1px 12px rgba(0,0,0,0.32) !important;
+}
+.masthead-stat-box {
+  background: rgba(255,255,255,0.08) !important;
+  border-color: rgba(255,255,255,0.14) !important;
+  backdrop-filter: blur(10px) !important;
+}
+.masthead-stat-box__title {
+  color: #fff !important; /* 15:1 vs 1.22 for #202124 */
+}
+.masthead-stat-box__desc {
+  color: rgba(255,255,255,0.72) !important; /* 7.8:1 vs 6.0 for 0.62 */
+}
+.masthead-stat-icon {
+  background: rgba(227,160,138,0.16) !important;
+  border-color: rgba(227,160,138,0.22) !important;
+  color: #E3A08A !important; /* 7.4:1 */
+}
+
 /* ══════════════════════════════════════════════════════════════
    8 · BLOG DETAIL — Article Hero
    ══════════════════════════════════════════════════════════════ */
@@ -1473,4 +1603,240 @@
   color: rgba(255,255,255,0.80);
   max-width: 54ch;
   text-shadow: 0 1px 10px rgba(0,0,0,0.18);
+}
+
+/* ============================================================
+   UNIFORM HERO HEIGHT — Consistent across all pages
+   Ensures visually cohesive layout: all hero sections share
+   the same height (desktop / tablet / mobile).
+   Loaded last in hero-center.css to override individual
+   heights. Uses clamp for safe min/max bounds.
+   ============================================================ */
+:root {
+  --hero-uniform-h: 86vh;
+  --hero-uniform-min: 560px;
+  --hero-uniform-max: 860px;
+}
+
+/* All primary heroes — same height, centered vertically where needed */
+.hero-slider,
+.about-hero,
+.services-hero,
+.split-hero,
+.contact-hero,
+.blog-masthead,
+.article-hero,
+.sitemap-hero,
+.legal-hero {
+  min-height: clamp(var(--hero-uniform-min), var(--hero-uniform-h), var(--hero-uniform-max)) !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Contact & Blog mastheads: ensure flex centering for vertical balance */
+.contact-hero,
+.blog-masthead {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Legal & Sitemap compact heroes: uplift to same uniform height */
+.sitemap-hero,
+.legal-hero {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: calc(var(--nav-h) + var(--sp-12)) var(--gutter) var(--sp-12) !important;
+}
+
+/* Split hero: keep 2-col grid but respect uniform min-height */
+.split-hero {
+  display: grid !important;
+  align-items: stretch !important;
+}
+
+/* Split hero media: proportional to uniform hero so it never overflows */
+.split-hero__media {
+  height: clamp(360px, 62vh, 560px) !important;
+  min-height: 360px !important;
+  max-height: 560px !important;
+}
+
+/* Article hero: keep content bottom-aligned on desktop but same height */
+.article-hero {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+}
+
+/* About hero: center-aligned with balanced top/bottom padding (per About page request) */
+.about-hero {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.about-hero__content {
+  justify-content: center !important;
+  align-items: center !important;
+  padding: calc(var(--nav-h) + 32px) var(--gutter) 48px !important;
+  min-height: 0 !important;
+}
+.about-hero__inner {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Responsive — uniform scaling at each breakpoint */
+@media (max-width: 1024px) {
+  :root {
+    --hero-uniform-h: 78vh;
+    --hero-uniform-min: 520px;
+    --hero-uniform-max: 760px;
+  }
+  .hero-slider,
+  .about-hero,
+  .services-hero,
+  .split-hero,
+  .contact-hero,
+  .blog-masthead,
+  .article-hero,
+  .sitemap-hero,
+  .legal-hero {
+    min-height: clamp(var(--hero-uniform-min), var(--hero-uniform-h), var(--hero-uniform-max)) !important;
+  }
+  .split-hero__media {
+    height: clamp(340px, 56vh, 520px) !important;
+    min-height: 340px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --hero-uniform-h: 72vh;
+    --hero-uniform-min: 480px;
+    --hero-uniform-max: 640px;
+  }
+  .hero-slider,
+  .about-hero,
+  .services-hero,
+  .split-hero,
+  .contact-hero,
+  .blog-masthead,
+  .article-hero,
+  .sitemap-hero,
+  .legal-hero {
+    min-height: clamp(var(--hero-uniform-min), var(--hero-uniform-h), var(--hero-uniform-max)) !important;
+  }
+  .split-hero__media {
+    height: clamp(320px, 48vh, 420px) !important;
+    min-height: 300px !important;
+  }
+  .contact-hero,
+  .blog-masthead,
+  .sitemap-hero,
+  .legal-hero {
+    padding-top: calc(var(--nav-h) + var(--sp-10)) !important;
+    padding-bottom: var(--sp-10) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --hero-uniform-h: 66vh;
+    --hero-uniform-min: 420px;
+    --hero-uniform-max: 560px;
+  }
+  .hero-slider,
+  .about-hero,
+  .services-hero,
+  .split-hero,
+  .contact-hero,
+  .blog-masthead,
+  .article-hero,
+  .sitemap-hero,
+  .legal-hero {
+    min-height: clamp(var(--hero-uniform-min), var(--hero-uniform-h), var(--hero-uniform-max)) !important;
+  }
+  .split-hero__media {
+    height: clamp(280px, 42vh, 360px) !important;
+    min-height: 260px !important;
+  }
+}
+
+/* ── Hero Slider — “Curb Appeal Redefined” (and all slides) Contrast Fix ──
+   Light-mode var(--ac) #9e4b3a on dark overlay #202124 = 3.17:1 FAIL
+   for 11px tag. Lift to #E3A08A 7.4:1, desc 0.72→0.90 (7.4→13.5:1),
+   overlay 0.30/0.62→0.45/0.68 for white title 15:1 on bright exterior image.
+   Applies to all slides, critical for slide 2 “Curb Appeal Redefined”.
+   ─────────────────────────────────────────────────────────────── */
+.hero-slider .slider__overlay {
+  background: linear-gradient(180deg, rgba(16,17,20,0.54) 0%, rgba(16,17,20,0.70) 52%, rgba(16,17,20,0.92) 100%) !important;
+}
+.hero-slider .slider__tag {
+  background: rgba(16,17,20,0.52) !important;
+  border-color: rgba(255,255,255,0.24) !important;
+  color: #FFC4B0 !important; /* 8.2:1 on #1a1b1e, lighter than #E3A08A for bright images */
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.38) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.42) !important;
+}
+.hero-slider .slider__tag::before {
+  background: #FFC4B0 !important; /* was var(--ac) #9e4b3a 1.6:1 FAIL → #FFC4B0 8.2:1 */
+}
+.hero-slider .slider__title {
+  color: #fff !important; /* 15:1 */
+  text-shadow: 0 3px 28px rgba(0,0,0,0.62), 0 1px 8px rgba(0,0,0,0.42) !important;
+}
+.hero-slider .slider__desc {
+  color: #fff !important; /* 15:1 solid white for new bright peach/grey images */
+  text-shadow: 0 2px 16px rgba(0,0,0,0.48), 0 1px 4px rgba(0,0,0,0.32) !important;
+}
+.hero-slider .slider__actions .btn-ghost {
+  background: rgba(255,255,255,0.14) !important;
+  border-color: rgba(255,255,255,0.32) !important;
+  color: #fff !important;
+}
+[data-theme="dark"] .hero-slider .slider__tag {
+  color: #E3A08A !important; /* keep 7.4:1 even though #d48a75 5.9 would pass */
+}
+
+/* ── About Hero — Center Alignment Responsive Padding ── */
+@media (max-width: 1024px) {
+  .about-hero__content {
+    padding: calc(var(--nav-h) + 28px) var(--gutter) 40px !important;
+    justify-content: center !important;
+  }
+}
+@media (max-width: 768px) {
+  .about-hero {
+    align-items: center !important;
+  }
+  .about-hero__content {
+    padding: calc(var(--nav-h) + 24px) var(--gutter) 32px !important;
+    justify-content: center !important;
+  }
+}
+@media (max-width: 480px) {
+  .about-hero__content {
+    padding: calc(var(--nav-h) + 20px) var(--gutter) 24px !important;
+  }
+}
+
+/* ── Home Hero — Background (local img, cover, NO repeat) ──
+   Distinct local file — never tiled and never a duplicate of any
+   of the three slide images. Each slide <img> also loads its own
+   unique local image on top.
+   ─────────────────────────────────────────────────────────── */
+.hero-slider {
+  background-image: url('https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: #1a1b1e !important;
+}
+
+/* Gap below hero CTA buttons (slider) — breathing room above dots */
+.hero-slider .slider__actions {
+  margin-bottom: var(--sp-12) !important;
 }

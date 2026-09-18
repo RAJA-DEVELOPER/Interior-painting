@@ -27,6 +27,7 @@
   <style>
     .legal-hero {
       background: var(--bg-dark);
+      /* Hero height unified via hero-center.css — clamp(560px, 86vh, 860px); flex centering added externally */
       padding: calc(var(--nav-h) + var(--sp-12)) 0 var(--sp-12);
     }
     .legal-layout {
@@ -99,7 +100,7 @@
 
   <header class="navbar transparent" id="navbar" role="banner">
     <div class="navbar__inner">
-      <a href="index.html" class="nav-logo" aria-label="RENOVA Home"><span class="nav-logo__mark" aria-hidden="true"><img src="assets/img/logo-mark.svg" alt="" width="38" height="38" loading="eager" decoding="async"></span><span class="nav-logo__text">RENO<span>VA</span></span></a>
+      <a href="index.html" class="nav-logo" aria-label="RENOVA Home"><span class="nav-logo__mark" aria-hidden="true"><img src="assets/img/logo-mark.svg" alt="" class="logo-mark logo-mark--dark" width="38" height="38" loading="eager" decoding="async"><img src="assets/img/logo-mark-light.svg" alt="" class="logo-mark logo-mark--light" width="38" height="38" loading="eager" decoding="async"></span><span class="nav-logo__text">RENO<span>VA</span></span></a>
 
       <nav class="nav-menu" role="navigation" aria-label="Main navigation">
         <a href="index.html"    class="nav-link">Home</a>
@@ -116,6 +117,7 @@
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
+        <a href="login.html" class="nav-login" id="navLogin" aria-label="Login"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Login</a>
         <a href="contact.html" class="btn btn-primary btn-sm" id="navCta">Free Quote</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -133,9 +135,11 @@
       <a href="services.html" class="nav-overlay__link">Services</a>
       <a href="blog.html"    class="nav-overlay__link">Blog</a>
       <a href="contact.html" class="nav-overlay__link">Contact</a>
+      <a href="login.html"   class="nav-overlay__link">Login</a>
     </nav>
-    <div class="nav-overlay__btn">
-      <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
+    <div class="nav-overlay__btn" style="display:flex;flex-direction:column;gap:12px;align-items:center">
+      <a href="login.html" class="btn btn-ghost btn-lg" style="min-width:220px;justify-content:center">Login</a>
+      <a href="contact.html" class="btn btn-primary btn-lg" style="min-width:220px;justify-content:center">Get Free Quote</a>
     </div>
   </div>
 

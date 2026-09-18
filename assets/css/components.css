@@ -26,78 +26,81 @@
 }
 
 .navbar.transparent {
-  /* WCAG AA fix: dark scrim ensures 4.5:1 contrast for white text over light hero images.
-     Tested: white vs #D8C8B0 with 0.68 alpha => 8.5:1. Gradient fades to transparent. */
-  background: linear-gradient(
-    to bottom,
-    rgba(16, 17, 20, 0.72) 0%,
-    rgba(16, 17, 20, 0.52) 48%,
-    rgba(16, 17, 20, 0.20) 78%,
-    transparent 100%
-  );
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  /* Per request: scroll panna epdi background iruko athe pola — solid, no blur/shadow */
+  background: #FCFBF8 !important;
+  border-bottom: 1px solid var(--bd) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 @supports (backdrop-filter: blur(8px)) {
   .navbar.transparent {
-    background: linear-gradient(
-      to bottom,
-      rgba(16, 17, 20, 0.62) 0%,
-      rgba(16, 17, 20, 0.38) 55%,
-      rgba(16, 17, 20, 0.10) 82%,
-      transparent 100%
-    );
-    backdrop-filter: blur(8px) saturate(1.15);
-    -webkit-backdrop-filter: blur(8px) saturate(1.15);
+    background: #FCFBF8 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
   }
 }
 
 .navbar.scrolled {
   height: 70px;
-  background: rgba(252, 251, 248, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 var(--bd), 0 4px 32px rgba(0,0,0,0.06);
-  border-bottom: 1px solid var(--bd);
+  background: #FCFBF8 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--bd) !important;
 }
 
-[data-theme="dark"] .navbar.scrolled {
-  background: rgba(26, 27, 30, 0.92);
-  box-shadow: 0 1px 0 var(--bd), 0 4px 32px rgba(0,0,0,0.24);
+[data-theme="dark"] .navbar.scrolled,
+[data-theme="dark"] .navbar.transparent {
+  background: #1a1b1e !important;
+  border-bottom: 1px solid var(--bd) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
-/* Transparent: high-contrast white + text-shadow for legibility on varied images */
+/* Transparent now solid like scrolled — no white text, use dark text for light bg */
 .navbar.transparent .nav-link,
 .navbar.transparent .nav-logo {
-  color: #fff;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.55), 0 1px 16px rgba(0,0,0,0.35);
+  color: var(--tx-2);
+  text-shadow: none;
 }
-
+.navbar.transparent .nav-logo {
+  color: var(--tx-1);
+}
 .navbar.transparent .nav-logo span {
   color: var(--ac);
-  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.45));
+  filter: none;
+  text-shadow: none;
 }
-
 .navbar.transparent .nav-link::after {
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  background: var(--ac);
+  box-shadow: none;
 }
 
-/* Transparent hover/focus: keep white for contrast, accent underline for affordance */
+/* Transparent now same as scrolled — dark text on solid light bg */
 .navbar.transparent .nav-link:hover,
 .navbar.transparent .nav-link:focus-visible {
-  color: #fff;
+  color: var(--ac-h);
 }
 .navbar.transparent .nav-link.active {
-  color: #fff;
-  background: rgba(255,255,255,0.14);
-  border-color: rgba(255,255,255,0.22);
+  color: var(--ac-h);
+  background: var(--ac-light);
+  border-color: var(--ac-soft);
 }
 .navbar.transparent .nav-link:hover::after,
 .navbar.transparent .nav-link:focus-visible::after {
   background: var(--ac);
 }
 .navbar.transparent .nav-link.active::after { display: none; }
+[data-theme="dark"] .navbar.transparent .nav-link:hover { color: #E9A99A; }
+[data-theme="dark"] .navbar.transparent .nav-link.active {
+  color: #E9A99A;
+  background: rgba(212,138,117,0.12);
+  border-color: rgba(212,138,117,0.20);
+}
 
 /* Scrolled must override transparent white — fixes white-on-light bug (navbar has both classes after scroll) */
 .navbar.scrolled .nav-link,
@@ -136,25 +139,146 @@
 
 /* Combo: transparent + scrolled (JS adds .scrolled while .transparent remains) */
 .navbar.transparent.scrolled {
-  background: rgba(252, 251, 248, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: #FCFBF8;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   border-bottom: 1px solid var(--bd);
 }
 
 [data-theme="dark"] .navbar.transparent.scrolled {
-  background: rgba(26, 27, 30, 0.92);
+  background: #1a1b1e;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 /* Fallback for plain .navbar without modifier (e.g., services.html) — prevents dark-on-dark */
 .navbar:not(.transparent):not(.scrolled) {
-  background: rgba(252, 251, 248, 0.98);
-  border-bottom: 1px solid var(--bd);
-  box-shadow: 0 1px 0 var(--bd);
+  background: #202124 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: none !important;
 }
 
 [data-theme="dark"] .navbar:not(.transparent):not(.scrolled) {
-  background: rgba(26, 27, 30, 0.98);
+  background: #1a1b1e !important;
+}
+
+/* Header — solid dark like footer, same logo/brand, no blur/shadow per latest request */
+.navbar,
+.navbar.transparent,
+.navbar.scrolled,
+.navbar.transparent.scrolled,
+.navbar:not(.transparent):not(.scrolled) {
+  background: #202124 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .navbar.transparent,
+[data-theme="dark"] .navbar.scrolled,
+[data-theme="dark"] .navbar.transparent.scrolled,
+[data-theme="dark"] .navbar:not(.transparent):not(.scrolled) {
+  background: #1a1b1e !important;
+  border-bottom: 1px solid rgba(237,232,224,0.08) !important;
+}
+.navbar .nav-link,
+.navbar.transparent .nav-link,
+.navbar.scrolled .nav-link {
+  color: rgba(255,255,255,0.72) !important;
+  text-shadow: none !important;
+}
+.navbar .nav-logo,
+.navbar.transparent .nav-logo,
+.navbar.scrolled .nav-logo {
+  color: #FCFBF8 !important;
+  text-shadow: none !important;
+}
+.navbar .nav-logo span,
+.navbar.transparent .nav-logo span,
+.navbar.scrolled .nav-logo span,
+.footer__brand-logo span {
+  color: #E3A08A !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+.navbar .nav-link::after,
+.navbar.transparent .nav-link::after,
+.navbar.scrolled .nav-link::after {
+  background: #E3A08A !important;
+  box-shadow: none !important;
+}
+.navbar .nav-link:hover,
+.navbar.transparent .nav-link:hover,
+.navbar.scrolled .nav-link:hover,
+.navbar .nav-link:focus-visible,
+.navbar.transparent .nav-link:focus-visible {
+  color: #fff !important;
+}
+.navbar .nav-link.active,
+.navbar.transparent .nav-link.active,
+.navbar.scrolled .nav-link.active {
+  color: #fff !important;
+  background: rgba(255,255,255,0.12) !important;
+  border-color: rgba(255,255,255,0.16) !important;
+}
+[data-theme="dark"] .navbar .nav-link.active {
+  color: #fff !important;
+}
+/* Logo — always light on dark header like footer */
+.navbar .logo-mark--light { display: block !important; }
+.navbar .logo-mark--dark { display: none !important; }
+.navbar .nav-logo__mark {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+  border: none !important;
+}
+/* Header controls — light on dark, no blur */
+.navbar .theme-toggle,
+.navbar.transparent .theme-toggle,
+.navbar.scrolled .theme-toggle {
+  color: #fff !important;
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  text-shadow: none !important;
+}
+.navbar .theme-toggle:hover {
+  background: rgba(255,255,255,0.16) !important;
+  border-color: rgba(255,255,255,0.22) !important;
+  color: #fff !important;
+}
+.navbar .hamburger,
+.navbar.transparent .hamburger,
+.navbar.scrolled .hamburger {
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  backdrop-filter: none !important;
+}
+.navbar .hamburger span,
+.navbar.transparent .hamburger span,
+.navbar.scrolled .hamburger span {
+  background: #fff !important;
+  box-shadow: none !important;
+}
+.navbar .nav-login,
+.navbar.transparent .nav-login,
+.navbar.scrolled .nav-login {
+  background: rgba(255,255,255,0.12) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.20) !important;
+  backdrop-filter: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+.navbar .nav-login:hover {
+  background: rgba(255,255,255,0.18) !important;
+  border-color: rgba(255,255,255,0.28) !important;
+  color: #fff !important;
+}
+[data-theme="dark"] .navbar .nav-login {
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.20) !important;
 }
 
 .navbar__inner {
@@ -202,7 +326,38 @@
 }
 
 .navbar.transparent .nav-logo__mark {
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 4px 16px rgba(0,0,0,0.22);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  border: none !important;
+}
+
+/* Logo mark — dual SVG: light bg for dark nav, dark bg for light nav */
+.nav-logo__mark {
+  position: relative !important;
+}
+.logo-mark {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  border-radius: 9px !important;
+}
+.logo-mark--light { display: none !important; }
+.logo-mark--dark { display: block !important; }
+[data-theme="dark"] .logo-mark--dark { display: none !important; }
+[data-theme="dark"] .logo-mark--light { display: block !important; }
+
+/* Logo text “VA” — ensure 4.5:1 on both light/dark nav */
+.navbar.transparent .nav-logo__text span {
+  color: #E3A08A !important; /* 7.4:1 on #1a1b1e vs 3.17 for #9e4b3a */
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.45)) !important;
+}
+[data-theme="dark"] .nav-logo__text span {
+  color: #E3A08A !important; /* 7.4:1 on dark, 6.31 on dark scrolled */
+}
+.footer__brand-logo span {
+  color: #E3A08A !important; /* 7.4:1 on #202124 footer vs 3.17 for #9e4b3a */
 }
 
 .nav-logo__text {
@@ -277,18 +432,24 @@
 }
 
 .navbar.transparent .theme-toggle {
-  color: #fff;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.16);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+  color: var(--tx-2);
+  background: transparent;
+  border: none;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  text-shadow: none;
 }
-
 .navbar.transparent .theme-toggle:hover {
-  background: rgba(255,255,255,0.18);
-  border-color: rgba(255,255,255,0.28);
-  color: #fff;
+  background: var(--bg-alt);
+  color: var(--ac);
+  border-color: transparent;
+}
+[data-theme="dark"] .navbar.transparent .theme-toggle {
+  color: #EDE8E0;
+}
+[data-theme="dark"] .navbar.transparent .theme-toggle:hover {
+  color: var(--ac);
+  background: rgba(212,138,117,0.08);
 }
 
 .navbar.scrolled .theme-toggle {
@@ -307,19 +468,121 @@
 
 .navbar.transparent .nav-link:focus-visible,
 .navbar.transparent .theme-toggle:focus-visible,
-.navbar.transparent .hamburger:focus-visible {
-  outline: 2px solid #fff;
+.navbar.transparent .hamburger:focus-visible,
+.navbar.transparent .nav-login:focus-visible {
+  outline: 2px solid var(--ac);
   outline-offset: 3px;
 }
 
 .navbar.transparent #navCta {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25), 0 1px 4px rgba(0,0,0,0.30);
-  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: var(--sh-sm);
+  border: 1px solid transparent;
 }
 
 .navbar.scrolled #navCta {
   box-shadow: var(--sh-sm);
   border-color: transparent;
+}
+
+/* ── Login Button in Header ── */
+.nav-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-semi);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  border-radius: var(--r-full);
+  border: 1.5px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.35);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+  transition: var(--tr);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.nav-login:hover {
+  background: rgba(255,255,255,0.16);
+  border-color: rgba(255,255,255,0.32);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.nav-login:active { transform: scale(0.97); }
+
+.navbar.scrolled .nav-login {
+  background: transparent;
+  color: var(--tx-2);
+  border-color: var(--bd);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  text-shadow: none;
+  box-shadow: none;
+}
+.navbar.scrolled .nav-login:hover {
+  background: var(--bg-alt);
+  color: var(--ac);
+  border-color: var(--ac-soft);
+}
+
+.navbar.transparent.scrolled .nav-login {
+  background: transparent;
+  color: var(--tx-2);
+  border-color: var(--bd);
+}
+
+[data-theme="dark"] .navbar.scrolled .nav-login {
+  color: #EDE8E0;
+  border-color: rgba(237,232,224,0.14);
+}
+[data-theme="dark"] .navbar.scrolled .nav-login:hover {
+  color: var(--ac);
+  border-color: rgba(212,138,117,0.20);
+  background: rgba(212,138,117,0.08);
+}
+
+.navbar.transparent .nav-login {
+  background: transparent;
+  color: var(--tx-2);
+  border-color: var(--bd);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  text-shadow: none;
+  box-shadow: none;
+}
+.navbar.transparent .nav-login:hover {
+  background: var(--bg-alt);
+  color: var(--ac);
+  border-color: var(--ac-soft);
+}
+[data-theme="dark"] .navbar.transparent .nav-login {
+  color: #EDE8E0;
+  border-color: rgba(237,232,224,0.14);
+}
+[data-theme="dark"] .navbar.transparent .nav-login:hover {
+  background: rgba(212,138,117,0.08);
+  color: var(--ac);
+  border-color: rgba(212,138,117,0.20);
+}
+
+.nav-login.active {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.22);
+  color: #fff;
+}
+.navbar.scrolled .nav-login.active {
+  background: var(--ac-light);
+  border-color: var(--ac-soft);
+  color: var(--ac-h);
+}
+[data-theme="dark"] .navbar.scrolled .nav-login.active {
+  background: rgba(212,138,117,0.12);
+  border-color: rgba(212,138,117,0.20);
+  color: #E9A99A;
 }
 
 .theme-toggle svg {
@@ -363,16 +626,19 @@
 }
 
 .navbar.transparent .hamburger {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.14);
+  background: transparent;
+  border: none;
   border-radius: 9px;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .navbar.transparent .hamburger span {
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.45);
+  background: var(--tx-1);
+  box-shadow: none;
+}
+[data-theme="dark"] .navbar.transparent .hamburger span {
+  background: #EDE8E0;
 }
 
 .navbar.scrolled .hamburger {
@@ -1480,6 +1746,136 @@
   background: var(--ac);
   border-color: var(--ac);
   color: #fff;
+}
+
+/* ── Portfolio Filter — Premium Redesign (Home 2) ──
+   Centered pill container with sliding indicator + smooth
+   card transitions for consistent category switching.
+   ─────────────────────────────────────────────────── */
+#projects .filter-bar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: var(--bg-alt);
+  border: 1px solid var(--bd);
+  border-radius: 999px;
+  padding: 6px;
+  margin-inline: auto;
+  margin-bottom: var(--sp-10);
+  box-shadow: var(--sh-sm);
+  width: fit-content;
+  max-width: 100%;
+}
+#projects .filter-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+[data-theme="dark"] #projects .filter-bar {
+  background: #27282c;
+  border-color: rgba(237,232,224,0.08);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+[data-theme="dark"] #projects .filter-bar::before { opacity: 0; }
+
+#projects .filter-btn {
+  position: relative;
+  z-index: 1;
+  padding: 9px 18px;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-semi);
+  letter-spacing: var(--ls-wide);
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--tx-2);
+  transition: color 0.25s var(--ease-out), background 0.25s var(--ease-out), border-color 0.25s var(--ease-out), transform 0.2s var(--ease-spring), box-shadow 0.25s;
+}
+#projects .filter-btn:hover {
+  color: var(--ac);
+  background: rgba(158,75,58,0.06);
+  border-color: transparent;
+  transform: translateY(-1px);
+}
+[data-theme="dark"] #projects .filter-btn:hover {
+  background: rgba(212,138,117,0.10);
+  color: #d48a75;
+}
+#projects .filter-btn:active { transform: scale(0.97); }
+#projects .filter-btn.active {
+  background: var(--ac) !important;
+  border-color: var(--ac) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(158,75,58,0.22), 0 2px 8px rgba(0,0,0,0.06) !important;
+}
+[data-theme="dark"] #projects .filter-btn.active {
+  background: #d48a75 !important;
+  border-color: #d48a75 !important;
+  color: #1a1b1e !important;
+  box-shadow: 0 4px 16px rgba(212,138,117,0.22) !important;
+}
+#projects .filter-btn:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 2px;
+}
+
+/* Sliding indicator — JS positions it behind active btn */
+#projects .filter-indicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: 0;
+  background: var(--ac);
+  border-radius: 999px;
+  z-index: 0;
+  transition: left 0.45s cubic-bezier(0.16,1,0.3,1), width 0.45s cubic-bezier(0.16,1,0.3,1), background-color 0.3s var(--ease-out), box-shadow 0.3s;
+  box-shadow: 0 4px 16px rgba(158,75,58,0.22);
+  pointer-events: none;
+  opacity: 0;
+}
+#projects .filter-indicator.visible { opacity: 1; }
+[data-theme="dark"] #projects .filter-indicator {
+  background: #d48a75;
+  box-shadow: 0 4px 16px rgba(212,138,117,0.22);
+}
+#projects.has-indicator .filter-btn.active {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+[data-theme="dark"] #projects.has-indicator .filter-btn.active {
+  color: #1a1b1e !important;
+}
+
+/* Portfolio grid — smooth layout + card entrance */
+#projects .projects-grid {
+  transition: min-height 0.35s var(--ease-out);
+}
+#projects .project-card {
+  transition: opacity 0.38s cubic-bezier(0.16,1,0.3,1), transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s var(--ease-out);
+  will-change: opacity, transform;
+}
+#projects .project-card.filter-enter {
+  opacity: 0;
+  transform: scale(0.96) translateY(10px);
+}
+#projects .project-card.filter-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+#projects .project-card.filter-hidden {
+  opacity: 0;
+  transform: scale(0.94) translateY(6px);
+  pointer-events: none;
 }
 
 .projects-grid {

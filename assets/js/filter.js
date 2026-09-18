@@ -27,28 +27,85 @@ const initFilter = () => {
 
     const buttons = [...bar.querySelectorAll('.filter-btn')];
 
+    // --- Premium sliding indicator for #projects (Home 2 Portfolio) ---
+    const isPortfolio = bar.closest('#projects') !== null || container.closest('#projects') !== null;
+    let indicator = null;
+    if (isPortfolio) {
+      indicator = bar.querySelector('.filter-indicator');
+      if (!indicator) {
+        indicator = document.createElement('div');
+        indicator.className = 'filter-indicator';
+        indicator.setAttribute('aria-hidden', 'true');
+        bar.insertBefore(indicator, bar.firstChild);
+      }
+      // Mark container for CSS that enables indicator mode
+      const projectsSection = document.getElementById('projects');
+      if (projectsSection) projectsSection.classList.add('has-indicator');
+      // Ensure bar is positioned for indicator
+      bar.style.position = 'relative';
+    }
+
+    const updateIndicator = () => {
+      if (!indicator || !isPortfolio) return;
+      const active = bar.querySelector('.filter-btn.active');
+      if (!active) {
+        indicator.classList.remove('visible');
+        return;
+      }
+      // bar has 6px padding, indicator should align to button
+      const barRect = bar.getBoundingClientRect();
+      const btnRect = active.getBoundingClientRect();
+      const left = btnRect.left - barRect.left;
+      const width = btnRect.width;
+      indicator.style.left = left + 'px';
+      indicator.style.width = width + 'px';
+      indicator.classList.add('visible');
+    };
+
     const filter = (cat) => {
       buttons.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.filter === cat);
+        const isActive = btn.dataset.filter === cat;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
 
+      if (isPortfolio) {
+        // Animate indicator after active class toggled
+        requestAnimationFrame(() => updateIndicator());
+      }
+
       // Clear any inline grid overrides from previous filters
-      const grid = items[0]?.closest('.articles-grid');
+      const grid = items[0]?.closest('.articles-grid') || items[0]?.closest('.projects-grid');
       if (grid) {
-        grid.style.removeProperty('grid-template-columns');
+        // keep fit-content centering for portfolio, but clear single-card overrides
+        if (!isPortfolio) {
+          grid.style.removeProperty('grid-template-columns');
+        }
         grid.style.removeProperty('grid-auto-rows');
-        grid.style.removeProperty('max-width');
-        grid.style.removeProperty('margin-inline');
+        if (!isPortfolio) {
+          grid.style.removeProperty('max-width');
+          grid.style.removeProperty('margin-inline');
+        }
         grid.style.removeProperty('justify-items');
       }
 
-      // Fade out non-matching
+      // Prepare grid for smooth height transition (portfolio)
+      if (isPortfolio && container) {
+        container.style.transition = 'min-height 0.35s cubic-bezier(0.16,1,0.3,1)';
+      }
+
+      // Fade out non-matching with spring easing
       items.forEach((item) => {
         const matches = cat === 'all' || item.dataset.category === cat;
         if (!matches) {
+          item.classList.remove('filter-visible');
+          item.classList.add('filter-hidden');
+          // fallback inline for browsers without CSS class transition
           item.style.opacity = '0';
-          item.style.transform = 'scale(0.96)';
-          item.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+          item.style.transform = 'scale(0.94) translateY(6px)';
+          item.style.transition = 'opacity 0.28s cubic-bezier(0.16,1,0.3,1), transform 0.32s cubic-bezier(0.16,1,0.3,1)';
+        } else {
+          item.classList.remove('filter-hidden');
         }
       });
 
@@ -58,46 +115,89 @@ const initFilter = () => {
           const matches = cat === 'all' || item.dataset.category === cat;
           item.style.display = matches ? '' : 'none';
           if (matches) {
+            item.classList.add('filter-enter');
+            item.classList.remove('filter-visible');
             item.style.opacity = '0';
-            item.style.transform = 'scale(0.97) translateY(8px)';
+            item.style.transform = 'scale(0.96) translateY(10px)';
           }
         });
 
         // Get visible items for stagger
         const visible = items.filter(item => item.style.display !== 'none');
 
-        // Single card: center it
-        if (visible.length === 1 && grid) {
+        // Single card: center it (portfolio keeps pill bar centered, grid will handle)
+        if (visible.length === 1 && grid && !isPortfolio) {
           grid.style.gridTemplateColumns = '1fr';
           visible[0].style.maxWidth = '560px';
           visible[0].style.marginInline = 'auto';
         } else {
-          if (grid && visible.length <= 2) {
+          if (grid && visible.length <= 2 && !isPortfolio) {
             grid.style.gridTemplateColumns = visible.length === 2 ? 'repeat(2, 1fr)' : '1fr';
           }
-          visible.forEach(it => { it.style.maxWidth = ''; it.style.marginInline = ''; });
+          if (!isPortfolio) {
+            visible.forEach(it => { it.style.maxWidth = ''; it.style.marginInline = ''; });
+          }
         }
 
-        // Stagger fade in
+        // Stagger fade in with spring
         visible.forEach((item, idx) => {
           setTimeout(() => {
-            item.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+            item.classList.remove('filter-enter');
+            item.classList.add('filter-visible');
+            item.style.transition = 'opacity 0.42s cubic-bezier(0.16,1,0.3,1), transform 0.48s cubic-bezier(0.16,1,0.3,1)';
             item.style.opacity = '1';
             item.style.transform = 'scale(1) translateY(0)';
-          }, idx * 35);
+          }, idx * 45);
         });
-      }, 200);
+
+        // Announce for a11y
+        if (isPortfolio && container) {
+          container.setAttribute('aria-live', 'polite');
+        }
+      }, isPortfolio ? 280 : 200);
     };
 
     buttons.forEach(btn => {
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-selected', 'false');
       btn.addEventListener('click', () => {
         const cat = btn.dataset.filter || 'all';
+        // Haptic feedback hint: add pressed state
+        btn.style.transform = 'scale(0.96)';
+        setTimeout(() => btn.style.transform = '', 120);
         filter(cat);
+      });
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
       });
     });
 
+    // Indicator reposition on resize / theme change
+    if (isPortfolio) {
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(updateIndicator, 150);
+      });
+      // Re-position after fonts load
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => updateIndicator());
+      }
+      // Observe theme changes
+      const observer = new MutationObserver(() => updateIndicator());
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    }
+
     // Initialize
     filter('all');
+    if (isPortfolio) {
+      // Ensure indicator visible after initial render
+      setTimeout(updateIndicator, 100);
+      setTimeout(updateIndicator, 400);
+    }
   });
 };
 

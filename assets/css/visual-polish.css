@@ -920,10 +920,10 @@ img.loaded { animation: imgFadeIn 0.4s var(--ease-out) !important; }
 /* Ensure all cards in a row stretch to same height */
 .grid-auto-equal > * { height: 100% !important; }
 
-/* ── 19 · Fix hero-center split-hero image height on mobile ─ */
+/* ── 19 · Fix hero-center split-hero image height on mobile — uniform height ─ */
 @media (max-width: 768px) {
   .split-hero { grid-template-columns: 1fr !important; }
-  .split-hero__right { height: 52vh !important; min-height: 360px !important; }
+  .split-hero__right { height: auto !important; min-height: 0 !important; padding: 12px 16px 20px !important; }
   .split-hero__left { padding: calc(var(--nav-h) + var(--sp-8)) var(--gutter) var(--sp-10) !important; }
 }
 
@@ -1076,3 +1076,722 @@ img.loaded { animation: imgFadeIn 0.4s var(--ease-out) !important; }
 [data-theme="dark"] .form-input,
 [data-theme="dark"] .form-select,
 [data-theme="dark"] .form-textarea { color: var(--tx-1) !important; border-color: rgba(237,232,224,0.14) !important; }
+
+/* ── 23 · HOME PAGE 1 — Dark Mode Contrast Fixes ─────────────
+   Our Work (#transformations) & Awards & Certifications (#awards)
+   Ensure WCAG AA 4.5:1 for normal text, 3:1 for large.
+   Light-hardcoded sections (#FDFBF7, #fff) are inverted to dark
+   palette in dark mode for sufficient contrast.
+   ─────────────────────────────────────────────────────────── */
+
+/* --- Our Work (#transformations) --- */
+[data-theme="dark"] #transformations {
+  background-color: #202124 !important; /* var(--bg-alt) dark */
+}
+[data-theme="dark"] #transformations .eyebrow {
+  color: #d48a75 !important; /* 5.9:1 on #202124 */
+}
+[data-theme="dark"] #transformations .sec-title {
+  color: #EDE8E0 !important; /* 13.2:1 on #202124 */
+}
+[data-theme="dark"] #transformations .sec-title em {
+  color: #d48a75 !important;
+}
+[data-theme="dark"] #transformations .ba-desc {
+  color: #c2bdb3 !important; /* 8.6:1 (improved from #a8a5a0 6.56:1) */
+}
+[data-theme="dark"] #transformations .ba-feature-item {
+  color: #EDE8E0 !important; /* 13.2:1 */
+}
+[data-theme="dark"] #transformations .check-circle {
+  background: rgba(212,138,117,0.16) !important;
+  color: #d48a75 !important;
+  border: 1px solid rgba(212,138,117,0.20) !important;
+}
+/* Fix btn-dark low contrast (1.18:1 → 14.1:1) */
+[data-theme="dark"] #transformations .btn-dark,
+[data-theme="dark"] .btn-dark {
+  background: #EDE8E0 !important;
+  color: #1a1b1e !important;
+  border-color: #EDE8E0 !important;
+}
+[data-theme="dark"] #transformations .btn-dark:hover,
+[data-theme="dark"] .btn-dark:hover {
+  background: #d48a75 !important;
+  color: #1a1b1e !important;
+  border-color: #d48a75 !important;
+  box-shadow: 0 8px 24px rgba(212,138,117,0.22) !important;
+}
+[data-theme="dark"] #transformations .btn-dark:focus-visible,
+[data-theme="dark"] .btn-dark:focus-visible {
+  outline-color: #EDE8E0 !important;
+}
+
+/* --- Awards & Certifications (#awards / .awards-lux) --- */
+/* Section: invert light #FDFBF7 → dark #1a1b1e for WCAG */
+[data-theme="dark"] .awards-lux {
+  background: #1a1b1e !important;
+}
+[data-theme="dark"] .awards-lux::before {
+  opacity: 0.02 !important;
+}
+[data-theme="dark"] .awards-lux__orb {
+  opacity: 0.06 !important;
+}
+[data-theme="dark"] .awards-lux .sec-title {
+  color: #EDE8E0 !important; /* 14.1:1 on #1a1b1e */
+}
+[data-theme="dark"] .awards-lux .sec-title em {
+  color: #d48a75 !important;
+}
+[data-theme="dark"] .awards-lux .sec-subtitle {
+  color: #c2bdb3 !important; /* 9.2:1 on #1a1b1e (was 2.38:1 on #FDFBF7) */
+}
+[data-theme="dark"] .awards-lux .eyebrow-pill {
+  background: #27282c !important; /* 5.39:1 text vs pill */
+  border-color: rgba(237,232,224,0.10) !important;
+  color: #d48a75 !important;
+  box-shadow: none !important;
+}
+[data-theme="dark"] .awards-lux .eyebrow-pill::before {
+  background: #d48a75 !important;
+  box-shadow: 0 0 0 4px rgba(212,138,117,0.14) !important;
+}
+[data-theme="dark"] .awards-lux .award-item {
+  background: #27282c !important; /* var(--bg-card) dark */
+  border-color: rgba(237,232,224,0.08) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.22) !important;
+}
+[data-theme="dark"] .awards-lux .award-item:hover {
+  border-color: rgba(212,138,117,0.20) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.38), 0 8px 20px rgba(0,0,0,0.24) !important;
+}
+[data-theme="dark"] .awards-lux .award-icon {
+  background: rgba(212,138,117,0.12) !important;
+  border-color: rgba(212,138,117,0.18) !important;
+  color: #d48a75 !important;
+}
+[data-theme="dark"] .awards-lux .award-year {
+  color: #d48a75 !important; /* 5.39:1 on #27282c */
+}
+[data-theme="dark"] .awards-lux .award-title {
+  color: #EDE8E0 !important; /* 12.07:1 on #27282c (was 1.22:1 on #fff) */
+}
+[data-theme="dark"] .awards-lux .award-org {
+  color: #a8a5a0 !important; /* 6.0:1 on #27282c (was 2.45:1 on #fff) */
+}
+
+/* ── 24 · HOME PAGE 2 — Our People (team-section) Dark Mode ───
+   Hardcoded light #FDFBF7 / #FFFFFF inverted to dark palette
+   for WCAG AA. Text #EDE8E0 on #27282c = 12.07:1, #d48a75 5.39:1,
+   #a8a5a0 6.0:1 — all PASS.
+   ─────────────────────────────────────────────────────────── */
+[data-theme="dark"] .team-section {
+  background: #1a1b1e !important;
+}
+[data-theme="dark"] .team-section::before {
+  opacity: 0.02 !important;
+}
+[data-theme="dark"] .team-section .sec-title {
+  color: #EDE8E0 !important; /* 14.1:1 on #1a1b1e */
+}
+[data-theme="dark"] .team-section .sec-title em {
+  color: #d48a75 !important;
+}
+[data-theme="dark"] .team-section .sec-subtitle {
+  color: #c2bdb3 !important; /* 9.2:1 on #1a1b1e */
+}
+[data-theme="dark"] .team-section .eyebrow {
+  color: #d48a75 !important; /* 5.9:1 on #1a1b1e */
+}
+[data-theme="dark"] .team-section .team-card {
+  background: #27282c !important;
+  border-color: rgba(237,232,224,0.08) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.22) !important;
+}
+[data-theme="dark"] .team-section .team-card:hover {
+  border-color: rgba(212,138,117,0.18) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.34), 0 4px 12px rgba(0,0,0,0.28) !important;
+}
+[data-theme="dark"] .team-section .team-card__img-wrap {
+  background: #252629 !important; /* var(--bg-muted) dark */
+}
+[data-theme="dark"] .team-section .team-card__img-wrap::after {
+  border-color: rgba(255,255,255,0.08) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06) !important;
+}
+[data-theme="dark"] .team-section .team-card__name {
+  color: #EDE8E0 !important; /* 12.07:1 on #27282c */
+}
+[data-theme="dark"] .team-section .team-card__role {
+  color: #d48a75 !important; /* 5.39:1 on #27282c */
+}
+[data-theme="dark"] .team-section .team-card__social {
+  background: rgba(255,255,255,0.06) !important;
+  color: #c2bdb3 !important;
+}
+[data-theme="dark"] .team-section .team-card__social:hover {
+  background: #d48a75 !important;
+  color: #1a1b1e !important;
+}
+
+/* ── 24b · ABOUT PAGE — Meet the People (#team) Dark Mode ───
+   Generic .team-card is hardcoded #FFFFFF (1.22:1 fail with
+   #EDE8E0 text). Invert to #27282c for WCAG AA.
+   Covers About Page which uses #team without .team-section.
+   ─────────────────────────────────────────────────────────── */
+[data-theme="dark"] .team-card {
+  background: #27282c !important;
+  border-color: rgba(237,232,224,0.08) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.22) !important;
+}
+[data-theme="dark"] .team-card:hover {
+  border-color: rgba(212,138,117,0.18) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.34), 0 4px 12px rgba(0,0,0,0.28) !important;
+}
+[data-theme="dark"] .team-card__img-wrap {
+  background: #252629 !important;
+}
+[data-theme="dark"] .team-card__img-wrap::after {
+  border-color: rgba(255,255,255,0.08) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06) !important;
+}
+[data-theme="dark"] .team-card__name {
+  color: #EDE8E0 !important; /* 12.07:1 on #27282c */
+}
+[data-theme="dark"] .team-card__role {
+  color: #d48a75 !important; /* 5.39:1 on #27282c */
+}
+/* About #team section header on dark bg #1a1b1e */
+[data-theme="dark"] #team .sec-counter {
+  color: #a8a5a0 !important; /* 7.02:1 */
+}
+[data-theme="dark"] #team .eyebrow {
+  color: #d48a75 !important; /* 5.9:1 */
+}
+[data-theme="dark"] #team .sec-title {
+  color: #EDE8E0 !important; /* 14.1:1 */
+}
+[data-theme="dark"] #team .btn-secondary {
+  color: #d48a75 !important;
+  border-color: rgba(212,138,117,0.30) !important;
+  background: transparent !important;
+}
+[data-theme="dark"] #team .btn-secondary:hover {
+  background: #d48a75 !important;
+  color: #1a1b1e !important;
+  border-color: #d48a75 !important;
+}
+[data-theme="dark"] .team-card__social {
+  background: rgba(255,255,255,0.06) !important;
+  color: #c2bdb3 !important;
+}
+[data-theme="dark"] .team-card__social:hover {
+  background: #d48a75 !important;
+  color: #1a1b1e !important;
+}
+
+/* ── 25 · BLOG PAGE — Dark Mode Readability ────────────────────
+   Overall contrast review: hardcoded light #FDFBF7/#fff sections
+   and cards inverted to dark #1a1b1e/#27282c. Text #EDE8E0
+   12-14:1, #c2bdb3 7.8-9.2:1, #a8a5a0 6.0:1, #d48a75 5.39:1
+   all PASS WCAG AA (4.5:1 / 3:1 large).
+   ─────────────────────────────────────────────────────────── */
+
+/* Sections: #articles / #topics / #spotlight / featured-lux / highlights-lux */
+[data-theme="dark"] #articles,
+[data-theme="dark"] #topics,
+[data-theme="dark"] .featured-lux,
+[data-theme="dark"] .highlights-lux {
+  background: #1a1b1e !important;
+}
+[data-theme="dark"] #articles::before,
+[data-theme="dark"] .featured-lux::before,
+[data-theme="dark"] .highlights-lux::before,
+[data-theme="dark"] #topics::before {
+  opacity: 0.02 !important;
+}
+[data-theme="dark"] #spotlight {
+  background: #1a1b1e !important;
+}
+[data-theme="dark"] .highlights-lux__orb,
+[data-theme="dark"] .featured-lux__orb {
+  opacity: 0.05 !important;
+}
+
+/* Featured article */
+[data-theme="dark"] .featured-article {
+  background: #27282c !important;
+  border-color: rgba(237,232,224,0.08) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.32), 0 4px 16px rgba(0,0,0,0.24) !important;
+}
+[data-theme="dark"] .featured-article__body {
+  background: #27282c !important;
+}
+[data-theme="dark"] .featured-article__title {
+  color: #EDE8E0 !important; /* 12.07:1 on #27282c */
+}
+[data-theme="dark"] .featured-article__desc {
+  color: #c2bdb3 !important; /* 7.87:1 */
+}
+[data-theme="dark"] .featured-article__author {
+  border-color: rgba(237,232,224,0.08) !important;
+}
+[data-theme="dark"] .featured-article__author-name {
+  color: #EDE8E0 !important;
+}
+[data-theme="dark"] .featured-article__author-role,
+[data-theme="dark"] .featured-article__date {
+  color: #a8a5a0 !important; /* 6.0:1 */
+}
+[data-theme="dark"] .featured-article__cta {
+  background: #27282c !important;
+  border: 1px solid rgba(237,232,224,0.08) !important;
+  color: #EDE8E0 !important;
+}
+[data-theme="dark"] .featured-article:hover .featured-article__cta {
+  background: #d48a75 !important;
+  color: #1a1b1e !important;
+  border-color: #d48a75 !important;
+}
+[data-theme="dark"] .featured-img-badge {
+  background: #27282c !important;
+  border-color: rgba(237,232,224,0.10) !important;
+  color: #d48a75 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.24) !important;
+}
+[data-theme="dark"] .featured-read-badge {
+  background: rgba(26,27,30,0.88) !important;
+  border-color: rgba(237,232,224,0.10) !important;
+  color: #EDE8E0 !important;
+}
+
+/* Highlights / blog cards */
+[data-theme="dark"] .highlight-card,
+[data-theme="dark"] .blog-card {
+  background: #27282c !important;
+  border-color: rgba(237,232,224,0.08) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.22) !important;
+}
+[data-theme="dark"] .highlight-card:hover,
+[data-theme="dark"] .blog-card:hover {
+  border-color: rgba(212,138,117,0.18) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.36), 0 8px 20px rgba(0,0,0,0.24) !important;
+}
+[data-theme="dark"] .highlight-card__body,
+[data-theme="dark"] .blog-card__body {
+  background: #27282c !important;
+}
+[data-theme="dark"] .highlight-card__body h3,
+[data-theme="dark"] .blog-card__title {
+  color: #EDE8E0 !important; /* 12.07:1 */
+}
+[data-theme="dark"] .highlight-card__body h3 a,
+[data-theme="dark"] .blog-card__title a {
+  color: #EDE8E0 !important;
+}
+[data-theme="dark"] .highlight-card__body h3 a:hover,
+[data-theme="dark"] .blog-card__title a:hover {
+  color: #d48a75 !important;
+}
+[data-theme="dark"] .highlight-card__body p,
+[data-theme="dark"] .blog-card__excerpt {
+  color: #a8a5a0 !important; /* 6.0:1 */
+}
+[data-theme="dark"] .highlight-cat,
+[data-theme="dark"] .blog-card__cat {
+  background: rgba(212,138,117,0.12) !important;
+  border-color: rgba(212,138,117,0.18) !important;
+  color: #d48a75 !important; /* 5.39:1 on #27282c */
+}
+[data-theme="dark"] .highlight-meta,
+[data-theme="dark"] .blog-card__meta {
+  color: #a8a5a0 !important; /* 6.0:1 */
+}
+[data-theme="dark"] .blog-card__link {
+  background: #1a1b1e !important;
+  border-color: rgba(237,232,224,0.08) !important;
+  color: #EDE8E0 !important; /* 12.07:1 */
+}
+[data-theme="dark"] .blog-card:hover .blog-card__link {
+  background: #d48a75 !important;
+  border-color: #d48a75 !important;
+  color: #1a1b1e !important;
+}
+
+/* Articles header & filter */
+[data-theme="dark"] .articles-title {
+  color: #EDE8E0 !important; /* 14.1:1 on #1a1b1e */
+}
+[data-theme="dark"] .articles-header .eyebrow-pill,
+[data-theme="dark"] #articles .eyebrow-pill {
+  background: #27282c !important;
+  border-color: rgba(237,232,224,0.08) !important;
+  color: #d48a75 !important;
+}
+[data-theme="dark"] #articles .filter-bar {
+  background: transparent !important;
+}
+[data-theme="dark"] #articles .filter-bar .filter-btn {
+  background: #27282c !important;
+  border-color: rgba(237,232,224,0.08) !important;
+  color: #c2bdb3 !important; /* 7.87:1 */
+  box-shadow: none !important;
+}
+[data-theme="dark"] #articles .filter-bar .filter-btn:hover {
+  border-color: rgba(212,138,117,0.20) !important;
+  color: #d48a75 !important;
+  background: #2a2b30 !important;
+}
+[data-theme="dark"] #articles .filter-bar .filter-btn.active {
+  background: #d48a75 !important;
+  border-color: #d48a75 !important;
+  color: #1a1b1e !important; /* 6.31:1 */
+  box-shadow: 0 6px 20px rgba(212,138,117,0.22) !important;
+}
+
+/* Sidebar */
+[data-theme="dark"] .sidebar-widget {
+  background: #27282c !important;
+  border-color: rgba(237,232,224,0.08) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28) !important;
+}
+[data-theme="dark"] .sidebar-title {
+  color: #EDE8E0 !important; /* 12.07:1 */
+  border-color: rgba(237,232,224,0.08) !important;
+}
+[data-theme="dark"] .cat-link {
+  color: #c2bdb3 !important; /* 7.87:1 */
+  border-color: rgba(237,232,224,0.06) !important;
+}
+[data-theme="dark"] .cat-link:hover {
+  color: #d48a75 !important;
+}
+[data-theme="dark"] .cat-count {
+  background: #1a1b1e !important;
+  color: #a8a5a0 !important; /* 6.0:1 */
+  border: 1px solid rgba(237,232,224,0.06) !important;
+}
+[data-theme="dark"] .popular-post {
+  border-color: rgba(237,232,224,0.06) !important;
+}
+[data-theme="dark"] .popular-post__title {
+  color: #EDE8E0 !important; /* 12.07:1 */
+}
+[data-theme="dark"] .popular-post__title:hover {
+  color: #d48a75 !important;
+}
+[data-theme="dark"] .popular-post__date {
+  color: #a8a5a0 !important;
+}
+[data-theme="dark"] .tag {
+  background: #1a1b1e !important;
+  border-color: rgba(237,232,224,0.08) !important;
+  color: #c2bdb3 !important; /* 7.87:1 */
+}
+[data-theme="dark"] .tag:hover {
+  background: rgba(212,138,117,0.12) !important;
+  border-color: rgba(212,138,117,0.20) !important;
+  color: #d48a75 !important;
+}
+[data-theme="dark"] .tag.tag-ac {
+  background: rgba(212,138,117,0.12) !important;
+  border-color: rgba(212,138,117,0.20) !important;
+  color: #d48a75 !important;
+}
+
+/* Spotlight */
+[data-theme="dark"] .spotlight-card-main {
+  background: #202124 !important;
+  border-color: rgba(237,232,224,0.06) !important;
+}
+[data-theme="dark"] .spotlight-card-main__title {
+  color: #fff !important;
+}
+[data-theme="dark"] .spotlight-card-mini {
+  background: #27282c !important;
+  border-color: rgba(237,232,224,0.08) !important;
+}
+[data-theme="dark"] .spotlight-card-mini__title {
+  color: #EDE8E0 !important;
+}
+[data-theme="dark"] .spotlight-card-mini .blog-card__cat {
+  background: rgba(212,138,117,0.12) !important;
+  border-color: rgba(212,138,117,0.18) !important;
+  color: #d48a75 !important;
+}
+[data-theme="dark"] .spotlight-card-mini .btn-arrow {
+  color: #d48a75 !important;
+}
+
+/* Topics */
+[data-theme="dark"] .topic-card {
+  background: #27282c !important;
+  border-color: rgba(237,232,224,0.08) !important;
+}
+[data-theme="dark"] .topic-card:hover {
+  border-color: rgba(212,138,117,0.18) !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.28) !important;
+}
+[data-theme="dark"] .topic-card__title {
+  color: #EDE8E0 !important;
+}
+[data-theme="dark"] .topic-card__count {
+  color: #a8a5a0 !important;
+}
+[data-theme="dark"] .topic-icon {
+  background: rgba(212,138,117,0.12) !important;
+  border: 1px solid rgba(212,138,117,0.18) !important;
+  color: #d48a75 !important;
+}
+
+/* Blog masthead stats already dark; ensure desc contrast */
+[data-theme="dark"] .masthead-stat-box {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(255,255,255,0.08) !important;
+}
+[data-theme="dark"] .masthead-stat-box__title {
+  color: #EDE8E0 !important;
+}
+[data-theme="dark"] .masthead-stat-box__desc {
+  color: #a8a5a0 !important;
+}
+
+/* Newsletter inside blog: keep white card on dark section — ensure text stays dark for contrast */
+[data-theme="dark"] #newsletter .newsletter-box,
+[data-theme="dark"] #newsletter .newsletter-card-lux2,
+[data-theme="dark"] #newsletter .newsletter-card-lux {
+  /* intentionally keep #fff for emphasis on dark #191a1e — text stays #202124 for 16:1 */
+}
+
+/* ── 27 · NALLA ALIGN — Global Pixel-Perfect Alignment ─────────
+   Enforce consistent container, section, header and grid alignment
+   across all pages/breakpoints. Fixes subtle misalignments from
+   mixed inline styles and legacy grids. Uses !important to win
+   over inline and legacy rules.
+   ─────────────────────────────────────────────────────────── */
+.container,
+.container-narrow,
+.container-tight {
+  margin-inline: auto !important;
+  padding-inline: var(--gutter) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+.container { max-width: var(--max-w) !important; }
+.container-narrow { max-width: var(--max-narrow) !important; }
+.container-tight { max-width: var(--max-tight) !important; }
+
+.section {
+  padding-block: var(--sec-py) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: clip !important;
+}
+.sec-header {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+.sec-header.center {
+  margin-inline: auto !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+.sec-header:not(.center) {
+  margin-inline: 0 !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+.sec-header.center .sec-title,
+.sec-header.center .sec-subtitle {
+  margin-inline: auto !important;
+  text-align: center !important;
+}
+.sec-header:not(.center) .sec-title,
+.sec-header:not(.center) .sec-subtitle {
+  margin-inline: 0 !important;
+  text-align: left !important;
+}
+.sec-header-split {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin-inline: auto !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  gap: var(--sp-6) var(--sp-10) !important;
+}
+
+/* Grids — unified gap and stretch, no overflow */
+.services-grid,
+.awards-grid,
+.awards-lux__grid,
+.team-grid,
+.pricing-grid,
+.projects-grid,
+.topics-grid,
+.articles-grid,
+.sitemap-grid,
+.promise-grid,
+.social-grid,
+.proof-badges-grid,
+.values-grid,
+.testimonial-grid,
+.blog-grid,
+.spotlight-grid,
+.highlights-grid,
+.blog-layout,
+.contact-split,
+.dual-service-grid,
+.color-studio-grid,
+.social-proof-grid,
+.services-intro,
+.story-split,
+.ba-section-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: auto !important;
+  box-sizing: border-box !important;
+  gap: var(--col-gap) !important;
+  align-items: stretch !important;
+}
+.services-intro,
+.story-split,
+.ba-section-wrap,
+.color-studio-grid,
+.social-proof-grid,
+.contact-split,
+.dual-service-grid {
+  gap: var(--align-gap) !important;
+  align-items: center !important;
+}
+.blog-layout,
+.article-layout,
+.legal-layout {
+  align-items: start !important;
+}
+
+/* Hero — ensure content stays inside container, not under nav */
+.hero-slider .container,
+.about-hero__content,
+.services-hero .container,
+.blog-masthead .container,
+.contact-hero .container,
+.sitemap-hero .container,
+.legal-hero .container,
+.article-hero .container {
+  padding-inline: var(--gutter) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: var(--max-w) !important;
+  margin-inline: auto !important;
+}
+
+/* Prevent any section from causing horizontal scroll */
+html, body {
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+}
+img, picture, video, iframe {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ── 26 · HOME PAGE 1 — Above Footer CTA (#free-visit) Contrast ─────
+   CTA uses dark var(--bg-dark) #202124 in both modes. Light-mode
+   var(--ac) #9e4b3a on #202124 = 3.17:1 FAIL for small eyebrow.
+   Lift to #E3A08A 7.4:1, subtitle 0.68→0.84 (7.4→10.9:1), disclaimer
+   0.35→0.70 (4.1→7.8:1) for WCAG AA.
+   ─────────────────────────────────────────────────────────── */
+#free-visit .eyebrow {
+  color: #E3A08A !important; /* 7.4:1 on #202124 */
+}
+#free-visit .eyebrow::before {
+  background: #E3A08A !important;
+}
+#free-visit .sec-title {
+  color: #fff !important; /* 15:1 */
+  text-shadow: 0 2px 18px rgba(0,0,0,0.32) !important;
+}
+#free-visit .sec-subtitle {
+  color: rgba(255,255,255,0.86) !important; /* 10.9:1 vs 7.4 for 0.68 */
+}
+#free-visit .cta-disclaimer {
+  color: rgba(255,255,255,0.70) !important; /* 7.8:1 vs 4.1 for 0.35 */
+}
+#free-visit .cta-inline-form .form-input {
+  border-color: rgba(255,255,255,0.22) !important;
+  background: rgba(255,255,255,0.10) !important;
+  color: #fff !important;
+}
+#free-visit .cta-inline-form .form-input::placeholder {
+  color: rgba(255,255,255,0.62) !important; /* 6.5:1 vs 3.9 for 0.45 */
+}
+#free-visit .cta-inline-form .form-input:focus {
+  border-color: #E3A08A !important;
+  background: rgba(255,255,255,0.14) !important;
+  box-shadow: 0 0 0 4px rgba(227,160,138,0.18) !important;
+}
+/* Ensure overlay is dark enough for white text on image */
+#free-visit.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16,17,20,0.55) 0%, rgba(16,17,20,0.82) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+#free-visit .cta-section__content {
+  position: relative;
+  z-index: 1;
+}
+[data-theme="dark"] #free-visit .eyebrow {
+  color: #E3A08A !important;
+}
+[data-theme="dark"] #free-visit .sec-subtitle {
+  color: rgba(255,255,255,0.86) !important;
+}
+[data-theme="dark"] #free-visit .cta-disclaimer {
+  color: rgba(255,255,255,0.70) !important;
+}
+
+/* ── 27 · HOME2 — Portfolio Text on Image Contrast ────────────
+   Cat var(--ac) #9e4b3a on dark overlay #202124 3.17:1 FAIL →
+   #E3A08A 7.4:1 on rgba(16,17,20,0.94) gradient. Title #fff 15:1
+   but needs shadow on bright image. Overlay darkened 0.92/0.18
+   →0.94/0.72/0.38 for consistent WCAG AA across image.
+   ─────────────────────────────────────────────────────────── */
+#projects .project-card__overlay {
+  background: linear-gradient(to top, rgba(16,17,20,0.94) 0%, rgba(16,17,20,0.72) 45%, rgba(16,17,20,0.38) 70%, transparent 100%) !important;
+}
+#projects .project-card__cat {
+  color: #E3A08A !important; /* 7.4:1 on #202124 vs 3.17 for #9e4b3a */
+  background: rgba(0,0,0,0.32) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  padding: 5px 12px !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  width: fit-content !important;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.32) !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18) !important;
+}
+#projects .project-card__title {
+  color: #fff !important; /* 15:1 on #1a1b1e overlay */
+  text-shadow: 0 2px 16px rgba(0,0,0,0.48), 0 1px 4px rgba(0,0,0,0.38) !important;
+}
+#projects .project-card__link {
+  color: rgba(255,255,255,0.90) !important; /* 13.5:1 vs 9.2 for 0.75 */
+  text-shadow: 0 1px 8px rgba(0,0,0,0.32) !important;
+}
+#projects .project-card__link:hover {
+  color: #E3A08A !important;
+}
+[data-theme="dark"] #projects .project-card__cat {
+  color: #E3A08A !important; /* 7.4:1 even though #d48a75 5.9 would pass */
+  background: rgba(0,0,0,0.32) !important;
+  border-color: rgba(255,255,255,0.16) !important;
+}

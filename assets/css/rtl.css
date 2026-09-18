@@ -33,11 +33,29 @@
   transition: all 0.2s;
 }
 .rtl-toggle:hover { background: var(--bg-alt); color: var(--ac); border-color: var(--bd); }
-[dir="rtl"] .rtl-toggle { background: var(--ac); color: #fff; border-color: var(--ac); }
-.navbar.transparent .rtl-toggle { color:#fff; background:rgba(255,255,255,0.10); border-color:rgba(255,255,255,0.16); backdrop-filter:blur(6px); }
-.navbar.transparent .rtl-toggle:hover { background:rgba(255,255,255,0.18); }
-.navbar.scrolled .rtl-toggle { color:var(--tx-2); background:transparent; border-color:transparent; }
-.navbar.scrolled .rtl-toggle:hover { background:var(--bg-alt); color:var(--ac); }
+/* Header RTL — always light on dark solid header, no blur per header fix */
+.navbar .rtl-toggle,
+.navbar.transparent .rtl-toggle,
+.navbar.scrolled .rtl-toggle {
+  color: #fff !important;
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.navbar .rtl-toggle:hover,
+.navbar.transparent .rtl-toggle:hover,
+.navbar.scrolled .rtl-toggle:hover {
+  background: rgba(255,255,255,0.16) !important;
+  border-color: rgba(255,255,255,0.22) !important;
+  color: #fff !important;
+}
+[data-theme="dark"] .navbar .rtl-toggle {
+  color: #fff !important;
+  background: rgba(255,255,255,0.10) !important;
+  border-color: rgba(255,255,255,0.16) !important;
+}
+[dir="rtl"] .rtl-toggle { background: var(--ac) !important; color: #fff !important; border-color: var(--ac) !important; }
 
 /* Eyebrows & pills — flip icon side */
 [dir="rtl"] .eyebrow,
