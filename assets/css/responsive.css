@@ -429,11 +429,20 @@
   .container, .container-narrow { max-width: 100% !important; min-width: 0 !important; width: 100% !important; padding-inline: 14px !important; box-sizing: border-box !important; margin-inline: auto !important; }
   .container-narrow { max-width: 100% !important; }
   #journey .container-narrow { display: flex !important; flex-direction: column !important; align-items: stretch !important; }
-  /* About journey — 768 container fix (was out of container) */
-  .timeline-container { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; padding-inline: 0 !important; }
-  .timeline-row { width: 100% !important; max-width: 100% !important; min-width: 0 !important; box-sizing: border-box !important; gap: var(--sp-4) !important; }
-  .timeline-content { min-width: 0 !important; max-width: 100% !important; width: 100% !important; box-sizing: border-box !important; overflow-wrap: break-word !important; word-break: break-word !important; }
-  .timeline-year, .timeline-title, .timeline-desc { max-width: 100% !important; overflow-wrap: break-word !important; }
+  #journey .sec-header.center { width: 100% !important; max-width: 100% !important; text-align: center !important; align-items: center !important; margin-inline: auto !important; }
+  /* About journey — 768 tablet: single-column card stack (same as 480).
+     The 2-col dot-rail (32px 1fr + left line) cramps and staggers at this
+     width, so stack full-width cards with a left accent instead. */
+  #journey .timeline-container { display: flex !important; flex-direction: column !important; gap: 16px !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; padding-inline: 0 !important; }
+  #journey .timeline-line { display: none !important; }
+  #journey .timeline-row { display: flex !important; flex-direction: column !important; gap: 0 !important; padding-block: 0 !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; box-sizing: border-box !important; }
+  #journey .timeline-row > div:empty { display: none !important; }
+  #journey .timeline-dot { display: none !important; }
+  #journey .timeline-content { min-width: 0 !important; max-width: 100% !important; width: 100% !important; box-sizing: border-box !important; overflow-wrap: break-word !important; word-break: break-word !important; text-align: left !important; padding: 20px 22px !important; border-radius: 16px !important; background: var(--bg-card) !important; border: 1px solid var(--bd) !important; border-left: 3px solid var(--ac) !important; box-shadow: 0 8px 24px rgba(0,0,0,0.06) !important; }
+  #journey .timeline-year, #journey .timeline-title, #journey .timeline-desc { max-width: 100% !important; overflow-wrap: break-word !important; }
+  /* Uniform entrance: alternating left/right slides jitter in a single stack */
+  #journey .timeline-content.reveal-left, #journey .timeline-content.reveal-right { transform: translateY(40px) !important; opacity: 0; }
+  #journey .timeline-content.reveal-left.revealed, #journey .timeline-content.reveal-right.revealed { transform: translateY(0) !important; opacity: 1 !important; }
   /* blog-layout — clean stacked flex for perfect alignment */
   #articles .blog-layout,
   .blog-layout { display: flex !important; flex-direction: column !important; gap: 24px !important; min-width: 0 !important; max-width: 100% !important; width: 100% !important; align-items: stretch !important; }

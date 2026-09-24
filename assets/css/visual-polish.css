@@ -69,7 +69,12 @@ img[width][height] { height: auto; } /* allow aspect-ratio */
 .slider__overlay,
 .about-hero__overlay,
 .article-hero__overlay {
-  background: linear-gradient(180deg, rgba(32,33,36,0.12) 0%, rgba(32,33,36,0.55) 55%, rgba(32,33,36,0.92) 100%) !important;
+  background: linear-gradient(180deg, rgba(16,17,20,0.54) 0%, rgba(16,17,20,0.70) 55%, rgba(16,17,20,0.92) 100%) !important;
+}
+/* Home 1 hero subtxt contrast: keep slider scrim darkest so solid-white
+   .slider__desc holds 4.5:1+ on bright peach / exterior photos (was 0.12 → 1.8:1 FAIL). */
+.hero-slider .slider__overlay {
+  background: linear-gradient(180deg, rgba(16,17,20,0.58) 0%, rgba(16,17,20,0.80) 52%, rgba(16,17,20,0.94) 100%) !important;
 }
 
 /* Hero slider — ensure slides are flex centered and not overlapping */

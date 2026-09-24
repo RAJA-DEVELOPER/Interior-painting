@@ -45,6 +45,22 @@ const initFilter = () => {
       bar.style.position = 'relative';
     }
 
+    // Generation token + timer registry: rapid clicks cancel stale runs
+    // so categories never overlap/flicker.
+    let generation = 0;
+    let pendingTimers = [];
+    const later = (fn, ms) => {
+      const id = setTimeout(fn, ms);
+      pendingTimers.push(id);
+      return id;
+    };
+    const cancelPending = () => {
+      pendingTimers.forEach(clearTimeout);
+      pendingTimers = [];
+    };
+    const prefersReducedMotion = () =>
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const updateIndicator = () => {
       if (!indicator || !isPortfolio) return;
       const active = bar.querySelector('.filter-btn.active');
@@ -52,17 +68,35 @@ const initFilter = () => {
         indicator.classList.remove('visible');
         return;
       }
-      // bar has 6px padding, indicator should align to button
-      const barRect = bar.getBoundingClientRect();
-      const btnRect = active.getBoundingClientRect();
-      const left = btnRect.left - barRect.left;
-      const width = btnRect.width;
-      indicator.style.left = left + 'px';
-      indicator.style.width = width + 'px';
+      // offset* is relative to the positioned bar, so it stays correct
+      // when the pill bar is scrolled horizontally (mobile) or wrapped.
+      indicator.style.left = active.offsetLeft + 'px';
+      indicator.style.top = active.offsetTop + 'px';
+      indicator.style.width = active.offsetWidth + 'px';
+      indicator.style.height = active.offsetHeight + 'px';
       indicator.classList.add('visible');
     };
 
-    const filter = (cat) => {
+    // Keep the active pill in view when the bar overflows (mobile).
+    // Called ONLY on user interaction — never on init/resize, so the
+    // page is never yanked down to the filter bar on load.
+    const ensureActiveVisible = () => {
+      if (!isPortfolio) return;
+      const active = bar.querySelector('.filter-btn.active');
+      if (!active || typeof active.scrollIntoView !== 'function') return;
+      try {
+        active.scrollIntoView({
+          block: 'nearest',
+          inline: 'nearest',
+          behavior: prefersReducedMotion() ? 'auto' : 'smooth'
+        });
+      } catch (_) { /* noop */ }
+    };
+
+    const filter = (cat, opts = {}) => {
+      const myGen = ++generation;
+      cancelPending();
+
       buttons.forEach(btn => {
         const isActive = btn.dataset.filter === cat;
         btn.classList.toggle('active', isActive);
@@ -70,91 +104,181 @@ const initFilter = () => {
       });
 
       if (isPortfolio) {
-        // Animate indicator after active class toggled
+        // Slide indicator after active class toggled
         requestAnimationFrame(() => updateIndicator());
       }
 
-      // Clear any inline grid overrides from previous filters
       const grid = items[0]?.closest('.articles-grid') || items[0]?.closest('.projects-grid');
-      if (grid) {
-        // keep fit-content centering for portfolio, but clear single-card overrides
-        if (!isPortfolio) {
+      const matchesCat = (item) => cat === 'all' || item.dataset.category === cat;
+
+      // ── Non-portfolio grids: keep previous simple behaviour ──
+      if (!isPortfolio) {
+        if (grid) {
           grid.style.removeProperty('grid-template-columns');
-        }
-        grid.style.removeProperty('grid-auto-rows');
-        if (!isPortfolio) {
+          grid.style.removeProperty('grid-auto-rows');
           grid.style.removeProperty('max-width');
           grid.style.removeProperty('margin-inline');
+          grid.style.removeProperty('justify-items');
         }
-        grid.style.removeProperty('justify-items');
-      }
-
-      // Prepare grid for smooth height transition (portfolio)
-      if (isPortfolio && container) {
-        container.style.transition = 'min-height 0.35s cubic-bezier(0.16,1,0.3,1)';
-      }
-
-      // Fade out non-matching with spring easing
-      items.forEach((item) => {
-        const matches = cat === 'all' || item.dataset.category === cat;
-        if (!matches) {
-          item.classList.remove('filter-visible');
-          item.classList.add('filter-hidden');
-          // fallback inline for browsers without CSS class transition
-          item.style.opacity = '0';
-          item.style.transform = 'scale(0.94) translateY(6px)';
-          item.style.transition = 'opacity 0.28s cubic-bezier(0.16,1,0.3,1), transform 0.32s cubic-bezier(0.16,1,0.3,1)';
-        } else {
-          item.classList.remove('filter-hidden');
-        }
-      });
-
-      // After fade, hide them and reflow grid, then fade in matches
-      setTimeout(() => {
         items.forEach((item) => {
-          const matches = cat === 'all' || item.dataset.category === cat;
-          item.style.display = matches ? '' : 'none';
-          if (matches) {
-            item.classList.add('filter-enter');
+          const matches = matchesCat(item);
+          if (!matches) {
             item.classList.remove('filter-visible');
+            item.classList.add('filter-hidden');
             item.style.opacity = '0';
-            item.style.transform = 'scale(0.96) translateY(10px)';
+            item.style.transform = 'scale(0.94) translateY(6px)';
+            item.style.transition = 'opacity 0.28s cubic-bezier(0.16,1,0.3,1), transform 0.32s cubic-bezier(0.16,1,0.3,1)';
+          } else {
+            item.classList.remove('filter-hidden');
           }
         });
-
-        // Get visible items for stagger
-        const visible = items.filter(item => item.style.display !== 'none');
-
-        // Single card: center it (portfolio keeps pill bar centered, grid will handle)
-        if (visible.length === 1 && grid && !isPortfolio) {
-          grid.style.gridTemplateColumns = '1fr';
-          visible[0].style.maxWidth = '560px';
-          visible[0].style.marginInline = 'auto';
-        } else {
-          if (grid && visible.length <= 2 && !isPortfolio) {
-            grid.style.gridTemplateColumns = visible.length === 2 ? 'repeat(2, 1fr)' : '1fr';
-          }
-          if (!isPortfolio) {
+        later(() => {
+          if (myGen !== generation) return;
+          items.forEach((item) => {
+            const matches = matchesCat(item);
+            item.style.display = matches ? '' : 'none';
+            item.classList.toggle('is-hidden', !matches);
+            if (matches) {
+              item.classList.add('filter-enter');
+              item.classList.remove('filter-visible');
+              item.style.opacity = '0';
+              item.style.transform = 'scale(0.96) translateY(10px)';
+            }
+          });
+          const visible = items.filter(item => item.style.display !== 'none');
+          if (visible.length === 1 && grid) {
+            grid.style.gridTemplateColumns = '1fr';
+            visible[0].style.maxWidth = '560px';
+            visible[0].style.marginInline = 'auto';
+          } else {
+            if (grid && visible.length <= 2) {
+              grid.style.gridTemplateColumns = visible.length === 2 ? 'repeat(2, 1fr)' : '1fr';
+            }
             visible.forEach(it => { it.style.maxWidth = ''; it.style.marginInline = ''; });
           }
-        }
+          visible.forEach((item, idx) => {
+            later(() => {
+              if (myGen !== generation) return;
+              item.classList.remove('filter-enter');
+              item.classList.add('filter-visible');
+              item.style.transition = 'opacity 0.42s cubic-bezier(0.16,1,0.3,1), transform 0.48s cubic-bezier(0.16,1,0.3,1)';
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1) translateY(0)';
+            }, idx * 45);
+          });
+        }, 200);
+        return;
+      }
 
-        // Stagger fade in with spring
-        visible.forEach((item, idx) => {
-          setTimeout(() => {
-            item.classList.remove('filter-enter');
-            item.classList.add('filter-visible');
-            item.style.transition = 'opacity 0.42s cubic-bezier(0.16,1,0.3,1), transform 0.48s cubic-bezier(0.16,1,0.3,1)';
-            item.style.opacity = '1';
-            item.style.transform = 'scale(1) translateY(0)';
-          }, idx * 45);
+      // ── Portfolio (Home 2): smooth, visually consistent switching ──
+      // Strategy: lock grid height so the page doesn't jump; fade out only
+      // departing cards; keep persisting cards perfectly still (no flicker);
+      // stagger in only newly arriving cards with one shared easing curve.
+      // Uniform 4/3 cards (CSS) keep every category the same shape.
+      const toHide = items.filter(i => !matchesCat(i) && i.style.display !== 'none');
+      const toShow = items.filter(i => matchesCat(i) && i.style.display === 'none');
+      const staying = items.filter(i => matchesCat(i) && i.style.display !== 'none');
+
+      const cleanupInline = (el) => {
+        el.style.opacity = '';
+        el.style.transform = '';
+        el.style.transition = '';
+      };
+
+      if (prefersReducedMotion() || opts.instant) {
+        items.forEach((item) => {
+          const matches = matchesCat(item);
+          item.style.display = matches ? '' : 'none';
+          item.classList.toggle('is-hidden', !matches);
+          item.classList.remove('filter-hidden', 'filter-enter');
+          item.classList.toggle('filter-visible', matches);
+          cleanupInline(item);
+        });
+        container.classList.remove('is-switching');
+        container.style.minHeight = '';
+        container.setAttribute('aria-live', 'polite');
+        return;
+      }
+
+      // Lock height to the current rendered height — prevents layout jump
+      // when the grid briefly holds fewer cards.
+      const startH = container.offsetHeight;
+      if (startH) {
+        container.style.minHeight = startH + 'px';
+      }
+      container.classList.add('is-switching');
+
+      // Phase 1: fade/scale out departing cards; pin staying cards clean.
+      toHide.forEach((item) => {
+        item.classList.remove('filter-visible', 'filter-enter');
+        item.classList.add('filter-hidden');
+        item.style.transition = 'opacity 0.22s cubic-bezier(0.16,1,0.3,1), transform 0.26s cubic-bezier(0.16,1,0.3,1)';
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.95) translateY(8px)';
+      });
+      staying.forEach((item) => {
+        item.classList.remove('filter-hidden', 'filter-enter');
+        item.classList.add('filter-visible');
+        cleanupInline(item);
+      });
+
+      later(() => {
+        if (myGen !== generation) return;
+
+        toHide.forEach((item) => {
+          item.style.display = 'none';
+          item.classList.add('is-hidden');
+          item.classList.remove('filter-hidden');
+          cleanupInline(item);
         });
 
-        // Announce for a11y
-        if (isPortfolio && container) {
+        // Nothing new to reveal — just release the height lock.
+        if (!toShow.length) {
+          container.classList.remove('is-switching');
+          container.style.minHeight = '';
           container.setAttribute('aria-live', 'polite');
+          return;
         }
-      }, isPortfolio ? 280 : 200);
+
+        // Prep entering cards in their final grid slots, then force one
+        // reflow so all transitions start from the same frame.
+        toShow.forEach((item) => {
+          item.style.display = '';
+          item.classList.remove('is-hidden');
+          item.classList.remove('filter-visible', 'filter-hidden');
+          item.classList.add('filter-enter');
+          item.style.transition = 'none';
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.96) translateY(12px)';
+        });
+        void container.offsetHeight;
+
+        // Staggered entrance with a single shared curve — consistent feel
+        // regardless of category (1, 2 or 9 cards).
+        toShow.forEach((item, idx) => {
+          later(() => {
+            if (myGen !== generation) return;
+            item.classList.remove('filter-enter');
+            item.classList.add('filter-visible');
+            item.style.transition = 'opacity 0.38s cubic-bezier(0.16,1,0.3,1), transform 0.44s cubic-bezier(0.16,1,0.3,1)';
+            item.style.opacity = '1';
+            item.style.transform = 'scale(1) translateY(0)';
+            later(() => {
+              if (myGen !== generation) return;
+              // Clear inline styles so hover/overlay CSS regains full control.
+              if (item.classList.contains('filter-visible')) cleanupInline(item);
+            }, 480);
+          }, 60 + idx * 60);
+        });
+
+        // Release the height lock once the longest entrance finishes.
+        later(() => {
+          if (myGen !== generation) return;
+          container.classList.remove('is-switching');
+          container.style.minHeight = '';
+          container.setAttribute('aria-live', 'polite');
+        }, 60 + toShow.length * 60 + 460);
+      }, toHide.length ? 230 : 0);
     };
 
     buttons.forEach(btn => {
@@ -162,15 +286,31 @@ const initFilter = () => {
       btn.setAttribute('aria-selected', 'false');
       btn.addEventListener('click', () => {
         const cat = btn.dataset.filter || 'all';
-        // Haptic feedback hint: add pressed state
-        btn.style.transform = 'scale(0.96)';
-        setTimeout(() => btn.style.transform = '', 120);
+        // Skip re-filtering the already-active category (avoids flicker).
+        if (btn.classList.contains('active')) {
+          updateIndicator();
+          ensureActiveVisible();
+          return;
+        }
+        // Pressed feedback is handled by CSS :active (no inline transform,
+        // so the sliding indicator can measure the button cleanly).
         filter(cat);
+        ensureActiveVisible();
       });
       btn.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           btn.click();
+        }
+        // Arrow-key navigation between pills (roving tab-like UX).
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const idx = buttons.indexOf(btn);
+          const next = e.key === 'ArrowRight'
+            ? buttons[(idx + 1) % buttons.length]
+            : buttons[(idx - 1 + buttons.length) % buttons.length];
+          next.focus();
+          next.click();
         }
       });
     });
@@ -191,8 +331,8 @@ const initFilter = () => {
       observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     }
 
-    // Initialize
-    filter('all');
+    // Initialize — instant (no entrance animation on page load)
+    filter('all', { instant: true });
     if (isPortfolio) {
       // Ensure indicator visible after initial render
       setTimeout(updateIndicator, 100);

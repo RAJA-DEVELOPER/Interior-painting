@@ -47,7 +47,12 @@
       gap: var(--sp-12);
       align-items: start;
     }
-    .contact-info-card {
+    /* NOTE: scoped to #quote-form (light "Our Studio" cards). These must NOT
+       leak into .contact-hero, whose cards use dark-glass styles from
+       hero-center.css — unscoped, this <style> block comes later in the
+       cascade and overrode the hero's white text with dark var(--tx-1),
+       making the phone/email values invisible in Light Mode (~1.06:1). */
+    #quote-form .contact-info-card {
       padding: var(--sp-7) var(--sp-8);
       background: var(--bg-card);
       border: 1px solid var(--bd);
@@ -57,11 +62,11 @@
       gap: var(--sp-5);
       transition: var(--tr);
     }
-    .contact-info-card:hover {
+    #quote-form .contact-info-card:hover {
       border-color: var(--ac);
       box-shadow: var(--sh-md);
     }
-    .contact-info-icon {
+    #quote-form .contact-info-icon {
       width: 52px; height: 52px;
       border-radius: var(--r-lg);
       background: var(--ac-light);
@@ -71,7 +76,7 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .contact-info-label {
+    #quote-form .contact-info-label {
       font-size: var(--fs-12);
       font-weight: var(--fw-semi);
       letter-spacing: var(--ls-wider);
@@ -79,13 +84,13 @@
       color: var(--tx-3);
       margin-bottom: var(--sp-1);
     }
-    .contact-info-value {
+    #quote-form .contact-info-value {
       font-family: var(--serif);
       font-size: var(--fs-20);
       color: var(--tx-1);
       line-height: var(--lh-snug);
     }
-    .contact-info-sub {
+    #quote-form .contact-info-sub {
       font-size: var(--fs-13);
       color: var(--tx-3);
       margin-top: var(--sp-1);

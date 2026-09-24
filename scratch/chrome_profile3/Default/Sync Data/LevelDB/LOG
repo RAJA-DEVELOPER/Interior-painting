@@ -1,2 +1,3 @@
-2026/09/07-14:47:31.454 6208 Creating DB C:\Users\russe\Desktop\paint home renovation\scratch\chrome_profile3\Default\Sync Data\LevelDB since it was missing.
-2026/09/07-14:47:31.465 6208 Reusing MANIFEST C:\Users\russe\Desktop\paint home renovation\scratch\chrome_profile3\Default\Sync Data\LevelDB/MANIFEST-000001
+2026/09/24-14:25:00.039 3d5c Reusing MANIFEST C:\Users\russe\Desktop\paint home renovation\scratch\chrome_profile3\Default\Sync Data\LevelDB/MANIFEST-000001
+2026/09/24-14:25:00.043 3d5c Recovering log #3
+2026/09/24-14:25:00.045 3d5c Reusing old log C:\Users\russe\Desktop\paint home renovation\scratch\chrome_profile3\Default\Sync Data\LevelDB/000003.log 

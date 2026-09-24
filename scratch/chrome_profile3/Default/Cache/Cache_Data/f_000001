@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#202124">
+  <meta name="msapplication-TileColor" content="#202124">
+  <title>RENOVA — Premium Painting & Home Renovation</title>
+  <meta name="description" content="RENOVA is Mumbai's premier painting and home renovation company. Interior wall painting, exterior, texture finishes, waterproofing, false ceilings and more. Get a free site visit.">
+  <meta name="keywords" content="painting contractor, home renovation, interior painting, exterior painting, texture finish, waterproofing, false ceiling, Mumbai">
+  <link rel="canonical" href="index.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="RENOVA — Premium Painting & Home Renovation">
+  <meta property="og:description" content="Artisan painting and home renovation services. Transform your space with RENOVA.">
+  <meta property="og:image"       content="https://picsum.photos/seed/renovapaint237/800/600">
+  <meta property="og:url"         content="index.html">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "RENOVA",
+    "description": "Premium painting and home renovation contractor",
+    "url": "https://renovacraft.in",
+    "telephone": "+91-9820-000-123",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "A-12, Andheri West",
+      "addressLocality": "Mumbai",
+      "addressRegion": "Maharashtra",
+      "postalCode": "400053",
+      "addressCountry": "IN"
+    },
+    "openingHours": "Mo-Sa 09:00-19:00",
+    "priceRange": "₹₹"
+  }
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/hero-center.css">
+  <link rel="stylesheet" href="assets/css/section-align.css">
+  <link rel="stylesheet" href="assets/css/visual-polish.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <style>
+    /* ── Page-specific: Home ── */
+    .services-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-16);
+      align-items: center;
+      margin-bottom: var(--sp-16);
+    }
+
+    .services-intro__title {
+      font-family: var(--serif);
+      font-size: var(--fs-h1);
+      font-weight: var(--fw-light);
+      color: var(--tx-1);
+      line-height: var(--lh-tight);
+      letter-spacing: var(--ls-snug);
+    }
+
+    .services-intro__text {
+      font-size: var(--fs-17);
+      color: var(--tx-3);
+      line-height: var(--lh-relaxed);
+      max-width: 44ch;
+    }
+
+    .ba-section-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-16);
+      align-items: center;
+    }
+
+    .cta-inline-form {
+      display: flex;
+      gap: var(--sp-3);
+      max-width: 480px;
+      margin-inline: auto;
+      margin-top: var(--sp-10);
+    }
+
+    .cta-inline-form .form-input {
+      flex: 1;
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+
+    .cta-inline-form .form-input::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+
+    .cta-inline-form .form-input:focus {
+      border-color: var(--ac);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .sec-header-split {
+      align-items: flex-end;
+      margin-bottom: var(--sp-10);
+    }
+    .sec-header-split > div:first-child {
+      flex: 1;
+      min-width: 280px;
+    }
+    .testimonials-nav {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-left: auto;
+      align-self: flex-end;
+      padding-bottom: var(--sp-2);
+      flex-shrink: 0;
+    }
+
+    .testimonial-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--bd-strong);
+      cursor: pointer;
+      transition: width var(--dur-300) var(--ease-out), background var(--dur-300), opacity var(--dur-200);
+      flex-shrink: 0;
+    }
+
+    .testimonial-dot.active {
+      width: 24px;
+      border-radius: var(--r-full);
+      background: var(--ac);
+    }
+    .testimonial-dot:hover { background: var(--ac-soft); }
+    .testimonial-dot.active:hover { background: var(--ac); }
+
+    .testimonial-prev,
+    .testimonial-next {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--bd);
+      background: var(--bg-card);
+      color: var(--tx-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--tr);
+      flex-shrink: 0;
+    }
+    .testimonial-prev { margin-left: var(--sp-6); }
+    .testimonial-next { margin-left: 0; }
+
+    .testimonial-prev:hover,
+    .testimonial-next:hover {
+      background: var(--ac);
+      border-color: var(--ac);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: var(--sh-sm);
+    }
+    .testimonial-prev:active,
+    .testimonial-next:active { transform: scale(0.96); }
+
+    /* Ensure slider tracks are stretched and cards equal-height, well-aligned */
+    .testimonial-slider {
+      overflow: hidden;
+      padding-bottom: var(--sp-2); /* room for card shadow */
+    }
+    .testimonial-track {
+      align-items: stretch;
+    }
+    .testimonial-grid-2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--col-gap);
+      align-items: stretch;
+    }
+    /* ——— Editorial Luxury 2×2 Redesign ——— */
+    .testimonials-lux {
+      background: #FDFBF7;
+      position: relative;
+      overflow: hidden;
+      padding-block: clamp(80px, 10vw, 140px);
+      isolation: isolate;
+    }
+    .testimonials-lux::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+    .testimonials-lux__orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .testimonials-lux__orb--1 { width: 640px; height: 640px; background: radial-gradient(circle, #B86A55 0%, transparent 70%); top: -160px; right: -160px; }
+    .testimonials-lux__orb--2 { width: 520px; height: 520px; background: radial-gradient(circle, #B59A68 0%, transparent 70%); bottom: -120px; left: -120px; }
+    .eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(32,33,36,0.08);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ac);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .eyebrow-pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ac);
+      box-shadow: 0 0 0 4px rgba(184,106,85,0.12);
+      flex-shrink: 0;
+    }
+    .testimonials-lux__header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto var(--sp-12);
+      position: relative;
+      z-index: 1;
+    }
+    .testimonials-bento {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      align-items: stretch;
+      grid-auto-rows: 1fr;
+      position: relative;
+      z-index: 1;
+    }
+    .t-bezel { height: 100%; display: flex; flex-direction: column; min-height: 360px; }
+    .t-card { flex: 1; min-height: 0; }
+    .t-text { min-height: 88px; }
+    .t-bezel {
+      background: #FFFFFF;
+      border: 1px solid rgba(32,33,36,0.07);
+      padding: 10px;
+      border-radius: 32px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 700ms cubic-bezier(0.32,0.72,0,1), box-shadow 700ms cubic-bezier(0.32,0.72,0,1);
+      will-change: transform;
+    }
+    .t-bezel:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .t-card {
+      background: #FFFFFF;
+      border-radius: 22px;
+      padding: 32px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 1px 1px rgba(0,0,0,0.03);
+      position: relative;
+    }
+    .t-card__top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 16px;
+    }
+    .t-stars { display: flex; gap: 3px; color: #B59A68; flex-shrink: 0; }
+    .t-stars svg { width: 14px; height: 14px; fill: currentColor; }
+    .t-quote {
+      font-family: var(--serif);
+      font-size: 64px;
+      line-height: 0.5;
+      color: rgba(184,106,85,0.11);
+      font-weight: 300;
+      user-select: none;
+      margin-top: 8px;
+    }
+    .t-text {
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.65;
+      color: var(--tx-1);
+      font-weight: 300;
+      font-style: italic;
+      flex: 1;
+      margin-bottom: 24px;
+      text-wrap: pretty;
+    }
+    .t-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(32,33,36,0.07);
+    }
+    .t-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+    .t-name { font-size: 15px; font-weight: 600; color: var(--tx-1); line-height: 1.2; }
+    .t-role { font-size: 13px; color: var(--tx-3); margin-top: 2px; }
+    .t-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ac);
+      background: var(--ac-light);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-top: 12px;
+      align-self: flex-start;
+    }
+    /* ── Featured lux variant ── */
+    .t-bezel--featured { background:#1A1C1E !important; border-color:rgba(255,255,255,0.08) !important; }
+    .t-card--featured {
+      background:
+        linear-gradient(180deg, rgba(26,27,30,0.18) 0%, rgba(26,27,30,0.62) 55%, rgba(26,27,30,0.94) 100%),
+        url('https://picsum.photos/seed/renovapaint236/800/600') center 35% / cover !important;
+      color:#fff;
+      min-height: 100%;
+      justify-content: flex-end;
+      border-radius: 22px;
+      overflow: hidden;
+    }
+    .t-card--featured .t-stars { color:#E9C6A0 !important; }
+    .t-card--featured .t-quote { color:rgba(255,255,255,0.16) !important; }
+    .t-card--featured .t-text { color:#fff !important; font-size:20px !important; line-height:1.65 !important; }
+    .t-card--featured .t-author { border-top-color:rgba(255,255,255,0.12) !important; }
+    .t-card--featured .t-name { color:#fff !important; }
+    .t-card--featured .t-role { color:rgba(255,255,255,0.62) !important; }
+    .t-card--featured .t-project { background:rgba(255,255,255,0.10) !important; color:#fff !important; border:1px solid rgba(255,255,255,0.14) !important; }
+    .t-project {
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+      color:var(--ac); background:var(--ac-light); border:1px solid rgba(184,106,85,0.14);
+      padding:5px 10px; border-radius:999px; margin-top:10px; align-self:flex-start;
+    }
+    .t-project svg { width:12px; height:12px; }
+    .testimonials-cta { display:flex; align-items:center; justify-content:center; gap:16px; margin-top:32px; flex-wrap:wrap; position:relative; z-index:1; }
+    .testimonials-cta span { font-size:13px; color:var(--tx-3); }
+    /* ── Awards Lux (replaced testimonials) ── */
+    .awards-lux { background:#FDFBF7 !important; position:relative !important; isolation:isolate !important; overflow:hidden !important; padding-block: clamp(72px, 9vw, 110px) !important; }
+    .awards-lux::before { content:''; position:absolute; inset:0; opacity:0.03; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); pointer-events:none; z-index:0 !important; }
+    .awards-lux .container { position:relative; z-index:1 !important; }
+    .awards-lux__orb { position:absolute; width:560px; height:560px; right:-140px; top:-80px; background:radial-gradient(circle, rgba(184,106,85,0.07) 0%, transparent 70%); border-radius:50%; filter:blur(2px); pointer-events:none; opacity:0.9; z-index:0 !important; }
+    .awards-lux__grid { display:grid !important; grid-template-columns:repeat(4,1fr) !important; gap:22px !important; position:relative; z-index:1 !important; }
+    .awards-lux .award-item { background:#fff !important; border:1px solid rgba(32,33,36,0.07) !important; border-radius:22px !important; padding:26px 18px !important; text-align:center !important; box-shadow:0 8px 32px rgba(32,33,36,0.06), 0 2px 8px rgba(32,33,36,0.04) !important; transition:transform 0.32s var(--ease-out), box-shadow 0.32s !important; min-height:auto !important; height:auto !important; display:flex !important; flex-direction:column !important; align-items:center !important; }
+    .awards-lux .award-item:hover { transform:translateY(-6px) !important; box-shadow:0 20px 50px rgba(32,33,36,0.10) !important; border-color:rgba(184,106,85,0.12) !important; }
+    .awards-lux .award-icon { width:56px !important; height:56px !important; border-radius:16px !important; background:var(--ac-light) !important; color:var(--ac) !important; display:flex !important; align-items:center !important; justify-content:center !important; margin:0 auto 14px !important; border:1px solid rgba(184,106,85,0.12) !important; flex-shrink:0 !important; }
+    .awards-lux .award-year { font-size:11px !important; font-weight:700 !important; letter-spacing:0.14em !important; text-transform:uppercase !important; color:var(--ac) !important; margin-bottom:6px !important; }
+    .awards-lux .award-title { font-family:var(--serif) !important; font-size:17px !important; font-weight:500 !important; color:var(--tx-1) !important; margin-bottom:4px !important; line-height:1.25 !important; }
+    .awards-lux .award-org { font-size:12.5px !important; color:var(--tx-3) !important; }
+    @media (max-width:1100px) { .awards-lux__grid { grid-template-columns:repeat(2,1fr) !important; } }
+    @media (max-width:640px) { .awards-lux__grid { grid-template-columns:1fr !important; } }
+    @media (max-width:1100px) { .awards-lux__grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:640px) { .awards-lux__grid { grid-template-columns:1fr; } }
+    @media (max-width: 768px) {
+      .sec-header-split {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sp-6);
+      }
+      .testimonials-nav {
+        margin-left: 0;
+        align-self: flex-start;
+        margin-top: var(--sp-2);
+        padding-bottom: 0;
+      }
+      .testimonial-prev { margin-left: var(--sp-3); }
+      .testimonial-grid-2x2 {
+        grid-template-columns: 1fr;
+      }
+      .testimonials-bento { grid-template-columns: 1fr; gap: 20px; }
+      .t-card { padding: 24px; }
+      .t-text { font-size: 18px; }
+      .t-bezel { padding: 8px; border-radius: 24px; }
+      .t-card { border-radius: 18px; }
+    }
+
+    .testimonial-card__stars { display:flex; gap:3px; color:var(--ac2); }
+    .testimonial-card__stars svg { width:14px; height:14px; fill:currentColor; }
+    .check-circle { width:20px; height:20px; border-radius:50%; background:var(--ac-light); color:var(--ac); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .check-circle svg { width:10px; height:10px; }
+    @media (max-width: 768px) {
+      .services-intro { grid-template-columns: 1fr; gap: var(--sp-8); }
+      .ba-section-wrap { grid-template-columns: 1fr; }
+      .cta-inline-form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__logo">RENOVA</div>
+      <div class="preloader__bar"></div>
+    </div>
+  </div>
+
+  <!-- Page Transition -->
+  <div class="page-transition" aria-hidden="true"></div>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/919820000123" class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18,15 12,9 6,15"/></svg>
+  </button>
+
+  <!-- NAVBAR -->
+  <header class="navbar transparent" id="navbar" role="banner">
+    <div class="navbar__inner">
+      <a href="index.html" class="nav-logo" aria-label="RENOVA Home"><span class="nav-logo__mark" aria-hidden="true"><img src="assets/img/logo-mark.svg" alt="" class="logo-mark logo-mark--dark" width="38" height="38" loading="eager" decoding="async"><img src="assets/img/logo-mark-light.svg" alt="" class="logo-mark logo-mark--light" width="38" height="38" loading="eager" decoding="async"></span><span class="nav-logo__text">RENO<span>VA</span></span></a>
+
+      <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+        <a href="index.html"    class="nav-link active">Home</a>
+        <a href="home2.html" class="nav-link">home2</a>
+        <a href="about.html"   class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html"    class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="rtl-toggle" id="rtlToggle" aria-label="Switch to Right-to-Left" title="RTL" aria-pressed="false">RTL</button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="login.html" class="nav-login" id="navLogin" aria-label="Login"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Login</a>
+        <a href="contact.html" class="btn btn-primary btn-sm" id="navCta">Free Quote</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="nav-overlay__close" id="navClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <nav class="nav-overlay__links" aria-label="Mobile navigation">
+      <a href="index.html"    class="nav-overlay__link">Home</a>
+      <a href="home2.html"   class="nav-overlay__link">home2</a>
+      <a href="about.html"   class="nav-overlay__link">About</a>
+      <a href="services.html" class="nav-overlay__link">Services</a>
+      <a href="blog.html"    class="nav-overlay__link">Blog</a>
+      <a href="contact.html" class="nav-overlay__link">Contact</a>
+      <a href="login.html"   class="nav-overlay__link">Login</a>
+    </nav>
+    <div class="nav-overlay__btn" style="display:flex;flex-direction:column;gap:12px;align-items:center">
+      <a href="login.html" class="btn btn-ghost btn-lg" style="min-width:220px;justify-content:center">Login</a>
+      <a href="contact.html" class="btn btn-primary btn-lg" style="min-width:220px;justify-content:center">Get Free Quote</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ══ SECTION 1: HERO SLIDER ══ -->
+    <section class="hero-slider" id="hero" aria-label="Hero showcase">
+
+      <div class="slider__slides">
+
+        <!-- Slide 1 -->
+        <div class="slider__slide active">
+          <img src="https://images.pexels.com/photos/5641427/pexels-photo-5641427.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+               alt="Woman on ladder painting peach wall with roller — interior painting" loading="eager" decoding="async">
+          <div class="slider__overlay"></div>
+          <div class="slider__content">
+            <div class="container">
+              <div class="slider__text">
+                <span class="slider__tag">Interior Painting</span>
+                <h1 class="slider__title">Walls That<br>Tell Stories</h1>
+                <p class="slider__desc">Premium interior painting crafted with precision, artistry and the finest materials. Transform every room into a masterpiece.</p>
+                <div class="slider__actions">
+                  <a href="services.html" class="btn btn-primary btn-lg">Explore Services</a>
+                  <a href="contact.html" class="btn btn-ghost btn-lg">Free Site Visit</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slider__slide">
+          <img src="https://images.pexels.com/photos/13718935/pexels-photo-13718935.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+               alt="Painter on swing stage painting exterior facade — exterior renovation" loading="lazy" decoding="async">
+          <div class="slider__overlay"></div>
+          <div class="slider__content">
+            <div class="container">
+              <div class="slider__text">
+                <span class="slider__tag">Exterior Renovation</span>
+                <h1 class="slider__title">Curb Appeal<br>Redefined</h1>
+                <p class="slider__desc">Your home's exterior is the first impression. We craft stunning façades that withstand time and weather with premium coatings.</p>
+                <div class="slider__actions">
+                  <a href="services.html#exterior" class="btn btn-primary btn-lg">View Exterior Work</a>
+                  <a href="home2.html" class="btn btn-ghost btn-lg">home2</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slider__slide">
+          <img src="https://images.pexels.com/photos/6764261/pexels-photo-6764261.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+               alt="Hand with brush painting grey textured wall — artisan finishes" loading="lazy" decoding="async">
+          <div class="slider__overlay"></div>
+          <div class="slider__content">
+            <div class="container">
+              <div class="slider__text">
+                <span class="slider__tag">Texture Finishes</span>
+                <h1 class="slider__title">Artisan<br>Surfaces</h1>
+                <p class="slider__desc">From Venetian plaster to modern 3D textures — our artisan finishes add depth, character and luxury to every surface.</p>
+                <div class="slider__actions">
+                  <a href="services.html#texture" class="btn btn-primary btn-lg">Texture Gallery</a>
+                  <a href="contact.html" class="btn btn-ghost btn-lg">Get a Quote</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Slider Controls -->
+      <div class="slider__nav container">
+        <div class="slider__dots" role="tablist" aria-label="Slide navigation">
+          <button class="slider__dot active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+          <button class="slider__dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+          <button class="slider__dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+        </div>
+        <div class="slider__arrows">
+          <button class="slider__arrow slider__prev" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15,18 9,12 15,6"/></svg>
+          </button>
+          <button class="slider__arrow slider__next" aria-label="Next slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,18 15,12 9,6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Counter -->
+      <div class="slider__counter" aria-hidden="true">
+        <div class="slider__counter-num"><span class="slider__curr">01</span></div>
+        <div class="slider__counter-line"></div>
+        <div class="slider__counter-num" style="opacity:0.4;font-size:1rem;"><span class="slider__total">03</span></div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="slider__progress" aria-hidden="true"></div>
+
+    </section>
+
+
+    <!-- ══ SECTION 2: SERVICES OVERVIEW ══ -->
+    <section class="section" id="services" aria-label="Our services">
+      <div class="container">
+        <div class="services-intro">
+          <div>
+            <p class="eyebrow reveal-left">What We Do</p>
+            <h2 class="services-intro__title reveal-left" style="margin-bottom:0">
+              Six Ways We<br>Elevate Your<br><em>Living Space</em>
+            </h2>
+          </div>
+          <div class="reveal-right">
+            <p class="services-intro__text">From a single accent wall to a complete home transformation — we bring decades of artisanal expertise to every brush stroke and every project.</p>
+            <a href="services.html" class="btn-arrow" style="margin-top: var(--sp-8)">
+              View All Services
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,18 15,12 9,6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card reveal delay-1">
+            <div class="service-card__img">
+              <img src="https://plus.unsplash.com/premium_photo-1661373265357-d147baea7548?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdhbGwlMjBwYW50aW5nfGVufDB8fDB8fHww"
+                   alt="Luxury interior wall painting" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+              </div>
+              <h3 class="service-card__title">Interior Wall Painting</h3>
+              <p class="service-card__desc">Premium interior coatings with flawless preparation, primer, and paint. From bedroom accent walls to complete home repaints.</p>
+              <a href="services.html#interior" class="service-card__link">
+                Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card reveal delay-2">
+            <div class="service-card__img">
+              <img src="https://images.unsplash.com/photo-1717281234297-3def5ae3eee1?auto=format&fit=crop&w=800&q=80"
+                   alt="Exterior home painting services" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+              </div>
+              <h3 class="service-card__title">Exterior Painting</h3>
+              <p class="service-card__desc">Weather-resistant exterior coatings that protect and beautify. Anti-fungal, UV-resistant formulations for lasting curb appeal.</p>
+              <a href="services.html#exterior" class="service-card__link">
+                Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card reveal delay-3">
+            <div class="service-card__img">
+              <img src="https://images.unsplash.com/photo-1674376360445-2996327553e7?auto=format&fit=crop&w=800&q=80"
+                   alt="Artistic texture wall finishes" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </div>
+              <h3 class="service-card__title">Texture Finishes</h3>
+              <p class="service-card__desc">Venetian plaster, sand texture, 3D wall panels and designer finishes that add architectural depth and artistic flair.</p>
+              <a href="services.html#texture" class="service-card__link">
+                Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card reveal delay-1">
+            <div class="service-card__img">
+              <img src="https://images.unsplash.com/photo-1745665777586-09381ba528d6?auto=format&fit=crop&w=800&q=80"
+                   alt="Professional waterproofing services" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+              </div>
+              <h3 class="service-card__title">Waterproofing</h3>
+              <p class="service-card__desc">Comprehensive waterproofing solutions for terrace, bathroom, basement and exterior walls. Stop leaks before they start.</p>
+              <a href="services.html#waterproofing" class="service-card__link">
+                Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card reveal delay-2">
+            <div class="service-card__img">
+              <img src="https://images.unsplash.com/photo-1735605917461-4c1b77a6616f?auto=format&fit=crop&w=800&q=80"
+                   alt="Modern false ceiling installation" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="4" rx="1"/><path d="M4 7v14"/><path d="M20 7v14"/><path d="M4 12h16"/></svg>
+              </div>
+              <h3 class="service-card__title">False Ceiling</h3>
+              <p class="service-card__desc">POP, gypsum and PVC false ceiling designs that add elegance, conceal wiring and improve acoustics in any space.</p>
+              <a href="services.html#ceiling" class="service-card__link">
+                Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card reveal delay-3">
+            <div class="service-card__img">
+              <img src="https://images.unsplash.com/photo-1511822148790-e7b58ba14c72?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHdhbGwlMjBwYWludGluZ3xlbnwwfHwwfHx8MA%3D%3D"
+                   alt="Professional color consultation session" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+              </div>
+              <h3 class="service-card__title">Color Consultation</h3>
+              <p class="service-card__desc">Expert color psychology and design consultation to select the perfect palette for your home's architecture and personality.</p>
+              <a href="services.html#consultation" class="service-card__link">
+                Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 3: BEFORE / AFTER ══ -->
+    <section class="section bg-alt" id="transformations" aria-label="Before and after transformations">
+      <div class="container">
+        <div class="ba-section-wrap">
+          <div class="reveal-left">
+            <p class="eyebrow">Our Work</p>
+            <h2 class="sec-title">See the<br><em>Transformation</em></h2>
+            <p class="ba-desc">
+              Drag the slider to reveal the extraordinary difference our artisans make. Every project is a story of renewal and elegance.
+            </p>
+            <ul class="ba-feature-list">
+              <li class="ba-feature-item">
+                <span class="check-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></span>
+                Surface preparation and wall repair
+              </li>
+              <li class="ba-feature-item">
+                <span class="check-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></span>
+                Premium primer and paint application
+              </li>
+              <li class="ba-feature-item">
+                <span class="check-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></span>
+                Complete site clean-up on completion
+              </li>
+              <li class="ba-feature-item">
+                <span class="check-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg></span>
+                2-year workmanship warranty
+              </li>
+            </ul>
+            <a href="home2.html" class="btn btn-dark">home2</a>
+          </div>
+
+          <div class="reveal-right">
+            <div class="ba-wrap" id="baSlider1" role="img" aria-label="Before and after painting — same bedroom">
+              <div class="ba-before">
+                <img src="https://images.unsplash.com/photo-1679939153964-2b9bd027f6e3?auto=format&fit=crop&w=900&q=80"
+                     alt="Bedroom before painting — plain light gray walls, ready for transformation" loading="lazy" decoding="async">
+              </div>
+              <div class="ba-after">
+                <img src="https://images.unsplash.com/photo-1729194160985-dffbb52e37ac?auto=format&fit=crop&w=900&q=80"
+                     alt="Bedroom after painting — warm pink accent wall with RENOVA premium finish" loading="lazy" decoding="async">
+              </div>
+              <div class="ba-divider"></div>
+              <div class="ba-handle" role="slider" aria-label="Drag to compare">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/><polyline points="9,18 15,12 9,6" transform="translate(6,0)"/></svg>
+              </div>
+              <span class="ba-label ba-label-before">Before</span>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 4: STATS ══ -->
+    <section class="section bg-dark" id="stats" aria-label="Company statistics">
+      <div class="container">
+        <div class="sec-header center reveal">
+          <p class="eyebrow" style="color:var(--ac)">Our Track Record</p>
+          <h2 class="sec-title" style="color:var(--tx-inv)">Numbers That<br>Speak Excellence</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item reveal delay-1">
+            <div class="stat-num"><span data-count="14" data-suffix="+">0</span></div>
+            <div class="stat-label">Years of Excellence</div>
+          </div>
+          <div class="stat-item reveal delay-2">
+            <div class="stat-num"><span data-count="4200" data-suffix="+">0</span></div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item reveal delay-3">
+            <div class="stat-num"><span data-count="99" data-suffix="%">0</span></div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
+          <div class="stat-item reveal delay-4">
+            <div class="stat-num"><span data-count="350" data-suffix="+">0</span></div>
+            <div class="stat-label">Colour Shades Offered</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 5: AWARDS — LUX REPLACEMENT ══ -->
+    <section class="section awards-lux" id="awards" aria-label="Awards and certifications">
+      <div class="awards-lux__orb" aria-hidden="true"></div>
+      <div class="container">
+        <div class="sec-header center reveal">
+          <span class="eyebrow-pill">Recognition — Award Winning Since 2012</span>
+          <h2 class="sec-title" style="margin-top:14px">Awards &<br><em>Certifications</em></h2>
+          <p class="sec-subtitle" style="margin-inline:auto;text-align:center">Excellence recognised by industry, clients and institutions — Mumbai's most awarded painting partner.</p>
+        </div>
+        <div class="awards-grid awards-lux__grid">
+          <div class="award-item reveal delay-1">
+            <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="28" height="28"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v9a6 6 0 0 0 12 0V2Z"/></svg></div>
+            <div class="award-year">2025</div>
+            <div class="award-title">Best Contractor</div>
+            <div class="award-org">Mumbai Home Expo</div>
+          </div>
+          <div class="award-item reveal delay-2">
+            <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="28" height="28"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="award-year">2024</div>
+            <div class="award-title">4.9★ Rating</div>
+            <div class="award-org">Google · 840+ Reviews</div>
+          </div>
+          <div class="award-item reveal delay-3">
+            <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="28" height="28"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div class="award-year">2023</div>
+            <div class="award-title">ISO 9001:2015</div>
+            <div class="award-org">Quality Certified</div>
+          </div>
+          <div class="award-item reveal delay-4">
+            <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="28" height="28"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div class="award-year">2020</div>
+            <div class="award-title">Fully Insured</div>
+            <div class="award-org">Workers & Property</div>
+          </div>
+          <div class="award-item reveal delay-1">
+            <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="28" height="28"><path d="M12 20a7 7 0 0 1 7-7c0-3-1.5-5-4-6.5V6a7 7 0 0 0-7 0v0.5C6.5 8 5 10 5 13a7 7 0 0 0 7 7z"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></div>
+            <div class="award-year">2022</div>
+            <div class="award-title">Asiapaint Preferred</div>
+            <div class="award-org">Asian Paints Partner</div>
+          </div>
+          <div class="award-item reveal delay-2">
+            <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="28" height="28"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/></svg></div>
+            <div class="award-year">2023</div>
+            <div class="award-title">Green Certified</div>
+            <div class="award-org">Low-VOC Specialist</div>
+          </div>
+          <div class="award-item reveal delay-3">
+            <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="28" height="28"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+            <div class="award-year">2022</div>
+            <div class="award-title">Contractor of Year</div>
+            <div class="award-org">Maharashtra Guild</div>
+          </div>
+          <div class="award-item reveal delay-4">
+            <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="28" height="28"><rect width="20" height="14" x="2" y="6" rx="2"/><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M2 10h20"/></svg></div>
+            <div class="award-year">2019</div>
+            <div class="award-title">MSME Registered</div>
+            <div class="award-org">Ministry of MSME</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SECTION 6: CTA – FREE SITE VISIT ══ -->
+    <section class="cta-section" id="free-visit" aria-label="Free site visit CTA">
+      <div class="cta-section__bg">
+        <img src="https://images.unsplash.com/photo-1640559597679-0e684a4f8259?auto=format&fit=crop&w=800&q=80"
+             alt="Beautifully renovated living room" loading="lazy">
+      </div>
+      <div class="container cta-section__content">
+        <p class="eyebrow reveal" style="color:var(--ac)">Start Your Journey</p>
+        <h2 class="sec-title reveal">
+          Get a Free Site<br>Visit & Estimate
+        </h2>
+        <p class="sec-subtitle reveal">
+          Our experts visit your property, assess the scope of work, and provide a detailed, no-obligation estimate — completely free.
+        </p>
+        <form class="cta-inline-form reveal" data-validate aria-label="Free site visit request form">
+          <label for="cta-phone" class="visually-hidden">Your phone number</label>
+          <input type="tel" id="cta-phone" name="phone" class="form-input" placeholder="+91 98200 00000" autocomplete="tel">
+          <button type="submit" class="btn btn-primary">Book Visit</button>
+        </form>
+        <p class="cta-disclaimer reveal">
+          No spam. No obligation. We'll call you within 2 hours.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="footer__brand-logo" aria-label="RENOVA Home"><span class="footer__brand-mark" aria-hidden="true"><img src="assets/img/logo-mark-light.svg" alt="" width="42" height="42" loading="lazy" decoding="async"></span><span>RENO<span>VA</span></span></a>
+          <p class="footer__tagline">Artisan painting and home renovation services across Mumbai. Where walls find their story.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://wa.me/919820000123" class="footer__social" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Quick Links</h3>
+          <ul class="footer__links">
+            <li><a href="index.html"    class="footer__link">Home</a></li>
+            <li><a href="home2.html"    class="footer__link">home2</a></li>
+            <li><a href="about.html"    class="footer__link">About Us</a></li>
+            <li><a href="services.html" class="footer__link">Services</a></li>
+            <li><a href="blog.html"     class="footer__link">Blog</a></li>
+            <li><a href="contact.html"  class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Our Services</h3>
+          <ul class="footer__links">
+            <li><a href="services.html#interior"     class="footer__link">Interior Painting</a></li>
+            <li><a href="services.html#exterior"     class="footer__link">Exterior Painting</a></li>
+            <li><a href="services.html#texture"      class="footer__link">Texture Finishes</a></li>
+            <li><a href="services.html#waterproofing" class="footer__link">Waterproofing</a></li>
+            <li><a href="services.html#ceiling"      class="footer__link">False Ceiling</a></li>
+            <li><a href="services.html#consultation" class="footer__link">Color Consultation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__col-title">Contact Us</h3>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>A-12, Veera Desai Road, Andheri West, Mumbai — 400053</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+91 98200 00123</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>hello@renovacraft.in</span>
+          </div>
+          <p class="footer__col-title" style="margin-top:var(--sp-6)">Newsletter</p>
+          <div class="footer__newsletter">
+            <label for="footer-email" class="visually-hidden">Email address</label>
+            <input type="email" id="footer-email" class="footer__newsletter-input" placeholder="Your email">
+            <button class="footer__newsletter-btn">→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 RENOVA Artisan Painting & Renovation. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy-policy.html" class="footer__legal-link">Privacy Policy</a>
+          <a href="terms.html"          class="footer__legal-link">Terms of Service</a>
+          <a href="sitemap.html"        class="footer__legal-link">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close image viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <img class="lightbox__img" src="" alt="" id="lightboxImg">
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/rtl.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/slider.js"></script>
+  <script src="assets/js/before-after.js"></script>
+  <script src="assets/js/form.js"></script>
+</body>
+</html>

@@ -602,6 +602,13 @@
 .split-hero__kicker::after,
 .split-hero__left .eyebrow::after { display: none !important; }
 .split-hero__left .eyebrow { justify-content: flex-start; margin-inline: 0; }
+/* Home 2 top red-CTA text fix: global `.eyebrow{color:var(--ac-h)}` (visual-polish)
+   hijacks this dark-panel pill → dark-red on near-black ≈1.5:1 FAIL.
+   (0,2,0) !important beats it in both themes. Peach #FFC4B0 ≈5.2:1 PASS. */
+.split-hero__left .split-hero__kicker,
+.split-hero__left .eyebrow {
+  color: #FFC4B0 !important;
+}
 
 /* Title */
 .split-hero__title,
@@ -821,10 +828,16 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ac);
+  color: #9e4b3a !important; /* Home 2 top red CTA text — 5.96:1 on white card (var(--ac) drifts to 2.73 FAIL in dark mode) */
   display: flex;
   align-items: center;
   gap: 8px;
+}
+.split-hero__float--top {
+  background: rgba(255,255,255,0.96) !important; /* was 0.92 — solidify so photo can't wash the red label out */
+}
+[data-theme="dark"] .split-hero__float-label {
+  color: #9e4b3a !important; /* keep dark red on white card — light reds fail here */
 }
 .split-hero__float-label::before {
   content: '';
@@ -1770,7 +1783,7 @@
    Applies to all slides, critical for slide 2 “Curb Appeal Redefined”.
    ─────────────────────────────────────────────────────────────── */
 .hero-slider .slider__overlay {
-  background: linear-gradient(180deg, rgba(16,17,20,0.54) 0%, rgba(16,17,20,0.70) 52%, rgba(16,17,20,0.92) 100%) !important;
+  background: linear-gradient(180deg, rgba(16,17,20,0.58) 0%, rgba(16,17,20,0.80) 52%, rgba(16,17,20,0.94) 100%) !important;
 }
 .hero-slider .slider__tag {
   background: rgba(16,17,20,0.52) !important;
@@ -1789,8 +1802,10 @@
   text-shadow: 0 3px 28px rgba(0,0,0,0.62), 0 1px 8px rgba(0,0,0,0.42) !important;
 }
 .hero-slider .slider__desc {
-  color: #fff !important; /* 15:1 solid white for new bright peach/grey images */
-  text-shadow: 0 2px 16px rgba(0,0,0,0.48), 0 1px 4px rgba(0,0,0,0.32) !important;
+  color: #fff !important; /* bright white — same as title above */
+  opacity: 1 !important;
+  font-weight: var(--fw-med) !important;
+  text-shadow: 0 3px 28px rgba(0,0,0,0.62), 0 1px 8px rgba(0,0,0,0.42) !important;
 }
 .hero-slider .slider__actions .btn-ghost {
   background: rgba(255,255,255,0.14) !important;

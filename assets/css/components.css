@@ -3383,7 +3383,7 @@
 
   .process-grid { grid-template-columns: 1fr; }
 
-  .slider__desc { display: none; }
+  .slider__desc { display: block; font-size: var(--fs-15); max-width: 100%; margin-bottom: var(--sp-6); }
 
   .hero__actions { gap: var(--sp-3); }
 
